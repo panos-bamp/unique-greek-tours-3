@@ -67,6 +67,10 @@ export function Navigation() {
                 </div>
               </div>
               
+              <Link href="/transfers" className="text-gray-700 hover:text-primary font-medium transition-colors">
+                Transfers
+              </Link>
+              
               <Link href="/about" className="text-gray-700 hover:text-primary font-medium transition-colors">
                 About Us
               </Link>
@@ -106,6 +110,9 @@ export function Navigation() {
               <div className="flex flex-col space-y-3">
                 <Link href="/tours" className="text-gray-700 hover:text-primary font-medium transition-colors py-2">
                   Tours & Experiences
+                </Link>
+                <Link href="/transfers" className="text-gray-700 hover:text-primary font-medium transition-colors py-2">
+                  Transfers
                 </Link>
                 <Link href="/about" className="text-gray-700 hover:text-primary font-medium transition-colors py-2">
                   About Us
