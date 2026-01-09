@@ -110,10 +110,14 @@ export default function FoodTourLayout({
             "provider": {
               "@type": "TouristInformationCenter",
               "name": "Unique Greek Tours",
+              "image": "https://uniquegreektours.com/images/food-tour-hero-1.jpg",
+              "priceRange": "€€",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Tsokri 2",
                 "addressLocality": "Argos",
                 "addressRegion": "Peloponnese",
+                "postalCode": "21200",
                 "addressCountry": "GR"
               },
               "telephone": "+30-27520-24444",
