@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Wine, Coffee, Utensils } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Wine, Coffee, Utensils, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/food-tour-hero-1.jpg",
@@ -334,38 +334,31 @@ export default function NafplioFoodTastingTour() {
       </section>
 
       {/* CTA Section with Background Image */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/food-tour-hero-3.jpg"
             alt="Greek culinary experience"
             fill
-            className="object-cover"
+            className="object-cover brightness-50"
           />
-          <div className="absolute inset-0 bg-accent/85"></div>
         </div>
         
         <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-5xl mb-6 font-bold">
+          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
             Ready for a Culinary Adventure?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Book your Nafplio Food Tasting Tour today and discover the authentic flavors of Greece
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Book your Nafplio Food Tasting Tour today and discover the authentic flavors of Greece 
+            with our expert local guides.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-accent rounded-lg hover:bg-sand-50 transition-all font-semibold text-lg shadow-lg"
-            >
-              Book Now
-            </Link>
-            <Link 
-              href="/tours/nafplio" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg hover:bg-white/20 transition-all font-semibold text-lg"
-            >
-              View All Nafplio Tours
-            </Link>
-          </div>
+          <Link 
+            href="/contact" 
+            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
+          >
+            Book Now
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
     </div>
