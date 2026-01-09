@@ -92,22 +92,60 @@ export default function NafplioFoodTastingTour() {
     "touristType": ["Culinary Enthusiast", "Food Lover", "Wine Enthusiast"],
     "itinerary": {
       "@type": "ItemList",
-      "itemListElement": itinerary.map((item, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "item": {
-          "@type": "TouristAttraction",
-          "name": item.title,
-          "description": item.description
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Greek Coffee Experience",
+            "description": "Begin your culinary journey with a perfectly brewed traditional Greek coffee at a historic café."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Artisan Grocery Store",
+            "description": "Visit a charming local deli to sample traditional cheeses, cold meats, olives, premium olive oil, and sweet treats."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Historic Center Walk",
+            "description": "Stroll through Nafplion's picturesque central square, surrounded by Venetian neoclassical architecture."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Wine Cellar Experience",
+            "description": "Discover Greek wines, ouzo, and tsipouro with an expert sommelier in an elegant cellar."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Scenic Port Views",
+            "description": "Conclude at Nafplion's beautiful port with stunning views of the historic Bourtzi castle."
+          }
         }
-      }))
+      ]
     },
     "offers": {
       "@type": "Offer",
       "price": "85",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
-      "validFrom": new Date().toISOString().split('T')[0],
+      "validFrom": "2025-01-01",
       "url": "https://uniquegreektours.com/tours/nafplio/nafplio-food-tasting-tour"
     },
     "provider": {
