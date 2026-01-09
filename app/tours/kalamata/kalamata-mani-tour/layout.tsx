@@ -43,7 +43,7 @@ export default function KalamataManiTourLayout({ children }: { children: React.R
             ]
           },
           "offers": { "@type": "Offer", "price": "85", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://uniquegreektours.com/tours/kalamata/kalamata-mani-tour" },
-          "provider": { "@type": "TouristInformationCenter", "name": "Unique Greek Tours", "priceRange": "€€", "telephone": "+30-27520-24444" },
+          "provider": { "@type": "TouristInformationCenter", "name": "Unique Greek Tours", "image": "https://uniquegreektours.com/images/unique-greek-tours-logo.jpg", "priceRange": "€€", "telephone": "+30-27520-24444" },
           "duration": "PT4H",
           "inLanguage": "en"
         })
