@@ -1,39 +1,38 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Castle, Theater, Landmark, Eye, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Theater, Droplets, Landmark, Eye, Sparkles, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/round-trip-tour-hero-1.jpg",
-  "/images/round-trip-tour-hero-2.jpg",
-  "/images/round-trip-tour-hero-3.jpg",
+  "/images/corinth-epidavros-tour-hero-1.jpg",
+  "/images/corinth-epidavros-tour-hero-2.jpg",
+  "/images/corinth-epidavros-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Visit three major UNESCO World Heritage archaeological sites",
-  "Explore Mycenae - Kingdom of Agamemnon",
-  "See the famous Lion Gate and royal tombs",
-  "Visit Ancient Corinth and Acrocorinth fortress",
-  "Experience Epidavros ancient theater",
-  "Explore the Sanctuary of Asklepios",
+  "Visit the ancient theater of Epidavros with perfect acoustics",
+  "Explore the Sanctuary of Asklepios healing temple",
+  "Tour an authentic olive oil production plant",
+  "Taste premium Greek olive oil and delicacies",
+  "Learn about traditional olive oil production",
+  "Enjoy a luxurious and safe transfer",
 ];
 
 const included = [
   "English-speaking tour leader",
   "Return transportation from Nafplion",
   "Pick up from your hotel or meeting point",
-  "Guided tour at all archaeological sites",
-  "Entrance tickets to Mycenae, Corinth, Epidavros",
-  "Stop at Corinth Canal",
+  "Guided tour at archaeological sites",
+  "Olive oil production plant visit",
+  "Olive oil and products tasting",
   "Comfortable air-conditioned vehicle",
   "Liability insurance",
   "All taxes",
 ];
 
-export default function NafplioRoundTripTour() {
+export default function NafplioCorinthEpidavrosTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -53,7 +52,7 @@ export default function NafplioRoundTripTour() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Mycenae, Ancient Corinth & Epidavros</span>
+            <span className="text-primary">Ancient Epidavros & Olive Oil Tasting</span>
           </div>
         </div>
       </div>
@@ -62,7 +61,7 @@ export default function NafplioRoundTripTour() {
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Round trip Mycenae Corinth Epidavros tour"
+            alt="Ancient Corinth Epidavros and Olive Oil tour gallery"
             fill
             className="object-cover"
             priority
@@ -98,13 +97,13 @@ export default function NafplioRoundTripTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Mycenae, Ancient Corinth & Epidavros Grand Tour
+                Ancient Epidavros & Olive Oil Tasting Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 9 hours
+                  <span className="font-semibold">Duration:</span> 6 hours
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
@@ -116,32 +115,27 @@ export default function NafplioRoundTripTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 8:00 AM
+                  <span className="font-semibold">Pick-up:</span> 9:00 AM
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  The Peloponnese was considered the centre of the ancient world. On this tour from Nafplion to Mycenae, 
-                  you will have the opportunity to experience many important parts of it, as well as visit some of its 
-                  most significant archaeological sites and monuments.
+                  Our tour starts from Nafplion and we drive through the Argolic plain towards Epidaurus. Our first 
+                  stop is an Olive Oil Production plant where we stroll around the premises, learning a lot about its 
+                  story, the production process and do a tasting of Greek olive oil, olives and delicacies based on it.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Starting our trip from Nafplion, our first stop is a tour to Mycenae. We will travel to the mythical 
-                  Kingdom of Agamemnon, where one of the most brilliant cultures of Greek prehistory, the Mycenaean 
-                  civilization flourished. Walk through the famous Lion Gate, explore the royal tombs, and discover the 
-                  Cyclopean walls that defended this ancient fortress.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Next, we head to Ancient Corinth, one of the most important cities of ancient Greece. Visit the Temple 
-                  of Apollo, explore the ancient agora (marketplace), and see the Acrocorinth fortress towering above the 
-                  ruins. We'll also stop at the Corinth Canal, an engineering marvel connecting the Aegean and Ionian seas.
+                  We continue the tour to ancient Epidaurus, where we explore the ancient theater, one of the most 
+                  famous archaeological monuments in Greece. We will also visit the Sanctuary of Asklepios, the ancient 
+                  healing temple and one of the most important religious centers in ancient Greece.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Our final destination is Epidavros, home to the ancient theater with perfect acoustics and the Sanctuary 
-                  of Asklepios, the healing god. This comprehensive tour covers the essential highlights of the Argolis 
-                  region and gives you an immersive experience of ancient Greek civilization.
+                  The theater of Epidaurus is renowned for its exceptional acoustics and elegant design. Built in the 
+                  4th century BC, it could accommodate up to 14,000 spectators and remains one of the best-preserved 
+                  ancient theaters in the world. The Sanctuary of Asklepios was dedicated to the god of medicine and 
+                  attracted pilgrims from all over the ancient world seeking healing.
                 </p>
               </div>
 
@@ -151,15 +145,15 @@ export default function NafplioRoundTripTour() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Castle className="h-6 w-6" />
+                        <Droplets className="h-6 w-6" />
                       </div>
                     </div>
                     <div className="flex-1">
                       <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Mycenae Fortress
+                        Olive Oil Production Plant
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
-                        Explore Agamemnon's kingdom through the Lion Gate, visit royal tombs, and see Cyclopean walls of this Bronze Age citadel.
+                        Tour an authentic olive oil facility, learn about traditional production methods, and discover the story behind Greek liquid gold.
                       </p>
                     </div>
                   </div>
@@ -167,31 +161,15 @@ export default function NafplioRoundTripTour() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
+                        <Sparkles className="h-6 w-6" />
                       </div>
                     </div>
                     <div className="flex-1">
                       <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Corinth
+                        Premium Olive Oil Tasting
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
-                        Visit Temple of Apollo, explore ancient agora, and see Acrocorinth fortress overlooking the ruins.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Corinth Canal
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Stop at the engineering marvel connecting Aegean and Ionian seas with dramatic 90-meter depth.
+                        Taste exceptional Greek olive oils, olives, and delicacies while learning to distinguish quality and flavor profiles.
                       </p>
                     </div>
                   </div>
@@ -204,10 +182,26 @@ export default function NafplioRoundTripTour() {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Epidavros Theater
+                        Ancient Theater of Epidavros
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
-                        Experience the world-famous ancient theater with exceptional acoustics, seating 14,000 spectators.
+                        Experience the world-famous ancient theater with perfect acoustics, built in 4th century BC to seat 14,000 spectators.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Landmark className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
+                        Sanctuary of Asklepios
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        Visit the ancient healing temple dedicated to Asklepios, god of medicine, a major religious center of the ancient world.
                       </p>
                     </div>
                   </div>
@@ -220,10 +214,10 @@ export default function NafplioRoundTripTour() {
                     </div>
                     <div className="flex-1">
                       <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Sanctuary of Asklepios
+                        Archaeological Exploration
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
-                        Explore the ancient healing sanctuary where pilgrims came from across the ancient world seeking cures.
+                        Explore ancient ruins, learn about Greek history and mythology, and discover the legacy of ancient healing practices.
                       </p>
                     </div>
                   </div>
@@ -269,7 +263,7 @@ export default function NafplioRoundTripTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €150
+                      €110
                     </div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
@@ -277,11 +271,11 @@ export default function NafplioRoundTripTour() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">9 hours</span>
+                      <span className="font-semibold text-gray-900">6 hours</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">8:00 AM</span>
+                      <span className="font-semibold text-gray-900">9:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
@@ -328,8 +322,8 @@ export default function NafplioRoundTripTour() {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/round-trip-tour-hero-2.jpg"
-            alt="Ancient Corinth"
+            src="/images/corinth-epidavros-tour-hero-3.jpg"
+            alt="Ancient Epidavros Theater"
             fill
             className="object-cover brightness-50"
           />
@@ -337,11 +331,11 @@ export default function NafplioRoundTripTour() {
         
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready for the Ultimate Archaeological Journey?
+            Ready to Taste Authentic Greece?
           </h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Mycenae, Corinth & Epidavros tour and experience three UNESCO sites 
-            in one unforgettable day.
+            Book your Ancient Epidavros & Olive Oil tour today and experience ancient wonders 
+            combined with authentic Greek flavors.
           </p>
           <Link 
             href="/contact" 

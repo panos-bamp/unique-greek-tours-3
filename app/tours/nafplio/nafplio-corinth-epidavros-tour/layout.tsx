@@ -1,33 +1,33 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ancient Corinth, Epidavros & Olive Oil Tour | Unique Greek Tours",
-  description: "Visit Epidavros ancient theater with perfect acoustics, explore the Sanctuary of Asklepios, and taste premium Greek olive oil. 6-hour cultural and culinary journey from Nafplion combining archaeology with authentic flavors.",
-  keywords: "Epidavros theater tour, ancient Corinth, olive oil tasting Greece, Sanctuary Asklepios, Greek olive oil, Nafplion excursions, Peloponnese tours, ancient theater Greece",
+  title: "Mycenae, Ancient Corinth & Epidavros Grand Tour | Unique Greek Tours",
+  description: "Visit three UNESCO World Heritage sites in one day. Explore Mycenae's Lion Gate, Ancient Corinth Temple, Corinth Canal, and Epidavros Theater. 9-hour comprehensive archaeological journey from Nafplion through Peloponnese.",
+  keywords: "Mycenae Corinth Epidavros tour, three UNESCO sites, Lion Gate, Corinth Canal, ancient Greece tour, Peloponnese archaeology, Argolis tour, Greek civilization",
   openGraph: {
-    title: "Ancient Epidavros Theater & Authentic Olive Oil Tasting Tour",
-    description: "Explore the famous ancient theater of Epidavros and taste premium Greek olive oil at a traditional production plant. Perfect blend of culture and culinary experience.",
+    title: "Mycenae, Corinth & Epidavros - Three UNESCO Sites in One Day",
+    description: "Ultimate archaeological journey through Mycenae, Ancient Corinth, and Epidavros. Explore Lion Gate, Corinth Canal, and the world-famous ancient theater.",
     type: "website",
     locale: "en_US",
     siteName: "Unique Greek Tours",
     images: [
       {
-        url: "https://uniquegreektours.com/images/corinth-epidavros-tour-hero-1.jpg",
+        url: "https://uniquegreektours.com/images/round-trip-tour-hero-1.jpg",
         width: 1200,
         height: 630,
-        alt: "Ancient Corinth Epidavros and Olive Oil Tour",
+        alt: "Mycenae Corinth Epidavros Grand Tour",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Epidavros Theater & Olive Oil Tasting Tour",
-    description: "Visit the world-famous Epidavros ancient theater and taste authentic Greek olive oil. Unique cultural and culinary journey from Nafplion.",
-    images: ["https://uniquegreektours.com/images/corinth-epidavros-tour-hero-1.jpg"],
+    title: "Mycenae, Corinth & Epidavros Grand Tour",
+    description: "Three UNESCO archaeological sites in one comprehensive tour. Mycenae, Ancient Corinth, Corinth Canal, and Epidavros Theater.",
+    images: ["https://uniquegreektours.com/images/round-trip-tour-hero-1.jpg"],
   },
 };
 
-export default function CorinthEpidavrosTourLayout({
+export default function RoundTripTourLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -40,25 +40,25 @@ export default function CorinthEpidavrosTourLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "TouristTrip",
-            "name": "Ancient Corinth, Epidavros & Olive Oil Tasting Tour",
-            "description": "Visit the ancient theater of Epidavros with perfect acoustics, explore the Sanctuary of Asklepios healing temple, tour an olive oil production plant, and taste premium Greek olive oil and delicacies.",
+            "name": "Mycenae, Ancient Corinth & Epidavros Grand Tour",
+            "description": "Comprehensive tour of three major UNESCO archaeological sites: Mycenae Kingdom of Agamemnon, Ancient Corinth with Temple of Apollo, Corinth Canal, and Epidavros Theater with perfect acoustics and Sanctuary of Asklepios.",
             "image": [
-              "https://uniquegreektours.com/images/corinth-epidavros-tour-hero-1.jpg",
-              "https://uniquegreektours.com/images/corinth-epidavros-tour-hero-2.jpg",
-              "https://uniquegreektours.com/images/corinth-epidavros-tour-hero-3.jpg"
+              "https://uniquegreektours.com/images/round-trip-tour-hero-1.jpg",
+              "https://uniquegreektours.com/images/round-trip-tour-hero-2.jpg",
+              "https://uniquegreektours.com/images/round-trip-tour-hero-3.jpg"
             ],
-            "touristType": ["Cultural Tourist", "Food & Wine Enthusiast", "History Lover", "Archaeological Tourist"],
+            "touristType": ["History Lover", "Archaeological Enthusiast", "UNESCO Site Visitor", "Cultural Tourist"],
             "itinerary": {
               "@type": "ItemList",
-              "numberOfItems": 5,
+              "numberOfItems": 6,
               "itemListElement": [
                 {
                   "@type": "ListItem",
                   "position": 1,
                   "item": {
                     "@type": "TouristAttraction",
-                    "name": "Olive Oil Production Plant",
-                    "description": "Tour authentic olive oil facility and learn traditional production methods."
+                    "name": "Mycenae Fortress",
+                    "description": "Explore Agamemnon's kingdom through Lion Gate and royal tombs."
                   }
                 },
                 {
@@ -66,8 +66,8 @@ export default function CorinthEpidavrosTourLayout({
                   "position": 2,
                   "item": {
                     "@type": "TouristAttraction",
-                    "name": "Premium Olive Oil Tasting",
-                    "description": "Taste exceptional Greek olive oils, olives, and delicacies."
+                    "name": "Ancient Corinth",
+                    "description": "Visit Temple of Apollo and explore ancient agora marketplace."
                   }
                 },
                 {
@@ -75,8 +75,8 @@ export default function CorinthEpidavrosTourLayout({
                   "position": 3,
                   "item": {
                     "@type": "TouristAttraction",
-                    "name": "Ancient Theater of Epidavros",
-                    "description": "Experience world-famous theater with perfect acoustics, built 4th century BC."
+                    "name": "Corinth Canal",
+                    "description": "Stop at engineering marvel connecting Aegean and Ionian seas."
                   }
                 },
                 {
@@ -84,8 +84,8 @@ export default function CorinthEpidavrosTourLayout({
                   "position": 4,
                   "item": {
                     "@type": "TouristAttraction",
-                    "name": "Sanctuary of Asklepios",
-                    "description": "Visit ancient healing temple dedicated to god of medicine."
+                    "name": "Epidavros Theater",
+                    "description": "Experience world-famous theater with exceptional acoustics."
                   }
                 },
                 {
@@ -93,15 +93,24 @@ export default function CorinthEpidavrosTourLayout({
                   "position": 5,
                   "item": {
                     "@type": "TouristAttraction",
-                    "name": "Archaeological Exploration",
-                    "description": "Explore ancient ruins and learn about Greek healing practices."
+                    "name": "Sanctuary of Asklepios",
+                    "description": "Explore ancient healing sanctuary dedicated to god of medicine."
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 6,
+                  "item": {
+                    "@type": "TouristAttraction",
+                    "name": "Acrocorinth Fortress",
+                    "description": "See fortress towering above Ancient Corinth ruins."
                   }
                 }
               ]
             },
             "offers": {
               "@type": "Offer",
-              "price": "110",
+              "price": "150",
               "priceCurrency": "EUR",
               "availability": "https://schema.org/InStock",
               "validFrom": "2026-01-01",
@@ -110,8 +119,8 @@ export default function CorinthEpidavrosTourLayout({
             "provider": {
               "@type": "TouristInformationCenter",
               "name": "Unique Greek Tours",
-              "image": "https://uniquegreektours.com/images/corinth-epidavros-tour-hero-1.jpg",
-              "priceRange": "€€",
+              "image": "https://uniquegreektours.com/images/round-trip-tour-hero-1.jpg",
+              "priceRange": "€€€",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Tsokri 2",
@@ -123,7 +132,7 @@ export default function CorinthEpidavrosTourLayout({
               "telephone": "+30-27520-24444",
               "email": "info@uniquegreektours.com"
             },
-            "duration": "PT6H",
+            "duration": "PT9H",
             "inLanguage": "en",
             "tourBookingPage": "https://uniquegreektours.com/contact"
           }),
