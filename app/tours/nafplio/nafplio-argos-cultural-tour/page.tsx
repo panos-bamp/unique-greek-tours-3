@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Landmark, Church, Theater, Museum, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Landmark, Church, Theater, Building2, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/argos-tour-hero-1.jpg",
@@ -129,7 +129,7 @@ export default function NafplioArgosCulturalTour() {
                   Marvel at the enigmatic Pyramid of Elliniko, a testament to ancient architectural prowess, and visit 
                   the serene Zoodochos Pigi church, nestled in the tranquil village of Kefalari. In Argos, explore the 
                   majestic ancient theater, a marvel of classical design, and stroll through the remnants of the ancient 
-                  market and Byzantine Museum, delving into the rich tapestry of Greek history.
+                  market and Byzantine Building2, delving into the rich tapestry of Greek history.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
                   Conclude your cultural immersion with a relaxing coffee or meal in the picturesque St. Peter's Square, 
@@ -208,15 +208,15 @@ export default function NafplioArgosCulturalTour() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Museum className="h-6 w-6" />
+                        <Building2 className="h-6 w-6" />
                       </div>
                     </div>
                     <div className="flex-1">
                       <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Market & Byzantine Museum
+                        Ancient Market & Byzantine Building2
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
-                        Stroll through ancient market remnants and visit the Byzantine Museum showcasing Greek history.
+                        Stroll through ancient market remnants and visit the Byzantine Building2 showcasing Greek history.
                       </p>
                     </div>
                   </div>
