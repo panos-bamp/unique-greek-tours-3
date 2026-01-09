@@ -1,458 +1,363 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import { Clock, Users, Calendar, MapPin, Check, ArrowLeft, Star, Wine, Coffee, Utensils } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Wine, Coffee, Utensils } from "lucide-react";
 
-export const metadata = {
-  title: "Nafplio Food Tasting Tour - Greek Culinary Experience | Unique Greek Tours",
-  description: "Discover Nafplion's rich culinary heritage with our guided food tasting tour. Sample traditional Greek cheeses, wines, olive oils, and local delicacies at artisan shops. 3-hour gastronomic journey.",
-  keywords: "Nafplio food tour, Greek food tasting, culinary tour Nafplion, wine tasting Greece, traditional Greek food, Peloponnese gastronomy, food walking tour",
-};
+const gallery = [
+  "/images/food-tour-hero-1.jpg",
+  "/images/food-tour-hero-2.jpg",
+  "/images/food-tour-hero-3.jpg",
+];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "TouristTrip",
-  "name": "Nafplio Food Tasting Tour",
-  "description": "Discover the rich culinary heritage of Nafplion with an unforgettable food-tasting journey led by a knowledgeable local guide.",
-  "image": [
-    "https://uniquegreektours.com/images/food-tour-hero-1.jpg",
-    "https://uniquegreektours.com/images/food-tour-hero-2.jpg",
-    "https://uniquegreektours.com/images/food-tour-hero-3.jpg"
-  ],
-  "touristType": ["Culinary Enthusiast", "Food Lover", "Wine Enthusiast"],
-  "offers": {
-    "@type": "Offer",
-    "price": "85",
-    "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2026-01-01",
-    "url": "https://uniquegreektours.com/tours/nafplio/nafplio-food-tasting-tour"
-  },
-  "provider": {
-    "@type": "TouristInformationCenter",
-    "name": "Unique Greek Tours",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Argos",
-      "addressRegion": "Peloponnese",
-      "addressCountry": "GR"
-    },
-    "telephone": "+30-27520-24444"
-  },
-  "duration": "PT3H30M",
-  "inLanguage": "en",
-  "tourBookingPage": "https://uniquegreektours.com/contact"
-};
+const highlights = [
+  "Experience the gastronomic side of Nafplion",
+  "Taste unique flavors and local spirits",
+  "Learn about Greek wine and its history",
+  "Check out the most popular sights of the city",
+  "Visit artisan shops and traditional delicatessens",
+  "Meet local producers and learn their stories",
+];
+
+const included = [
+  "English guided tour of Nafplion",
+  "Pick up from your hotel or meeting point",
+  "All food tastings and samples",
+  "Wine, ouzo, and tsipouro tasting with sommelier",
+  "Greek coffee experience",
+  "Traditional cheeses, cold meats, and olives",
+  "Local sweets and desserts",
+  "Liability insurance",
+  "All taxes",
+];
 
 export default function NafplioFoodTastingTour() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % gallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      
-      <div className="flex flex-col">
-        {/* Hero Section */}
-        <section className="relative h-[70vh] min-h-[600px]">
-          <div className="absolute inset-0 grid grid-cols-3 gap-2">
-            <div className="relative col-span-2">
-              <img
-                src="/images/food-tour-hero-1.jpg"
-                alt="Traditional Greek food tasting"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="relative grid grid-rows-2 gap-2">
-              <img
-                src="/images/food-tour-hero-2.jpg"
-                alt="Greek culinary delights"
-                className="w-full h-full object-cover"
-              />
-              <img
-                src="/images/food-tour-hero-3.jpg"
-                alt="Wine and cheese tasting"
-                className="w-full h-full object-cover"
-              />
-            </div>
+    <div className="flex flex-col">
+      {/* Breadcrumb */}
+      <div className="bg-sand-50 py-4">
+        <div className="container-custom">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Link href="/tours" className="hover:text-primary">TOURS & EXCURSIONS</Link>
+            <span>/</span>
+            <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
+            <span>/</span>
+            <span className="text-primary">Nafplio Food Tasting Tour</span>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
-          
-          <div className="absolute bottom-0 left-0 right-0 text-white p-8">
-            <div className="container-custom">
-              <Link
-                href="/tours/nafplio"
-                className="inline-flex items-center text-white/90 hover:text-white mb-4 transition-colors"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Nafplio Tours
-              </Link>
-              <h1 className="font-display text-4xl md:text-6xl font-bold mb-4">
+        </div>
+      </div>
+
+      {/* Image Gallery Carousel */}
+      <section className="relative">
+        <div className="relative h-[70vh]">
+          <Image
+            src={gallery[currentImage]}
+            alt="Food tour gallery"
+            fill
+            className="object-cover"
+            priority
+          />
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
+            <ChevronLeft className="h-6 w-6 text-primary" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
+            <ChevronRight className="h-6 w-6 text-primary" />
+          </button>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {gallery.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tour Details */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
                 Nafplio Food Tasting Tour
               </h1>
-              <p className="text-xl md:text-2xl text-blue-50 max-w-3xl">
-                A Culinary Journey Through Nafplion Gastronomic Heritage
-              </p>
-            </div>
-          </div>
-        </section>
 
-        {/* Quick Info Bar */}
-        <section className="bg-primary text-white py-6">
-          <div className="container-custom">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-              <div className="flex flex-col items-center">
-                <Clock className="h-6 w-6 mb-2 text-accent" />
-                <div className="text-sm text-blue-100">Duration</div>
-                <div className="font-semibold">3 - 3.5 hours</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <Users className="h-6 w-6 mb-2 text-accent" />
-                <div className="text-sm text-blue-100">Group Size</div>
-                <div className="font-semibold">Small Groups</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <Calendar className="h-6 w-6 mb-2 text-accent" />
-                <div className="text-sm text-blue-100">Availability</div>
-                <div className="font-semibold">All Year</div>
-              </div>
-              <div className="flex flex-col items-center">
-                <MapPin className="h-6 w-6 mb-2 text-accent" />
-                <div className="text-sm text-blue-100">Location</div>
-                <div className="font-semibold">Nafplio</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Main Content */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <div className="grid lg:grid-cols-3 gap-12">
-              {/* Left Column */}
-              <div className="lg:col-span-2 space-y-12">
-                {/* Description */}
-                <div>
-                  <h2 className="font-display text-3xl font-bold mb-6 text-primary-dark">
-                    About This Experience
-                  </h2>
-                  <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-                    <p>
-                      Discover the rich culinary heritage of Nafplion with an unforgettable food-tasting journey 
-                      led by a knowledgeable local guide. Stroll through the city most iconic landmarks, stopping 
-                      to indulge in handpicked flavors from carefully selected artisan shops.
-                    </p>
-                    <p>
-                      Begin with a perfectly brewed Greek coffee, then savor an array of traditional cheeses, cold 
-                      meats, olives, olive oil, and sweet treats with yogurt at a charming grocery store. Wander 
-                      through Nafplion picturesque central square, surrounded by Venetian neoclassical gems, 
-                      before arriving at an elegant cellar.
-                    </p>
-                    <p>
-                      Here, a wine sommelier will introduce you to the world of Greek wines, ouzo, and tsipouro, 
-                      tracing their roots back to ancient times. Conclude this sensory experience at Nafplion 
-                      scenic port, soaking in the view of the historic Bourtzi castle, as the aromas and tastes 
-                      of this culinary adventure linger.
-                    </p>
-                  </div>
+              <div className="flex flex-wrap gap-6 mb-8 text-sm">
+                <div className="flex items-center gap-2 text-gray-700">
+                  <Clock className="h-5 w-5 text-accent" />
+                  <span className="font-semibold">Duration:</span> 3 - 3.5 hours
                 </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <Users className="h-5 w-5 text-accent" />
+                  <span className="font-semibold">Group Size:</span> Max 12 people
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <Calendar className="h-5 w-5 text-accent" />
+                  <span className="font-semibold">Season:</span> Year-round
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <MapPin className="h-5 w-5 text-accent" />
+                  <span className="font-semibold">Pick-up:</span> 10AM & 6PM
+                </div>
+              </div>
 
-                {/* Itinerary */}
-                <div>
-                  <h2 className="font-display text-3xl font-bold mb-6 text-primary-dark">
-                    Detailed Itinerary
-                  </h2>
-                  <div className="space-y-6">
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                          <Coffee className="h-6 w-6" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-                            Start
-                          </span>
-                          <h3 className="font-display text-xl font-bold text-primary-dark">
-                            Greek Coffee Experience
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          Begin your culinary journey with a perfectly brewed traditional Greek coffee at a historic café.
-                        </p>
+              {/* Overview */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Discover the rich culinary heritage of Nafplion with an unforgettable food-tasting journey 
+                  led by a knowledgeable local guide. Stroll through the city's most iconic landmarks, stopping 
+                  to indulge in handpicked flavors from carefully selected artisan shops.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Begin with a perfectly brewed Greek coffee, then savor an array of traditional cheeses, cold 
+                  meats, olives, olive oil, and sweet treats with yogurt at a charming grocery store. Wander 
+                  through Nafplion's picturesque central square, surrounded by Venetian neoclassical gems, 
+                  before arriving at an elegant cellar.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Here, a wine sommelier will introduce you to the world of Greek wines, ouzo, and tsipouro, 
+                  tracing their roots back to ancient times. Conclude this sensory experience at Nafplion's 
+                  scenic port, soaking in the view of the historic Bourtzi castle, as the aromas and tastes 
+                  of this culinary adventure linger.
+                </p>
+              </div>
+
+              {/* What You Can Expect */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Coffee className="h-6 w-6" />
                       </div>
                     </div>
-
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                          <Utensils className="h-6 w-6" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-                            30 min
-                          </span>
-                          <h3 className="font-display text-xl font-bold text-primary-dark">
-                            Artisan Grocery Store
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          Visit a charming local deli to sample traditional cheeses, cold meats, olives, premium olive oil, and sweet treats with Greek yogurt.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                          <MapPin className="h-6 w-6" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-                            1.5 hours
-                          </span>
-                          <h3 className="font-display text-xl font-bold text-primary-dark">
-                            Historic Center Walk
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          Stroll through Nafplion picturesque central square, surrounded by Venetian neoclassical architecture and iconic landmarks.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                          <Wine className="h-6 w-6" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-                            2 hours
-                          </span>
-                          <h3 className="font-display text-xl font-bold text-primary-dark">
-                            Wine Cellar Experience
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          Discover Greek wines, ouzo, and tsipouro with an expert sommelier in an elegant cellar, learning about their ancient origins.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                          <Star className="h-6 w-6" />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-                            End
-                          </span>
-                          <h3 className="font-display text-xl font-bold text-primary-dark">
-                            Scenic Port Views
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          Conclude at Nafplion beautiful port with stunning views of the historic Bourtzi castle, reflecting on your culinary adventure.
-                        </p>
-                      </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
+                        Greek Coffee Experience
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        Begin your culinary journey with a perfectly brewed traditional Greek coffee at a historic café.
+                      </p>
                     </div>
                   </div>
-                </div>
 
-                {/* Highlights */}
-                <div>
-                  <h2 className="font-display text-3xl font-bold mb-6 text-primary-dark">
-                    Tour Highlights
-                  </h2>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Experience the gastronomic side of Nafplion</span>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Utensils className="h-6 w-6" />
+                      </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Taste unique flavors and local spirits</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Learn about Greek wine and its history</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Check out the most popular sights of the city</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Visit artisan shops and traditional delicatessens</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">Meet local producers and learn their stories</span>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
+                        Artisan Grocery Store
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        Visit a charming local deli to sample traditional cheeses, cold meats, olives, premium olive oil, 
+                        and sweet treats with Greek yogurt.
+                      </p>
                     </div>
                   </div>
-                </div>
 
-                {/* What's Included */}
-                <div>
-                  <h2 className="font-display text-3xl font-bold mb-6 text-primary-dark">
-                    What is Included
-                  </h2>
-                  <div className="bg-sand-50 rounded-2xl p-8">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">English guided tour of Nafplion</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">Pick up from your hotel or meeting point</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">All food tastings and samples</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">Wine, ouzo, and tsipouro tasting</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">Greek coffee experience</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">Traditional cheeses and cold meats</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">Local sweets and desserts</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">Liability insurance</span>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">All taxes</span>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <MapPin className="h-6 w-6" />
                       </div>
                     </div>
-                    <div className="mt-6 pt-6 border-t border-sand-200">
-                      <p className="text-sm text-gray-600 flex items-center gap-2">
-                        <Star className="h-5 w-5 text-accent" />
-                        <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
+                        Historic Center Walk
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        Stroll through Nafplion's picturesque central square, surrounded by Venetian neoclassical 
+                        architecture and iconic landmarks.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Wine className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
+                        Wine Cellar Experience
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        Discover Greek wines, ouzo, and tsipouro with an expert sommelier in an elegant cellar, 
+                        learning about their ancient origins.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Star className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
+                        Scenic Port Views
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        Conclude at Nafplion's beautiful port with stunning views of the historic Bourtzi castle, 
+                        reflecting on your culinary adventure.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column - Booking Card */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-24 space-y-6">
-                  <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
-                    <div className="text-center mb-6 pb-6 border-b border-sand-200">
-                      <div className="text-sm text-gray-600 mb-2">From</div>
-                      <div className="font-display text-4xl font-bold text-primary-dark">
-                        €85
-                      </div>
-                      <div className="text-sm text-gray-600">per person</div>
+              {/* Highlights */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{highlight}</span>
                     </div>
+                  ))}
+                </div>
+              </div>
 
-                    <div className="space-y-4 mb-6">
-                      <div className="flex justify-between py-2 border-b border-sand-100">
-                        <span className="text-gray-600">Duration:</span>
-                        <span className="font-semibold text-gray-900">3 - 3.5 hours</span>
+              {/* What's Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What's Included</h2>
+                <div className="bg-sand-50 rounded-2xl p-8">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {included.map((item, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{item}</span>
                       </div>
-                      <div className="flex justify-between py-2 border-b border-sand-100">
-                        <span className="text-gray-600">Pick-up Times:</span>
-                        <span className="font-semibold text-gray-900">10AM & 6PM</span>
-                      </div>
-                      <div className="flex justify-between py-2 border-b border-sand-100">
-                        <span className="text-gray-600">Period:</span>
-                        <span className="font-semibold text-gray-900">All year</span>
-                      </div>
-                      <div className="flex justify-between py-2">
-                        <span className="text-gray-600">Group Size:</span>
-                        <span className="font-semibold text-gray-900">Max 12</span>
-                      </div>
-                    </div>
-
-                    <Link
-                      href="/contact"
-                      className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
-                    >
-                      Book This Tour
-                    </Link>
-
-                    <p className="text-xs text-gray-500 text-center mt-4">
-                      Reserve now and pay later
-                    </p>
+                    ))}
                   </div>
-
-                  <div className="bg-primary text-white rounded-2xl p-6">
-                    <h3 className="font-display text-xl font-bold mb-4">
-                      Questions?
-                    </h3>
-                    <p className="text-blue-100 mb-4">
-                      Contact our team for personalized assistance
+                  <div className="mt-6 pt-6 border-t border-sand-200">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
                     </p>
-                    <a
-                      href="tel:+302752024444"
-                      className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
-                    >
-                      Call (+30) 27520 24444
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src="/images/food-tour-hero-3.jpg"
-              alt="Greek culinary experience"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-primary/90"></div>
-          </div>
-          
-          <div className="container-custom relative z-10 text-center text-white">
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Ready for a Culinary Adventure?
-            </h2>
-            <p className="text-xl text-blue-50 mb-10 max-w-2xl mx-auto">
-              Book your Nafplio Food Tasting Tour today and discover the authentic flavors of Greece
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all font-semibold text-lg shadow-lg"
-              >
-                Book Now
-              </Link>
-              <Link
-                href="/tours/nafplio"
-                className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg hover:bg-white/20 transition-all font-semibold text-lg"
-              >
-                View All Nafplio Tours
-              </Link>
+            {/* Sidebar - Booking Card */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-24 space-y-6">
+                <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
+                  <div className="text-center mb-6 pb-6 border-b border-sand-200">
+                    <div className="text-sm text-gray-600 mb-2">From</div>
+                    <div className="font-display text-4xl font-bold text-primary-dark">
+                      €85
+                    </div>
+                    <div className="text-sm text-gray-600">per person</div>
+                  </div>
+
+                  <div className="space-y-4 mb-6">
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Duration:</span>
+                      <span className="font-semibold text-gray-900">3 - 3.5 hours</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Pick-up Times:</span>
+                      <span className="font-semibold text-gray-900">10AM & 6PM</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Period:</span>
+                      <span className="font-semibold text-gray-900">All year</span>
+                    </div>
+                    <div className="flex justify-between py-2">
+                      <span className="text-gray-600">Group Size:</span>
+                      <span className="font-semibold text-gray-900">Max 12</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
+                  >
+                    Book This Tour
+                  </Link>
+
+                  <p className="text-xs text-gray-500 text-center mt-4">
+                    Reserve now and pay later
+                  </p>
+                </div>
+
+                <div className="bg-primary text-white rounded-2xl p-6">
+                  <h3 className="font-display text-xl font-bold mb-4">
+                    Questions?
+                  </h3>
+                  <p className="text-blue-100 mb-4">
+                    Contact our team for personalized assistance
+                  </p>
+                  <a
+                    href="tel:+302752024444"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  >
+                    Call (+30) 27520 24444
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
-    </>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-primary text-white">
+        <div className="container-custom text-center">
+          <h2 className="font-display text-4xl md:text-5xl mb-6 font-bold">
+            Ready for a Culinary Adventure?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your Nafplio Food Tasting Tour today and discover the authentic flavors of Greece
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all font-semibold text-lg shadow-lg"
+            >
+              Book Now
+            </Link>
+            <Link 
+              href="/tours/nafplio" 
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg hover:bg-white/20 transition-all font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
