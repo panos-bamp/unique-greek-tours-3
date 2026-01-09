@@ -333,19 +333,29 @@ export default function NafplioFoodTastingTour() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-primary text-white">
-        <div className="container-custom text-center">
+      {/* CTA Section with Background Image */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/food-tour-hero-3.jpg"
+            alt="Greek culinary experience"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-accent/85"></div>
+        </div>
+        
+        <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-5xl mb-6 font-bold">
             Ready for a Culinary Adventure?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Book your Nafplio Food Tasting Tour today and discover the authentic flavors of Greece
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all font-semibold text-lg shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-accent rounded-lg hover:bg-sand-50 transition-all font-semibold text-lg shadow-lg"
             >
               Book Now
             </Link>
