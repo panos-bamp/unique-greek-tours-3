@@ -46,38 +46,56 @@ export default function NafplioFoodTastingTour() {
     "All taxes",
   ];
 
-  const itinerary = [
+  const itineraryData = [
     {
       time: "Start",
       title: "Greek Coffee Experience",
       description: "Begin your culinary journey with a perfectly brewed traditional Greek coffee at a historic café.",
-      icon: <Coffee className="h-6 w-6" />,
+      iconType: "coffee",
     },
     {
       time: "30 min",
       title: "Artisan Grocery Store",
       description: "Visit a charming local deli to sample traditional cheeses, cold meats, olives, premium olive oil, and sweet treats with Greek yogurt.",
-      icon: <Utensils className="h-6 w-6" />,
+      iconType: "utensils",
     },
     {
       time: "1.5 hours",
       title: "Historic Center Walk",
       description: "Stroll through Nafplion's picturesque central square, surrounded by Venetian neoclassical architecture and iconic landmarks.",
-      icon: <MapPin className="h-6 w-6" />,
+      iconType: "mapPin",
     },
     {
       time: "2 hours",
       title: "Wine Cellar Experience",
       description: "Discover Greek wines, ouzo, and tsipouro with an expert sommelier in an elegant cellar, learning about their ancient origins.",
-      icon: <Wine className="h-6 w-6" />,
+      iconType: "wine",
     },
     {
       time: "End",
       title: "Scenic Port Views",
       description: "Conclude at Nafplion's beautiful port with stunning views of the historic Bourtzi castle, reflecting on your culinary adventure.",
-      icon: <Star className="h-6 w-6" />,
+      iconType: "star",
     },
   ];
+
+  const getIcon = (iconType: string) => {
+    const iconClass = "h-6 w-6";
+    switch (iconType) {
+      case "coffee":
+        return <Coffee className={iconClass} />;
+      case "utensils":
+        return <Utensils className={iconClass} />;
+      case "mapPin":
+        return <MapPin className={iconClass} />;
+      case "wine":
+        return <Wine className={iconClass} />;
+      case "star":
+        return <Star className={iconClass} />;
+      default:
+        return null;
+    }
+  };
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -145,7 +163,7 @@ export default function NafplioFoodTastingTour() {
       "price": "85",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
-      "validFrom": "2025-01-01",
+      "validFrom": "2026-01-01",
       "url": "https://uniquegreektours.com/tours/nafplio/nafplio-food-tasting-tour"
     },
     "provider": {
@@ -282,11 +300,11 @@ export default function NafplioFoodTastingTour() {
                     Detailed Itinerary
                   </h2>
                   <div className="space-y-6">
-                    {itinerary.map((item, index) => (
+                    {itineraryData.map((item, index) => (
                       <div key={index} className="flex gap-4">
                         <div className="flex-shrink-0">
                           <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                            {item.icon}
+                            {getIcon(item.iconType)}
                           </div>
                         </div>
                         <div className="flex-1">
