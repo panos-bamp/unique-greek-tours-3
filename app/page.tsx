@@ -99,47 +99,39 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Split Layout with Cube Image */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary">
+      {/* Hero Section - Full Width with Cube Background */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-cube.jpg"
+            alt="Unique Greek Tours - Discover the Peloponnese"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-transparent"></div>
+        </div>
+        
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="text-white order-2 lg:order-1">
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-6 animate-fade-in font-bold leading-tight">
-                We design original journeys to
-                <span className="block text-accent-light mt-2">PELOPONNESE</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-10 font-light leading-relaxed animate-slide-up text-blue-100">
-                Experience authentic Greece with local experts from Argos
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/plan-trip" className="btn-primary text-lg animate-scale-in">
-                  LET'S PLAN MY TRIP
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-                <Link href="/tours" className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white/80 text-white font-medium rounded-md hover:bg-white hover:text-primary transition-all">
-                  Explore Tours
-                </Link>
-              </div>
-            </div>
-            
-            {/* Cube Image */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] lg:w-[520px] lg:h-[520px]">
-                <Image
-                  src="/images/hero-cube.jpg"
-                  alt="Unique Greek Tours - Discover the Peloponnese"
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  priority
-                />
-              </div>
+          <div className="max-w-2xl text-white">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-6 animate-fade-in font-bold leading-tight">
+              We design original journeys to
+              <span className="block text-accent-light mt-2">PELOPONNESE</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-10 font-light leading-relaxed animate-slide-up text-blue-100">
+              Experience authentic Greece with local experts from Argos
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/plan-trip" className="btn-primary text-lg animate-scale-in">
+                LET'S PLAN MY TRIP
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link href="/tours" className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white/80 text-white font-medium rounded-md hover:bg-white hover:text-primary transition-all">
+                Explore Tours
+              </Link>
             </div>
           </div>
         </div>
-        
-        {/* Decorative elements */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Trust Badges */}
