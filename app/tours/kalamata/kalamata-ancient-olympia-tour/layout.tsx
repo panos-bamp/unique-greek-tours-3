@@ -43,7 +43,7 @@ export default function KalamataOlympiaTourLayout({ children }: { children: Reac
             ]
           },
           "offers": { "@type": "Offer", "price": "140", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": "2026-01-01", "url": "https://uniquegreektours.com/tours/kalamata/kalamata-ancient-olympia-tour" },
-          "provider": { "@type": "TouristInformationCenter", "name": "Unique Greek Tours", "image": "https://uniquegreektours.com/images/unique-greek-tours-logo.jpg", "priceRange": "€€€", "address": { "@type": "PostalAddress", "streetAddress": "Tsokri 2", "addressLocality": "Argos", "addressRegion": "Peloponnese", "postalCode": "21200", "addressCountry": "GR" }, "telephone": "+30-27520-24444", "email": "info@uniquegreektours.com" },
+          "provider": { "@type": "TouristInformationCenter", "name": "Unique Greek Tours", "image": "https://uniquegreektours.com/images/kalamata-olympia-tour-hero-1.jpg", "priceRange": "€€€", "address": { "@type": "PostalAddress", "streetAddress": "Tsokri 2", "addressLocality": "Argos", "addressRegion": "Peloponnese", "postalCode": "21200", "addressCountry": "GR" }, "telephone": "+30-27520-24444", "email": "info@uniquegreektours.com" },
           "duration": "PT7H",
           "inLanguage": "en"
         })
