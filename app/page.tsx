@@ -101,16 +101,13 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section - Full Width with Collage Background */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-collage.jpg"
-            alt="Unique Greek Tours - Discover the Peloponnese"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/40"></div>
-        </div>
+        <Image
+          src="/images/hero-collage.jpg"
+          alt="Unique Greek Tours - Discover the Peloponnese"
+          fill
+          className="object-cover brightness-50"
+          priority
+        />
         
         <div className="container-custom relative z-10">
           <div className="max-w-2xl text-white">

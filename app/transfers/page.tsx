@@ -10,14 +10,11 @@ export default function TransfersPage() {
     <div className="flex flex-col">
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center">
-        <div className="absolute inset-0">
-          <img
-            src="/images/transfers-hero.jpg"
-            alt="Luxury Transfer Service"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
-        </div>
+        <img
+          src="/images/transfers-hero.jpg"
+          alt="Luxury Transfer Service"
+          className="absolute inset-0 w-full h-full object-cover brightness-50"
+        />
         
         <div className="container-custom relative z-10 text-white">
           <div className="max-w-3xl">
