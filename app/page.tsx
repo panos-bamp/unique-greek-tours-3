@@ -99,17 +99,17 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Full Width with Cube Background */}
+      {/* Hero Section - Full Width with Collage Background */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-cube.jpg"
+            src="/images/hero-collage.jpg"
             alt="Unique Greek Tours - Discover the Peloponnese"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/40"></div>
         </div>
         
         <div className="container-custom relative z-10">
