@@ -32,20 +32,34 @@ const tours = [
 export default function PortoHeliToursPage() {
   return (
     <div className="flex flex-col">
-      <section className="relative py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
-        <div className="container-custom">
-          <div className="flex items-center gap-2 text-sm text-blue-200 mb-4">
-            <Link href="/tours" className="hover:text-white">Tours & Excursions</Link>
-            <span>/</span>
-            <span>Porto Heli</span>
-          </div>
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">Porto Heli Tours</h1>
-          <p className="text-xl text-blue-100 max-w-2xl">
-            Discover the beauty of the Argolida peninsula with our exclusive tours departing from Porto Heli. 
-            From wine tasting to ancient archaeological sites.
+      {/* Hero Section */}
+      <section className="relative h-[50vh] flex items-center justify-center">
+        <Image
+          src="/images/portoheli-hero.jpg"
+          alt="Porto Heli - Crystal clear turquoise waters and colorful harbor"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 to-primary/50"></div>
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="font-display text-5xl md:text-6xl font-bold mb-4">Porto Heli Tours</h1>
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto">
+            Discover the beauty of the Argolida peninsula with exclusive tours from the Greek Riviera
           </p>
         </div>
       </section>
+
+      {/* Breadcrumb */}
+      <div className="bg-sand-50 py-4">
+        <div className="container-custom">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Link href="/tours" className="hover:text-primary">TOURS & EXCURSIONS</Link>
+            <span>/</span>
+            <span className="text-primary">Porto Heli Tours</span>
+          </div>
+        </div>
+      </div>
 
       <section className="py-16 bg-white">
         <div className="container-custom">

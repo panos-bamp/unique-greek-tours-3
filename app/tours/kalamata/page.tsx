@@ -56,8 +56,8 @@ export default function KalamataToursPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center">
         <Image
-          src="/images/kalamata-olympia-tour-hero-1.jpg"
-          alt="Kalamata Tours"
+          src="/images/kalamata-hero.jpg"
+          alt="Kalamata Bay - Panoramic sunset view over the Messenian Gulf"
           fill
           className="object-cover"
           priority

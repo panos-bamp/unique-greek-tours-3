@@ -38,8 +38,8 @@ export default function GythioToursPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center">
         <Image
-          src="/images/gythio-monemvasia-tour-hero-3.jpg"
-          alt="Gythio Tours"
+          src="/images/gythio-hero.jpg"
+          alt="Gythio Harbor - Colorful fishing boats and waterfront buildings"
           fill
           className="object-cover"
           priority

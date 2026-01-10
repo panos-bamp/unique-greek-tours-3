@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Phone, Mail, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Mail, Menu, X } from "lucide-react";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,26 +46,9 @@ export function Navigation() {
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-8">
-              <div className="relative group">
-                <button className="text-gray-700 hover:text-primary font-medium transition-colors flex items-center gap-1 py-2">
-                  Tours & Experiences
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
-                  <Link href="/tours" className="block px-4 py-2 hover:bg-sand-50 hover:text-primary transition-colors">
-                    All Tours
-                  </Link>
-                  <Link href="/tours/nafplio" className="block px-4 py-2 hover:bg-sand-50 hover:text-primary transition-colors">
-                    Nafplio Tours
-                  </Link>
-                  <Link href="/tours/mycenae" className="block px-4 py-2 hover:bg-sand-50 hover:text-primary transition-colors">
-                    Mycenae & Epidaurus
-                  </Link>
-                  <Link href="/tours/olympia" className="block px-4 py-2 hover:bg-sand-50 hover:text-primary transition-colors">
-                    Ancient Olympia
-                  </Link>
-                </div>
-              </div>
+              <Link href="/tours" className="text-gray-700 hover:text-primary font-medium transition-colors">
+                Tours & Experiences
+              </Link>
               
               <Link href="/transfers" className="text-gray-700 hover:text-primary font-medium transition-colors">
                 Transfers
