@@ -14,6 +14,14 @@ export const revalidate = 60;
 export default async function BlogPage() {
   const posts = await getAllPosts();
 
+  // Helper function to get author name
+  const getAuthorName = (author: any) => {
+    if (!author) return null;
+    if (typeof author === 'string') return author;
+    if (author.name) return author.name;
+    return null;
+  };
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -74,6 +82,12 @@ export default async function BlogPage() {
                               day: 'numeric'
                             })}
                           </time>
+                          {getAuthorName(posts[0].author) && (
+                            <>
+                              <span>•</span>
+                              <span>By {getAuthorName(posts[0].author)}</span>
+                            </>
+                          )}
                         </div>
                         {posts[0].excerpt && (
                           <p className="text-gray-600 text-lg mb-6 line-clamp-3">

@@ -17,6 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = await getPostBySlug(resolvedParams.slug);
   
   if (!post) return {};
+
+  const authorName = typeof post.author === 'string' ? post.author : post.author?.name || 'Unique Greek Tours';
   
   return {
     title: `${post.title} | Unique Greek Tours Blog`,
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.metaDescription || post.excerpt,
       type: 'article',
       publishedTime: post.publishedAt,
+      authors: [authorName],
       images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
     },
   };
@@ -75,6 +78,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  // Handle author - could be string or object
+  const authorName = typeof post.author === 'string' ? post.author : post.author?.name || 'Unique Greek Tours';
+
   // Default Article schema
   const articleSchema = {
     "@context": "https://schema.org",
@@ -85,7 +91,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "image": post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
     "author": {
       "@type": "Person",
-      "name": post.author || "Unique Greek Tours"
+      "name": authorName
     },
     "publisher": {
       "@type": "Organization",
@@ -140,10 +146,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   })}
                 </time>
               </div>
-              {post.author && (
+              {authorName && (
                 <div className="flex items-center gap-2">
                   <User className="h-5 w-5" />
-                  <span>{post.author}</span>
+                  <span>{authorName}</span>
                 </div>
               )}
               {post.categories && post.categories.length > 0 && (
