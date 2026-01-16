@@ -27,7 +27,7 @@ export async function getAllPosts() {
       excerpt,
       mainImage,
       "categories": categories[]->title,
-      "author": author->name
+      "author": author
     }
   `);
 }
@@ -41,10 +41,12 @@ export async function getPostBySlug(slug: string) {
       slug,
       publishedAt,
       excerpt,
+      metaDescription,
+      schemaMarkup,
       body,
       mainImage,
       "categories": categories[]->title,
-      "author": author->{name, image, bio}
+      "author": author
     }
   `, { slug });
 }

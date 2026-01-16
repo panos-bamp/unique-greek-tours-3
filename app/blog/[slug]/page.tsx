@@ -20,7 +20,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   
   return {
     title: `${post.title} | Unique Greek Tours Blog`,
-    description: post.excerpt || `Read about ${post.title}`,
+    description: post.metaDescription || post.excerpt || `Read about ${post.title}`,
+    openGraph: {
+      title: post.title,
+      description: post.metaDescription || post.excerpt,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+    },
   };
 }
 
@@ -68,8 +75,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  // Default Article schema
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.metaDescription || post.excerpt,
+    "datePublished": post.publishedAt,
+    "image": post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
+    "author": {
+      "@type": "Person",
+      "name": post.author || "Unique Greek Tours"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Unique Greek Tours",
+      "url": "https://uniquegreektours.com"
+    }
+  };
+
   return (
     <article className="flex flex-col">
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: post.schemaMarkup || JSON.stringify(articleSchema)
+        }}
+      />
+
       {/* Hero Image */}
       <section className="relative h-[60vh] min-h-[500px]">
         {post.mainImage ? (
@@ -109,7 +143,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {post.author && (
                 <div className="flex items-center gap-2">
                   <User className="h-5 w-5" />
-                  <span>{post.author.name}</span>
+                  <span>{post.author}</span>
                 </div>
               )}
               {post.categories && post.categories.length > 0 && (

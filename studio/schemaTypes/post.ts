@@ -1,65 +1,69 @@
-import {defineField, defineType} from 'sanity'
-
-export default defineType({
+export default {
   name: 'post',
-  title: 'Post',
+  title: 'Blog Posts',
   type: 'document',
   fields: [
-    defineField({
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
-    }),
-    defineField({
+      validation: (Rule: any) => Rule.required()
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
-    }),
-    defineField({
+      options: { source: 'title', maxLength: 96 },
+      validation: (Rule: any) => Rule.required()
+    },
+    {
       name: 'author',
       title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
+      type: 'string'
+    },
+    {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Main Image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    }),
-    defineField({
+      options: { hotspot: true }
+    },
+    {
       name: 'publishedAt',
       title: 'Published at',
-      type: 'datetime',
-    }),
-    defineField({
+      type: 'datetime'
+    },
+    {
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      rows: 4
+    },
+    {
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'text',
+      rows: 3,
+      description: 'SEO meta description (150-160 characters recommended)',
+      validation: (Rule: any) => Rule.max(160).warning('Keep under 160 characters for best SEO')
+    },
+    {
+      name: 'schemaMarkup',
+      title: 'Schema Markup (JSON-LD)',
+      type: 'text',
+      rows: 10,
+      description: 'Optional: Custom JSON-LD structured data for this post'
+    },
+    {
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
-    }),
-  ],
-
-  preview: {
-    select: {
-      title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
-    },
-  },
-})
+      type: 'array',
+      of: [
+        { type: 'block' },
+        { 
+          type: 'image',
+          options: { hotspot: true }
+        }
+      ]
+    }
+  ]
+}
