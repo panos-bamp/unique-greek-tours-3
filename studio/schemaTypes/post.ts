@@ -50,7 +50,7 @@ export default {
       name: 'schemaMarkup',
       title: 'Schema Markup (JSON-LD)',
       type: 'text',
-      rows: 10,
+      rows: 500,
       description: 'Optional: Custom JSON-LD structured data for this post'
     },
     {
