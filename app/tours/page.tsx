@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Compass, ArrowRight, Star, Users, Clock, Utensils, Mountain, Camera } from "lucide-react";
+import { MapPin, Compass, ArrowRight, Star, Users, Clock, Utensils, Mountain, Camera, Wine, Anchor, ChefHat } from "lucide-react";
 
 export const metadata = {
   title: "Private Tours in Greece | Unique Greek Tours - Peloponnese Excursions",
@@ -51,28 +51,6 @@ const destinations = [
     tourCount: 3,
     image: "/images/destination-gythio.jpg",
   },
-];
-
-const categories = [
-  { name: "Archaeological", slug: "archaeological", icon: "🏛️", description: "UNESCO sites, ancient ruins" },
-  { name: "Food & Wine", slug: "food-wine", icon: "🍷", description: "Tastings, cooking classes" },
-  { name: "Nature & Hiking", slug: "nature", icon: "🌿", description: "Trails, gorges, beaches" },
-  { name: "Water Sports", slug: "water", icon: "🚣", description: "Kayaking, sailing, snorkeling" },
-];
-
-const popularDestinations = [
-  { name: "Ancient Olympia", description: "Birthplace of the Olympic Games" },
-  { name: "Mycenae", description: "Home of King Agamemnon" },
-  { name: "Epidaurus", description: "Ancient theater with perfect acoustics" },
-  { name: "Monemvasia", description: "Medieval castle town on the rock" },
-  { name: "Mystras & Sparta", description: "Byzantine ruins and Spartan legends" },
-  { name: "Delphi", description: "The Oracle and center of the ancient world" },
-  { name: "Mani Peninsula", description: "Wild beauty and tower houses" },
-  { name: "Corinth", description: "Ancient city and canal crossing" },
-  { name: "Nemea", description: "Famous wine region with ancient temple" },
-  { name: "Lousios Gorge", description: "Dramatic gorge with cliff monasteries" },
-  { name: "Diros Caves", description: "Spectacular underground lakes" },
-  { name: "Acropolis", description: "The iconic symbol of Athens" },
 ];
 
 export default function ToursPage() {
@@ -156,40 +134,34 @@ export default function ToursPage() {
         </div>
       </section>
 
-      {/* Explore by Destination */}
+      {/* Destinations Grid */}
       <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="flex items-center gap-4 mb-4">
-            <MapPin className="h-10 w-10 text-accent" />
-            <p className="text-accent uppercase tracking-widest text-sm">EXPLORE BY DESTINATION</p>
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl text-primary mb-6">Choose Your Starting Point</h2>
-          <p className="text-lg text-gray-700 mb-12 max-w-3xl">
-            Meet the best of each destination with our handpicked tours and local experiences
+          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-4">Where We Go</h2>
+          <p className="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
+            Browse our carefully curated private tours organized by destination across the Peloponnese and beyond
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {destinations.map((dest) => (
-              <Link 
+              <Link
                 key={dest.slug}
                 href={`/tours/${dest.slug}`}
-                className="group relative h-80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="group relative h-96 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
               >
-                <Image 
-                  src={dest.image} 
-                  alt={dest.name} 
-                  fill 
-                  className="object-cover group-hover:scale-110 transition-transform duration-500" 
+                <Image
+                  src={dest.image}
+                  alt={dest.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="font-display text-3xl font-bold mb-2">{dest.name}</h3>
                   <p className="text-blue-100 mb-3">{dest.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm">{dest.tourCount} Tours</span>
-                    <span className="flex items-center gap-1 font-semibold group-hover:gap-2 transition-all">
-                      Explore <ArrowRight className="h-4 w-4" />
-                    </span>
+                    <span className="text-accent-light font-semibold">{dest.tourCount} Tours</span>
+                    <ArrowRight className="h-5 w-5 text-accent-light group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>
               </Link>
@@ -198,105 +170,192 @@ export default function ToursPage() {
         </div>
       </section>
 
-      {/* Browse by Category */}
+      {/* Explore by Experience - UPDATED SECTION */}
       <section className="py-20 bg-sand-50">
         <div className="container-custom">
-          <div className="flex items-center gap-4 mb-4">
-            <Compass className="h-10 w-10 text-accent" />
-            <p className="text-accent uppercase tracking-widest text-sm">EXPLORE BY EXPERIENCE</p>
-          </div>
-          <h2 className="font-display text-4xl md:text-5xl text-primary mb-6">Browse by Category</h2>
-          <p className="text-lg text-gray-700 mb-12 max-w-3xl">
-            Discover tours by experience type: Archaeological, Cultural, Food & Wine, Nature
-          </p>
-          
-          <div className="grid md:grid-cols-4 gap-6">
-            {categories.map((cat) => (
-              <Link 
-                key={cat.slug}
-                href={`/tours/category/${cat.slug}`}
-                className="group p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all hover:-translate-y-2"
-              >
-                <div className="text-5xl mb-4">{cat.icon}</div>
-                <h3 className="font-display text-2xl font-bold text-primary-dark mb-2">{cat.name}</h3>
-                <p className="text-gray-600">{cat.description}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Popular Destinations */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-4">Where We Go</h2>
-          <p className="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
-            Our private tours focus on the Peloponnese and Attica regions, rich in history, natural beauty, and local flavor
-          </p>
-          
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {popularDestinations.map((dest, idx) => (
-              <div key={idx} className="p-4 border border-sand-200 rounded-xl hover:border-accent hover:shadow-md transition-all">
-                <h3 className="font-semibold text-primary-dark">{dest.name}</h3>
-                <p className="text-sm text-gray-600">{dest.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Themed Tours Section */}
-      <section className="py-20 bg-sand-50">
-        <div className="container-custom">
-          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-12">Custom Excursions & Themed Tours</h2>
-          <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-            Looking for something unique? Our team can create fully customized private tours to match your personal interests
+          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-4">Explore by Experience</h2>
+          <p className="text-lg text-gray-700 text-center mb-16 max-w-3xl mx-auto">
+            Discover Greece through experiences that match your passions - from ancient history to culinary adventures
           </p>
           
           <div className="space-y-16">
-            <ThemedSection
+            {/* Food & Culinary Tours */}
+            <ExperienceSection
+              icon={<ChefHat className="h-12 w-12 text-accent" />}
               title="Greece Food & Culinary Tours"
-              description="The best way to understand Greek culture is through its food. Our food tasting tours in Greece take you beyond tourist restaurants to discover authentic Greek cuisine at its finest. From savory moussaka and fresh seafood to creamy tzatziki and honey-drenched baklava, every bite tells a story of tradition passed down through generations."
-              linkText="Explore our Food Tours"
-              linkUrl="/tours/nafplio/nafplio-food-tasting-tour/"
+              description="The best way to understand Greek culture is through its food. Our food tasting tours in Greece take you beyond tourist restaurants to discover authentic Greek cuisine at its finest. From savory moussaka and fresh seafood to creamy tzatziki and honey-drenched baklava, every bite tells a story of tradition passed down through generations. Experience traditional cooking classes, visit family-run tavernas, explore local markets, and taste regional specialties prepared by passionate Greek cooks."
+              tours={[
+                { name: "Nafplio Food Tasting Tour", url: "/tours/nafplio/nafplio-food-tasting-tour" },
+                { name: "Culture & Taste Tour", url: "/tours/nafplio/nafplio-culture-taste-tour" },
+                { name: "Greek Cooking Class", url: "/tours/nafplio/nafplio-cooking-class" },
+              ]}
+              linkText="Explore Food Tours"
+              linkUrl="/tours/nafplio/nafplio-food-tasting-tour"
             />
             
-            <ThemedSection
+            {/* Wine & Olive Oil Tours */}
+            <ExperienceSection
+              icon={<Wine className="h-12 w-12 text-accent" />}
               title="Greece Wine & Olive Oil Tours"
-              description="Greece has been producing wine and olive oil for over 4,000 years. Visit award-winning wineries where passionate vintners guide you through tastings of indigenous Greek varietals. Learn the art of wine pairing with local cheeses and cured meats. In Kalamata, discover why Greek olive oil is called 'liquid gold' at traditional olive mills."
+              description="Greece has been producing wine and olive oil for over 4,000 years. Visit award-winning wineries where passionate vintners guide you through tastings of indigenous Greek varietals. Learn the art of wine pairing with local cheeses and cured meats. In Kalamata, discover why Greek olive oil is called 'liquid gold' at traditional olive mills. Experience the terroir of Nemea, taste rare Agiorgitiko wines, and understand the ancient traditions that make Greek wine and olive oil world-renowned."
+              tours={[
+                { name: "Nemea Wine Tasting Tour", url: "/tours/nafplio/nafplio-winetasting-tour-nemea" },
+                { name: "Olive Oil & Epidavros Tour", url: "/tours/nafplio/nafplio-oil-tasting-epidavros-tour" },
+                { name: "Poros Wine Tasting", url: "/tours/poros/poros-wine-tasting" },
+              ]}
               linkText="Wine Tasting Tours"
-              linkUrl="/tours/nafplio/nafplio-winetasting-tour-nemea/"
+              linkUrl="/tours/nafplio/nafplio-winetasting-tour-nemea"
             />
             
-            <ThemedSection
+            {/* Historical & Archaeological Tours */}
+            <ExperienceSection
+              icon={<Compass className="h-12 w-12 text-accent" />}
               title="Greece Historical & Archaeological Tours"
-              description="Greece is the cradle of Western civilization, and our historical tours bring ancient legends to life. Walk in the footsteps of kings at Mycenae. Stand in the ancient theater of Epidaurus. Explore the birthplace of the Olympic Games at Ancient Olympia. Our expert licensed guides transform archaeological sites into living stories."
-              linkText="Mycenae & Epidaurus"
-              linkUrl="/tours/nafplio/nafplio-mycenae-epidavros/"
+              description="Greece is the cradle of Western civilization, and our historical tours bring ancient legends to life. Walk in the footsteps of kings at Mycenae. Stand in the ancient theater of Epidaurus where 14,000 spectators once gathered. Explore the birthplace of the Olympic Games at Ancient Olympia. Visit the oracle at Delphi where kings sought divine wisdom. Our expert licensed guides transform archaeological sites into living stories, revealing the myths, battles, and triumphs that shaped Western culture."
+              tours={[
+                { name: "Mycenae & Epidaurus Tour", url: "/tours/nafplio/nafplio-mycenae-epidavros" },
+                { name: "Ancient Olympia Day Trip", url: "/tours/nafplio/nafplio-ancient-olympia-tour" },
+                { name: "Sparta & Mystras Tour", url: "/tours/nafplio/nafplio-sparta-mystras-tour" },
+                { name: "Monemvasia Castle Tour", url: "/tours/nafplio/nafplio-monemvasia-tour" },
+                { name: "Corinth & Epidavros Tour", url: "/tours/nafplio/nafplio-corinth-epidavros-tour" },
+              ]}
+              linkText="Archaeological Tours"
+              linkUrl="/tours/nafplio/nafplio-mycenae-epidavros"
             />
             
-            <ThemedSection
+            {/* Hiking & Nature Tours */}
+            <ExperienceSection
+              icon={<Mountain className="h-12 w-12 text-accent" />}
               title="Greece Hiking & Nature Tours"
-              description="Beyond the ancient ruins and beaches, Greece offers breathtaking natural landscapes perfect for hiking adventures. Trek through the spectacular Lousios Gorge, where cliff-hanging monasteries cling to sheer rock faces. Hike the forested trails around Vytina and Elati. Follow ancient paths from Nafplio to Karathona Beach through olive groves."
-              linkText="Lousios Gorge Hike"
-              linkUrl="/tours/nafplio/nafplio-hiking-lousios/"
+              description="Beyond the ancient ruins and beaches, Greece offers breathtaking natural landscapes perfect for hiking adventures. Trek through the spectacular Lousios Gorge, where cliff-hanging monasteries cling to sheer rock faces. Hike the forested trails around Vytina and Elati in the Arcadian mountains. Follow ancient paths from Nafplio to Karathona Beach through olive groves and coastal cliffs. Discover hidden waterfalls, Byzantine monasteries, and panoramic mountain vistas that few tourists ever see."
+              tours={[
+                { name: "Lousios Gorge Hike", url: "/tours/nafplio/nafplio-hiking-lousios" },
+                { name: "Vytina & Elati Hike", url: "/tours/nafplio/nafplio-hiking-vytina-elati" },
+                { name: "Mycenae Hiking Tour", url: "/tours/nafplio/nafplio-hiking-mycenae" },
+                { name: "Karathona Beach Hike", url: "/tours/nafplio/nafplio-hiking-karathona-beach" },
+                { name: "Poros Hiking Tour", url: "/tours/poros/poros-hiking-tour" },
+              ]}
+              linkText="Hiking Tours"
+              linkUrl="/tours/nafplio/nafplio-hiking-lousios"
             />
             
-            <ThemedSection
+            {/* Kayaking & Sea Tours */}
+            <ExperienceSection
+              icon={<Anchor className="h-12 w-12 text-accent" />}
               title="Greece Kayaking & Sea Tours"
-              description="Discover Greece from the water with our unique kayaking tours. Paddle through crystal-clear Aegean waters, explore hidden sea caves, and reach secluded beaches inaccessible by land. Glide beneath the imposing Bourtzi fortress. Kayak to ancient sunken cities near Tolo. Explore the sea caves of the Argolid coastline."
-              linkText="Nafplio Kayak Tour"
-              linkUrl="/tours/nafplio/nafplio-kayak-tour/"
+              description="Discover Greece from the water with our unique kayaking and sailing tours. Paddle through crystal-clear Aegean waters, explore hidden sea caves, and reach secluded beaches inaccessible by land. Glide beneath the imposing Bourtzi fortress in Nafplio. Kayak to ancient sunken cities near Tolo. Explore the dramatic sea caves of the Argolid coastline. Sail around the pine-covered island of Poros. Experience Greece's maritime heritage and pristine coastline from a completely different perspective."
+              tours={[
+                { name: "Nafplio Kayak Tour", url: "/tours/nafplio/nafplio-kayak-tour" },
+                { name: "Sunken City Kayak Tour", url: "/tours/nafplio/nafplio-sunken-kayak-tour" },
+                { name: "Porto Heli Sailing Tour", url: "/tours/portoheli/portoheli-sailing-tour" },
+                { name: "Poros Kayaking Adventure", url: "/tours/poros/poros-kayaking-tour" },
+              ]}
+              linkText="Water Tours"
+              linkUrl="/tours/nafplio/nafplio-kayak-tour"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Excursions & Themed Tours - UPDATED SECTION */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="font-display text-4xl md:text-5xl text-primary mb-6">Custom Excursions & Themed Tours</h2>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              Every traveler is unique, and so should be their journey. At Unique Greek Tours, we specialize in creating 
+              <strong> fully customized private tours</strong> tailored to your exact interests, pace, and preferences.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-sand-50 p-8 rounded-2xl">
+              <h3 className="font-display text-2xl text-primary-dark mb-4 flex items-center gap-3">
+                <Star className="h-8 w-8 text-accent" />
+                Your Interests, Your Tour
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Whether you're passionate about Byzantine art, ancient mythology, Greek wines, traditional crafts, 
+                or off-the-beaten-path villages, we'll design a tour that matches your specific interests perfectly.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Photography-focused tours with perfect lighting times</li>
+                <li>• Family tours with kid-friendly activities</li>
+                <li>• Romantic honeymoon itineraries</li>
+                <li>• Cultural immersion with local families</li>
+                <li>• Religious and pilgrimage tours</li>
+                <li>• Film location tours (Mamma Mia, 300, Troy)</li>
+              </ul>
+            </div>
+
+            <div className="bg-sand-50 p-8 rounded-2xl">
+              <h3 className="font-display text-2xl text-primary-dark mb-4 flex items-center gap-3">
+                <Clock className="h-8 w-8 text-accent" />
+                Your Schedule, Your Pace
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We adapt to your timeline and energy level. Whether you're on a tight cruise ship schedule, 
+                have mobility considerations, or want to spend extra time at sites that fascinate you most.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Half-day express tours for cruise passengers</li>
+                <li>• Multi-day comprehensive tours with overnight stays</li>
+                <li>• Accessible tours for travelers with mobility needs</li>
+                <li>• Early morning or sunset tours for photographers</li>
+                <li>• Leisurely-paced tours for seniors</li>
+                <li>• Combined tours linking multiple regions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="bg-primary text-white p-10 rounded-2xl text-center">
+            <h3 className="font-display text-3xl mb-4">Ready to Create Your Perfect Greek Adventure?</h3>
+            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+              Share your interests, travel dates, and preferences with us. Our team will craft a personalized 
+              itinerary that brings your Greek travel dreams to life.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/plan-trip" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all"
+              >
+                Plan Your Custom Tour
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-all"
+              >
+                Contact Our Team
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
+            <div className="p-6">
+              <div className="text-4xl font-bold text-accent mb-2">1</div>
+              <h4 className="font-semibold text-primary-dark mb-2">Tell Us Your Dreams</h4>
+              <p className="text-sm text-gray-600">Fill out our trip planning form with your interests and preferences</p>
+            </div>
+            <div className="p-6">
+              <div className="text-4xl font-bold text-accent mb-2">2</div>
+              <h4 className="font-semibold text-primary-dark mb-2">We Design Your Tour</h4>
+              <p className="text-sm text-gray-600">Our experts create a personalized itinerary just for you</p>
+            </div>
+            <div className="p-6">
+              <div className="text-4xl font-bold text-accent mb-2">3</div>
+              <h4 className="font-semibold text-primary-dark mb-2">Experience Greece</h4>
+              <p className="text-sm text-gray-600">Enjoy your perfectly tailored private Greek adventure</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Who Are Tours For */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-sand-50">
         <div className="container-custom">
           <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-12">Who Are Our Tours For?</h2>
-          <p className="text-lg text-gray-700 text-center mb-12">
+          <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
             Whether you're on a romantic honeymoon, a family holiday, or a solo cultural journey, our tours are designed for everyone
           </p>
           
@@ -309,7 +368,7 @@ export default function ToursPage() {
               "Cruise passengers with limited time and specific interests",
               "Solo travelers seeking safe, guided exploration",
             ].map((item, idx) => (
-              <div key={idx} className="p-4 bg-sand-50 rounded-xl text-center">
+              <div key={idx} className="p-4 bg-white rounded-xl text-center border border-sand-200">
                 <p className="text-sm text-gray-700">{item}</p>
               </div>
             ))}
@@ -348,14 +407,54 @@ export default function ToursPage() {
   );
 }
 
-function ThemedSection({ title, description, linkText, linkUrl }: { title: string; description: string; linkText: string; linkUrl: string }) {
+function ExperienceSection({ 
+  icon, 
+  title, 
+  description, 
+  tours, 
+  linkText, 
+  linkUrl 
+}: { 
+  icon: React.ReactNode;
+  title: string; 
+  description: string; 
+  tours: Array<{ name: string; url: string }>;
+  linkText: string; 
+  linkUrl: string;
+}) {
   return (
-    <div className="max-w-4xl">
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-dark mb-4">{title}</h3>
-      <p className="text-lg text-gray-700 leading-relaxed mb-4">{description}</p>
-      <Link href={linkUrl} className="inline-flex items-center text-accent font-semibold hover:text-primary transition-colors">
-        {linkText} <ArrowRight className="ml-2 h-4 w-4" />
-      </Link>
+    <div className="bg-white p-8 md:p-10 rounded-2xl shadow-md">
+      <div className="flex items-start gap-4 mb-6">
+        <div className="flex-shrink-0">{icon}</div>
+        <div className="flex-1">
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-dark mb-4">{title}</h3>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">{description}</p>
+          
+          <div className="mb-6">
+            <h4 className="font-semibold text-primary mb-3">Featured Tours:</h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              {tours.map((tour, idx) => (
+                <Link 
+                  key={idx}
+                  href={tour.url}
+                  className="flex items-center gap-2 text-gray-700 hover:text-primary transition-colors group"
+                >
+                  <ArrowRight className="h-4 w-4 text-accent group-hover:translate-x-1 transition-transform" />
+                  <span>{tour.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+          
+          <Link 
+            href={linkUrl} 
+            className="inline-flex items-center gap-2 text-accent font-semibold hover:text-primary transition-colors group"
+          >
+            {linkText} 
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
