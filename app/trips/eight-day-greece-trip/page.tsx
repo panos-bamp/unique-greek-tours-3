@@ -1,263 +1,51 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import {
-  Clock,
-  MapPin,
-  Users,
-  Calendar,
-  Check,
-  ChevronLeft,
-  Info,
-  Star,
-} from "lucide-react";
-
-const images = [
-  "/images/eight-day-greece-hero-1.jpg",
-  "/images/eight-day-greece-hero-2.jpg",
-  "/images/eight-day-greece-hero-3.jpg",
-];
-
-const dayItineraries = [
-  {
-    day: 1,
-    title: "Athens Arrival",
-    activities: [
-      {
-        name: "Airport Pick-up & Check-in",
-        description: "Pick up from Athens airport and check-in to your hotel. Relax and enjoy your evening, preparing for the exciting journey ahead."
-      }
-    ]
-  },
-  {
-    day: 2,
-    title: "Athens Acropolis & City Tour",
-    activities: [
-      {
-        name: "Acropolis & Its Monuments",
-        description: "Start the day with a visit to the famous Acropolis and its UNESCO-listed admirable monuments: the Temple of Athena Nike, the Propylaia gateway, the Erechtheion, and the astonishing Parthenon."
-      },
-      {
-        name: "Acropolis Museum",
-        description: "Visit the Acropolis Museum with its unique design. The marble masterpieces are given the prominence they deserve in the excellent exhibition areas."
-      },
-      {
-        name: "Historical Center Walking Tour",
-        description: "Continue with a leisurely walking tour of the historical center of Athens. Pass by Syntagma Square and the Greek Parliament, then head towards charming Plaka, Athens's most picturesque neighborhood. Admire archaeological remains and learn the thousand-year-old history of the area."
-      },
-      {
-        name: "Traditional Greek Meal",
-        description: "Your tour leader will drop you off at a cozy restaurant for a traditional Greek meal."
-      }
-    ]
-  },
-  {
-    day: 3,
-    title: "Journey to Meteora",
-    activities: [
-      {
-        name: "Drive through Central Greece",
-        description: "After breakfast, depart towards Kalambaka via Central Greece. Kalambaka is a small town built at the foot of the Meteora rocks complex."
-      },
-      {
-        name: "Meteora Monasteries Visit",
-        description: "Check into your hotel, then visit two of the many beautiful monasteries hanging from the rocks like nests. Your guide will explain all about Byzantine artwork and the culture of Orthodoxy."
-      },
-      {
-        name: "Meteora Sunset Experience",
-        description: "At the end of the tour, at the best viewpoint, you'll watch the famous breathtaking sunset of Meteora—a once-in-a-lifetime experience. Return to your hotel for a relaxing evening."
-      }
-    ]
-  },
-  {
-    day: 4,
-    title: "Delphi - The Navel of the World",
-    activities: [
-      {
-        name: "Scenic Drive to Delphi",
-        description: "Depart for Delphi, driving through beautiful scenery. Check into your hotel upon arrival."
-      },
-      {
-        name: "Arahova Village",
-        description: "Your driver will take you to the picturesque mountainous village of Arahova to stroll around and relax."
-      },
-      {
-        name: "Delphi Archaeological Site",
-        description: "In the afternoon, visit the archaeological site of Delphi, known in antiquity as 'the navel of the world.' Your guide will revive the fascinating past through myths and knowledgeable information. Grand monuments including the Temple of Apollo, the Theatre of Delphi, the Athens Treasury, Castalia Pigi, and the dome of Athena Pronaia will fascinate you."
-      },
-      {
-        name: "Delphi Archaeological Museum",
-        description: "At the magnificent Delphi Archaeological Museum, admire statues and artifacts from the surrounding sites, including findings dated back to the Neolithic Age (4000 BC). Stay overnight in Delphi."
-      }
-    ]
-  },
-  {
-    day: 5,
-    title: "Ancient Olympia - Birthplace of Olympics",
-    activities: [
-      {
-        name: "Drive to Ancient Olympia",
-        description: "Start your day with a drive towards Peloponnese to Ancient Olympia, the birthplace of the Olympic Games. Check into your hotel."
-      },
-      {
-        name: "Olympic Site Tour",
-        description: "In the afternoon, meet your guide and tour the impressive site. Visit the stadium where the Olympic Games were held, and the Temple of Zeus with its 13.5-meter-high golden statue of the god—one of the seven wonders of the ancient world."
-      },
-      {
-        name: "Archaeological Museum of Olympia",
-        description: "The outstanding findings exhibited in the museum will amaze you, starting with the exquisite Hermes of Praxiteles. Tour buildings and temples that depict the beauty, harmony, and balance of ancient Greek art."
-      }
-    ]
-  },
-  {
-    day: 6,
-    title: "Mycenae & Journey to Nafplio",
-    activities: [
-      {
-        name: "Ancient Mycenae",
-        description: "After breakfast, check out and drive to Nafplion. First, visit Mycenae, where one of the most brilliant cultures of Greek prehistory developed—the Mycenaean Civilization. The fortification of the Acropolis with the famous Cyclopean Walls, the Gate of Lions, the monumental entrance to the palaces, and the mythical vaulted tomb of Atreus are outstanding attractions."
-      },
-      {
-        name: "Wine Tasting in Nemea",
-        description: "Visit a famous Greek winery for wine tasting and a meal. Nemea is one of the biggest wine zones in Greece. Indulge in the culture of winemaking and taste high-quality local wines."
-      },
-      {
-        name: "Arrival in Nafplion",
-        description: "Drive through the Argolic plain to Nafplion, the most romantic city of Greece. Check into your hotel, relax, and stroll around the beautiful city."
-      }
-    ]
-  },
-  {
-    day: 7,
-    title: "Epidavros & Nafplion Exploration",
-    activities: [
-      {
-        name: "Ancient Theater of Epidavros",
-        description: "Your driver will pick you up and head to Epidavros where you'll meet your guide. Visit the ancient theater, one of the most famous archaeological monuments in Greece. The place has been dedicated to deities with healing abilities since prehistoric times."
-      },
-      {
-        name: "Sacred Asclepion",
-        description: "Around 800 BC, a sanctuary dedicated to Apollo was founded, and in the 6th century BC, the sacred Asclepion was built in honor of Asclepius, the protector of health. It was the center for treating serious diseases for all of Ancient Greece."
-      },
-      {
-        name: "Theater Perfection",
-        description: "At the end of the Classical Age (330 BC), the ancient theater was built—the most perfect and famous ancient Greek theater, combining elegance with perfect acoustics. It had a capacity of about 15,000 spectators. In 1988, it was included on the UNESCO World Heritage List."
-      },
-      {
-        name: "Nafplion Walking Tour",
-        description: "Return to Nafplion for a leisurely walking tour through cobbled streets of the old town. Your tour leader will revive the long history of this magnificent castle town and discuss Venetian architecture and local culture. The evening is free to relax."
-      }
-    ]
-  },
-  {
-    day: 8,
-    title: "Return to Athens",
-    activities: [
-      {
-        name: "Journey's End",
-        description: "Your return to Athens marks the end of this exciting multiday trip to Classical Greece. According to your schedule, you'll be transferred to Athens or Athens airport."
-      }
-    ]
-  }
-];
 
 export default function EightDayGreeceTripPage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px]">
-        <div className="relative h-full w-full">
-          {images.map((img, index) => (
-            <Image
-              key={img}
-              src={img}
-              alt={`Classical Greece Tour ${index + 1}`}
-              fill
-              className={`object-cover transition-opacity duration-700 ${
-                index === currentImageIndex ? "opacity-100" : "opacity-0"
-              }`}
-              priority={index === 0}
-            />
-          ))}
-        </div>
-
-        <button
-          onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all z-20"
-        >
-          <ChevronLeft className="w-6 h-6 text-gray-800" />
-        </button>
-        <button
-          onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg transition-all z-20"
-        >
-          <ChevronLeft className="w-6 h-6 text-gray-800 rotate-180" />
-        </button>
-
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                index === currentImageIndex ? "bg-white w-8" : "bg-white/60 hover:bg-white/80"
-              }`}
-            />
-          ))}
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-
-        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-          <div className="max-w-7xl mx-auto">
-            <Link
-              href="/trips"
-              className="inline-flex items-center text-white/90 hover:text-white mb-4 transition-colors"
-            >
-              <ChevronLeft className="w-4 h-4 mr-1" />
-              Back to Multi-Day Trips
+    <div className="min-h-screen">
+      {/* Breadcrumb */}
+      <div className="bg-gray-50 border-b border-gray-200 py-3">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Link href="/trips" className="hover:text-blue-600">
+              MULTI-DAY TRIPS
             </Link>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
-              8-Day Classical Greece Tour
-            </h1>
-            <p className="text-xl text-gray-100 max-w-3xl drop-shadow">
-              The ultimate journey through ancient Greece's most famous sites
-            </p>
+            <span>/</span>
+            <span className="text-gray-900">8-Day Classical Greece Tour</span>
           </div>
         </div>
+      </div>
+
+      {/* Hero Image */}
+      <section className="relative h-[60vh] min-h-[400px]">
+        <Image
+          src="/images/eight-day-greece-hero-1.jpg"
+          alt="8-day classical greece tour gallery"
+          fill
+          className="object-cover"
+          priority
+        />
       </section>
 
-      {/* Quick Info Bar */}
-      <section className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-6">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex items-center justify-center">
-              <Clock className="w-5 h-5 mr-2 flex-shrink-0" />
-              <span className="font-semibold">8 Days</span>
+      {/* Title and Metadata */}
+      <section className="py-8 px-4 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            8-Day Classical Greece Tour
+          </h1>
+          <div className="flex flex-wrap gap-8 text-gray-700">
+            <div>
+              <span className="font-semibold">Duration:</span> 8 days
             </div>
-            <div className="flex items-center justify-center">
-              <MapPin className="w-5 h-5 mr-2 flex-shrink-0" />
-              <span className="font-semibold text-sm">Athens - Meteora - Delphi</span>
+            <div>
+              <span className="font-semibold">Group Size:</span> Private tour
             </div>
-            <div className="flex items-center justify-center">
-              <Users className="w-5 h-5 mr-2 flex-shrink-0" />
-              <span className="font-semibold">Private Tour</span>
+            <div>
+              <span className="font-semibold">Season:</span> Year-round
             </div>
-            <div className="flex items-center justify-center">
-              <Calendar className="w-5 h-5 mr-2 flex-shrink-0" />
-              <span className="font-semibold">All Year</span>
+            <div>
+              <span className="font-semibold">Meeting:</span> Athens hotel
             </div>
           </div>
         </div>
@@ -267,191 +55,165 @@ export default function EightDayGreeceTripPage() {
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left Column */}
+            {/* Left Column - Content */}
             <div className="lg:col-span-2 space-y-12">
               {/* Overview */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Trip Overview
-                </h2>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  On this multiday classical tour, you will have the opportunity to explore the glory of ancient Greece and its rich history. This comprehensive 8-day journey takes you through the most iconic archaeological sites and UNESCO World Heritage locations, from the majestic Acropolis in Athens to the hanging monasteries of Meteora, the oracle of Delphi, the birthplace of the Olympics, and the romantic city of Nafplion.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Travel in comfort with private luxury transportation, stay in carefully selected accommodations, and benefit from professional licensed guides who bring ancient history to life. This is the ultimate Classical Greece experience, combining breathtaking landscapes, profound historical insights, and authentic Greek culture.
-                </p>
-              </div>
-
-              {/* Highlights */}
-              <div className="bg-gradient-to-br from-emerald-50 to-stone-50 p-8 rounded-2xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Tour Highlights</h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Acropolis & Acropolis Museum",
-                    "Meteora Monasteries & Sunset",
-                    "Delphi Oracle & Museum",
-                    "Ancient Olympia & Stadium",
-                    "Mycenae & Lion Gate",
-                    "Wine Tasting in Nemea",
-                    "Epidavros Ancient Theater",
-                    "Nafplion Old Town"
-                  ].map((highlight, index) => (
-                    <div key={index} className="flex items-center">
-                      <Star className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700 font-medium">{highlight}</span>
-                    </div>
-                  ))}
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+                  <p>
+                    Embark on an unforgettable 8-day journey through Classical Greece, visiting the most famous monuments and archaeological sites of ancient Greek civilization.
+                  </p>
+                  <p>
+                    This comprehensive tour takes you from the vibrant capital of Athens to the awe-inspiring monasteries of Meteora, the sacred oracle of Delphi, the birthplace of the Olympic Games at Ancient Olympia, and the legendary sites of Mycenae and Epidavros. Along the way, you'll stay in charming towns, taste authentic Greek cuisine, and experience the perfect blend of history, culture, and natural beauty.
+                  </p>
+                  <p>
+                    Starting in Athens, you'll explore the iconic Acropolis and its magnificent museum before heading north to witness the breathtaking cliff-top monasteries of Meteora. Journey to Delphi, home of the ancient oracle, then visit the picturesque mountain town of Arahova. Continue to Ancient Olympia, where the Olympic flame still burns, before exploring the Mycenaean treasures and tasting wines in Nemea.
+                  </p>
+                  <p>
+                    Your journey concludes with a stay in romantic Nafplion, Greece's first capital, followed by a visit to the perfectly preserved theater of Epidavros. This tour offers the complete Classical Greece experience, combining UNESCO World Heritage Sites, stunning landscapes, local gastronomy, and authentic Greek hospitality.
+                  </p>
                 </div>
               </div>
 
-              {/* Day-by-Day Itinerary */}
+              {/* What You Can Expect */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                  Day-by-Day Itinerary
-                </h2>
-
-                <div className="space-y-8">
-                  {dayItineraries.map((dayPlan) => (
-                    <div
-                      key={dayPlan.day}
-                      className="bg-gradient-to-br from-gray-50 to-stone-50 p-8 rounded-2xl"
-                    >
-                      <div className="flex items-center mb-6">
-                        <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 flex-shrink-0">
-                          {dayPlan.day}
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900">
-                          Day {dayPlan.day}: {dayPlan.title}
-                        </h3>
-                      </div>
-
-                      <div className="space-y-6 ml-16">
-                        {dayPlan.activities.map((activity, index) => (
-                          <div key={index}>
-                            <h4 className="font-bold text-gray-900 mb-2 flex items-center">
-                              <Star className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0" />
-                              {activity.name}
-                            </h4>
-                            <p className="text-gray-700">{activity.description}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Inclusions */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  What's Included
-                </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Return private transportation from Athens",
-                    "Pick up from your hotel or meeting point",
-                    "Professional licensed guide for archaeological sites",
-                    "7 nights accommodation in selected hotels",
-                    "Liability insurance",
-                    "All taxes and fees included",
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <Check className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Important Information */}
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl">
-                <div className="flex items-start">
-                  <Info className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">What You Can Expect</h2>
+                
+                <div className="space-y-6">
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-2">
-                      Important Information
-                    </h3>
-                    <p className="text-gray-700 mb-2">
-                      <strong>Full refund or change of date</strong> in case of adverse weather conditions.
-                    </p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Athens: Acropolis & Museum</h3>
                     <p className="text-gray-700">
-                      Pick up time: <strong>8:30 AM</strong> from Athens airport or your hotel.
+                      Explore the iconic Acropolis with the Parthenon, Erechtheion, and Temple of Athena Nike. Visit the world-class Acropolis Museum and stroll through the charming Plaka neighborhood.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Meteora: Monasteries in the Sky</h3>
+                    <p className="text-gray-700">
+                      Marvel at the Byzantine monasteries perched atop towering rock formations. Visit multiple monasteries and witness spectacular sunset views over this UNESCO World Heritage Site.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Delphi: The Oracle's Sanctuary</h3>
+                    <p className="text-gray-700">
+                      Discover the sacred sanctuary of Apollo and the famous oracle of Delphi. Explore the archaeological museum and visit the mountain village of Arahova.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Ancient Olympia: Birthplace of Olympics</h3>
+                    <p className="text-gray-700">
+                      Walk through the ancient Olympic stadium, visit the Temple of Zeus, and admire the famous Hermes statue in the archaeological museum.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Mycenae & Nemea Wine Tasting</h3>
+                    <p className="text-gray-700">
+                      Explore the legendary kingdom of Agamemnon with the Lion Gate and tomb of Atreus, followed by wine tasting in the renowned Nemea wine region.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Nafplion & Epidavros</h3>
+                    <p className="text-gray-700">
+                      Stay in romantic Nafplion and visit the ancient theater of Epidavros with its perfect acoustics and the healing sanctuary of Asclepius.
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Tour Highlights */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Tour Highlights</h2>
+                <div className="space-y-2 text-gray-700">
+                  <p>Acropolis of Athens and Acropolis Museum</p>
+                  <p>Traditional taverna dinner in Plaka</p>
+                  <p>Meteora monasteries and sunset views</p>
+                  <p>Delphi archaeological site and oracle</p>
+                  <p>Mountain village of Arahova</p>
+                  <p>Ancient Olympia stadium and Temple of Zeus</p>
+                  <p>Hermes statue by Praxiteles</p>
+                  <p>Ancient Mycenae and Lion Gate</p>
+                  <p>Wine tasting in Nemea region</p>
+                  <p>Overnight in romantic Nafplion</p>
+                  <p>Ancient Theater of Epidavros</p>
+                  <p>Multiple UNESCO World Heritage Sites</p>
+                </div>
+              </div>
+
+              {/* What is Included */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">What is Included</h2>
+                <div className="space-y-2 text-gray-700">
+                  <p>7 nights accommodation in selected hotels</p>
+                  <p>Daily breakfast</p>
+                  <p>Private transportation throughout the tour</p>
+                  <p>English-speaking professional driver/guide</p>
+                  <p>Pick up and drop off from your hotel in Athens</p>
+                  <p>Entrance fees to archaeological sites</p>
+                  <p>Wine tasting in Nemea</p>
+                  <p>Liability insurance</p>
+                  <p>All taxes and road tolls</p>
+                </div>
+                <p className="mt-6 font-bold text-gray-900">
+                  **Flexible itinerary that can be customized to your preferences**
+                </p>
               </div>
             </div>
 
-            {/* Right Column - Booking Card */}
+            {/* Right Column - Booking Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-xl">
-                  <div className="text-center mb-6">
-                    <div className="inline-block bg-emerald-100 px-4 py-2 rounded-full mb-4">
-                      <span className="text-emerald-800 font-semibold">
-                        Private Tour
-                      </span>
-                    </div>
-                    <div className="text-4xl font-bold text-gray-900 mb-2">
-                      From €1,850
-                    </div>
-                    <p className="text-gray-600">per person</p>
-                  </div>
+              <div className="bg-gray-50 p-6 rounded-lg sticky top-24">
+                <div className="text-center mb-6">
+                  <p className="text-sm text-gray-600 mb-2">From</p>
+                  <p className="text-4xl font-bold text-gray-900 mb-1">€1,850</p>
+                  <p className="text-sm text-gray-600">per person</p>
+                </div>
 
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center justify-between py-3 border-b border-gray-200">
-                      <div className="flex items-center text-gray-700">
-                        <Clock className="w-5 h-5 mr-3 text-emerald-600" />
-                        <span>Duration</span>
-                      </div>
-                      <span className="font-semibold text-gray-900">8 Days</span>
-                    </div>
-                    <div className="flex items-center justify-between py-3 border-b border-gray-200">
-                      <div className="flex items-center text-gray-700">
-                        <Users className="w-5 h-5 mr-3 text-emerald-600" />
-                        <span>Group Type</span>
-                      </div>
-                      <span className="font-semibold text-gray-900">Private</span>
-                    </div>
-                    <div className="flex items-center justify-between py-3 border-b border-gray-200">
-                      <div className="flex items-center text-gray-700">
-                        <MapPin className="w-5 h-5 mr-3 text-emerald-600" />
-                        <span>Pick Up</span>
-                      </div>
-                      <span className="font-semibold text-gray-900">Athens</span>
-                    </div>
-                    <div className="flex items-center justify-between py-3">
-                      <div className="flex items-center text-gray-700">
-                        <Calendar className="w-5 h-5 mr-3 text-emerald-600" />
-                        <span>Available</span>
-                      </div>
-                      <span className="font-semibold text-gray-900">All Year</span>
-                    </div>
+                <div className="space-y-3 text-sm mb-6">
+                  <div>
+                    <span className="font-semibold text-gray-900">Duration:</span>
+                    <span className="text-gray-700">8 days</span>
                   </div>
+                  <div>
+                    <span className="font-semibold text-gray-900">Meeting:</span>
+                    <span className="text-gray-700">Athens hotel</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-gray-900">Period:</span>
+                    <span className="text-gray-700">All year</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-gray-900">Tour Type:</span>
+                    <span className="text-gray-700">Private</span>
+                  </div>
+                </div>
 
-                  <Link
-                    href="/contact"
-                    className="block w-full bg-emerald-600 hover:bg-emerald-700 text-white text-center py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl mb-4"
+                <Link
+                  href="/contact"
+                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded font-semibold transition-colors mb-4"
+                >
+                  Book This Tour
+                </Link>
+
+                <p className="text-center text-sm text-gray-600 mb-6">
+                  Reserve now and pay later
+                </p>
+
+                <div className="border-t border-gray-300 pt-4">
+                  <h3 className="font-bold text-gray-900 mb-2">Questions?</h3>
+                  <p className="text-sm text-gray-700 mb-3">
+                    Contact our team for personalized assistance
+                  </p>
+                  <a
+                    href="tel:+302752024444"
+                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
                   >
-                    Book This Trip
-                  </Link>
-
-                  <Link
-                    href="/contact"
-                    className="block w-full bg-white hover:bg-gray-50 text-emerald-600 border-2 border-emerald-600 text-center py-4 rounded-xl font-semibold transition-all duration-300"
-                  >
-                    Ask a Question
-                  </Link>
-
-                  <div className="mt-6 text-center text-sm text-gray-600">
-                    <p>Have questions? We're here to help!</p>
-                    <a
-                      href="tel:+306974470780"
-                      className="text-emerald-600 hover:text-emerald-700 font-semibold"
-                    >
-                      +30 697 447 0780
-                    </a>
-                  </div>
+                    Call (+30) 27520 24444
+                  </a>
                 </div>
               </div>
             </div>
@@ -459,36 +221,34 @@ export default function EightDayGreeceTripPage() {
         </div>
       </section>
 
+      {/* Image Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <Image
+            src="/images/eight-day-greece-hero-3.jpg"
+            alt="Classical Greece landscapes"
+            width={1200}
+            height={600}
+            className="rounded-lg w-full"
+          />
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="relative py-24 px-4">
-        <Image
-          src="/images/eight-day-greece-cta.jpg"
-          alt="Book Your Classical Greece Tour"
-          fill
-          className="object-cover brightness-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/70 to-stone-900/70" />
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready for the Ultimate Greek Adventure?
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Ready to Explore Classical Greece?
           </h2>
-          <p className="text-xl mb-10 text-gray-100">
-            Book your 8-day journey through Classical Greece today
+          <p className="text-lg text-gray-700 mb-8">
+            Book your 8-Day Classical Greece Tour and discover the wonders of ancient civilization with expert local guides.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-4 rounded-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl"
-            >
-              Book Now
-            </Link>
-            <Link
-              href="/trips"
-              className="inline-block bg-white hover:bg-gray-100 text-gray-900 px-10 py-4 rounded-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl"
-            >
-              View All Trips
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded font-semibold transition-colors"
+          >
+            Book Now
+          </Link>
         </div>
       </section>
     </div>

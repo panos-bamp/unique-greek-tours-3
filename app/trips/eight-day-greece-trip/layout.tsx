@@ -1,49 +1,33 @@
 import { Metadata } from "next";
 
-const tripUrl = "https://unique-greek-tours-3.vercel.app/trips/eight-day-greece-trip";
-const tripImage = "https://unique-greek-tours-3.vercel.app/images/eight-day-greece-hero-1.jpg";
-
 export const metadata: Metadata = {
-  title: "8-Day Classical Greece Tour | Athens, Meteora, Delphi, Olympia & Nafplio",
-  description: "Explore the glory of ancient Greece on an 8-day journey through Athens, Meteora monasteries, Delphi oracle, Ancient Olympia, Mycenae, and Nafplion. Comprehensive multi-day tour with expert guides, luxury transport, and handpicked accommodations.",
-  keywords: [
-    "8-day Greece tour",
-    "Classical Greece tour",
-    "Meteora tour",
-    "Delphi archaeological site",
-    "Ancient Olympia tour",
-    "Acropolis tour Athens",
-    "Nafplio multi-day tour",
-    "Mycenae tour",
-    "Greece cultural tour",
-    "UNESCO sites Greece",
-    "Greek history tour",
-    "Peloponnese tour"
-  ],
+  title: "8-Day Classical Greece Tour - Athens, Meteora, Delphi, Olympia | Unique Greek Tours",
+  description: "Experience the ultimate Classical Greece tour. Visit Athens Acropolis, Meteora monasteries, Delphi oracle, Ancient Olympia, Mycenae, Nafplion, and Epidavros on this comprehensive 8-day journey.",
+  keywords: "8-day Greece tour, Classical Greece tour, Athens Meteora Delphi, Ancient Olympia tour, Nafplio tour, multi-day Greece tour, Greece itinerary, comprehensive Greece tour, UNESCO sites Greece",
   openGraph: {
-    title: "8-Day Classical Greece Tour | Complete Ancient Greece Experience",
-    description: "Discover Athens, Meteora's hanging monasteries, Delphi's oracle, Ancient Olympia, and Mycenae on this comprehensive 8-day classical Greece tour with expert guides.",
-    url: tripUrl,
+    title: "8-Day Classical Greece Tour - Complete Ancient Sites Journey",
+    description: "Experience the ultimate Classical Greece tour visiting Athens, Meteora, Delphi, Olympia, Nafplion, and more.",
+    url: "https://unique-greek-tours-3.vercel.app/trips/eight-day-greece-trip",
     siteName: "Unique Greek Tours",
-    images: [
-      {
-        url: tripImage,
-        width: 1600,
-        height: 1067,
-        alt: "Ancient Athens Acropolis",
-      },
-    ],
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://unique-greek-tours-3.vercel.app/images/eight-day-greece-hero-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "8-Day Classical Greece Tour",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "8-Day Classical Greece Tour | Athens to Nafplio",
-    description: "Experience the best of ancient Greece: Acropolis, Meteora, Delphi, Olympia, Mycenae & more on this 8-day guided tour.",
-    images: [tripImage],
+    title: "8-Day Classical Greece Tour",
+    description: "Experience the ultimate Classical Greece tour visiting all major ancient sites",
+    images: ["https://unique-greek-tours-3.vercel.app/images/eight-day-greece-hero-1.jpg"],
   },
   alternates: {
-    canonical: tripUrl,
+    canonical: "https://unique-greek-tours-3.vercel.app/trips/eight-day-greece-trip",
   },
 };
 
@@ -52,179 +36,97 @@ export default function EightDayGreeceTripLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const structuredData = {
+  const tripSchema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     "name": "8-Day Classical Greece Tour",
-    "description": "Embark on an unforgettable journey through Classical Greece, visiting the most famous monuments and archaeological sites. Experience Athens' Acropolis, Meteora's hanging monasteries, Delphi's oracle, Ancient Olympia's birthplace of Olympic Games, Mycenae's ancient civilization, and romantic Nafplion.",
-    "url": tripUrl,
-    "image": tripImage,
-    "touristType": ["History Enthusiast", "Culture Lover", "Architecture Enthusiast", "UNESCO Heritage Seeker"],
+    "description": "Experience the ultimate Classical Greece tour. Visit Athens Acropolis, Meteora monasteries, Delphi oracle, Ancient Olympia, Mycenae, Nafplion, and Epidavros on this comprehensive 8-day journey through ancient Greek civilization.",
+    "image": [
+      "https://unique-greek-tours-3.vercel.app/images/eight-day-greece-hero-1.jpg",
+      "https://unique-greek-tours-3.vercel.app/images/eight-day-greece-hero-2.jpg",
+      "https://unique-greek-tours-3.vercel.app/images/eight-day-greece-hero-3.jpg"
+    ],
+    "touristType": ["History Lover", "Cultural Tourist", "Archaeological Tourist", "UNESCO Heritage Enthusiast", "Couples", "Small Groups"],
     "itinerary": {
       "@type": "ItemList",
       "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 1: Athens Arrival",
-            "description": "Pick up from Athens airport and check-in to hotel. Relax and enjoy the evening."
-          }
+          "@type": "TouristAttraction",
+          "name": "Acropolis of Athens",
+          "description": "Explore the iconic Acropolis with the Parthenon, Erechtheion, and Temple of Athena Nike, plus the Acropolis Museum"
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 2: Athens Acropolis & City Tour",
-            "description": "Visit the Acropolis (Parthenon, Propylaia, Erechtheion, Temple of Athena Nike), Acropolis Museum, and walking tour through Plaka neighborhood and historical center."
-          }
+          "@type": "TouristAttraction",
+          "name": "Meteora Monasteries",
+          "description": "Visit the Byzantine monasteries perched atop towering rock formations, a UNESCO World Heritage Site"
         },
         {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 3: Meteora Monasteries",
-            "description": "Journey to Kalambaka and visit Meteora's hanging monasteries, Byzantine artwork, and watch the breathtaking sunset."
-          }
+          "@type": "TouristAttraction",
+          "name": "Delphi",
+          "description": "Discover the sacred sanctuary of Apollo and the famous oracle of Delphi, plus visit Arahova village"
         },
         {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 4: Delphi Oracle",
-            "description": "Visit Arahova village and Delphi archaeological site (Temple of Apollo, Theater, Athens Treasury, Castalia Spring) and Delphi Museum."
-          }
+          "@type": "TouristAttraction",
+          "name": "Ancient Olympia",
+          "description": "Walk through the birthplace of the Olympic Games, see the stadium, Temple of Zeus, and the Hermes statue"
         },
         {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 5: Ancient Olympia",
-            "description": "Tour the birthplace of Olympic Games, Olympic Stadium, Temple of Zeus, and Archaeological Museum with Hermes of Praxiteles statue."
-          }
+          "@type": "TouristAttraction",
+          "name": "Ancient Mycenae",
+          "description": "Explore the legendary kingdom of Agamemnon with the Lion Gate and tomb of Atreus"
         },
         {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 6: Mycenae & Nafplio",
-            "description": "Explore Mycenae (Lion Gate, Cyclopean Walls, tomb of Atreus), wine tasting in Nemea, and arrive in romantic Nafplion."
-          }
+          "@type": "TouristAttraction",
+          "name": "Nemea Wine Region",
+          "description": "Enjoy wine tasting in the renowned Nemea wine region"
         },
         {
-          "@type": "ListItem",
-          "position": 7,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 7: Epidavros & Nafplion",
-            "description": "Visit Ancient Theater of Epidavros, sacred Asclepion, and walking tour of Nafplion old town with Venetian architecture."
-          }
+          "@type": "TouristAttraction",
+          "name": "Nafplion",
+          "description": "Stay in Greece's first capital, a romantic Venetian town with neoclassical architecture"
         },
         {
-          "@type": "ListItem",
-          "position": 8,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Day 8: Return to Athens",
-            "description": "Transfer back to Athens or Athens airport according to schedule."
-          }
+          "@type": "TouristAttraction",
+          "name": "Ancient Theater of Epidavros",
+          "description": "Visit the UNESCO theater with perfect acoustics and the healing sanctuary of Asclepius"
         }
       ]
     },
     "offers": {
       "@type": "Offer",
+      "url": "https://unique-greek-tours-3.vercel.app/trips/eight-day-greece-trip",
       "priceCurrency": "EUR",
       "price": "1850",
-      "priceRange": "€1,850-€3,200",
+      "priceValidUntil": "2026-12-31",
       "availability": "https://schema.org/InStock",
-      "validFrom": "2025-01-01"
+      "validFrom": "2026-01-01"
     },
     "provider": {
       "@type": "TouristInformationCenter",
       "name": "Unique Greek Tours",
+      "image": "https://unique-greek-tours-3.vercel.app/images/logo.png",
+      "priceRange": "€€€",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "GR",
-        "addressRegion": "Peloponnese"
+        "streetAddress": "Tsokri 2",
+        "addressLocality": "Argos",
+        "addressRegion": "Peloponnese",
+        "postalCode": "21200",
+        "addressCountry": "GR"
       },
-      "telephone": "+30-697-447-0780",
+      "telephone": "+30-27520-24444",
       "email": "info@uniquegreektours.com"
     },
     "duration": "P8D",
-    "startTime": "08:30",
-    "startDate": "2025-01-01",
-    "endDate": "2025-12-31",
-    "location": {
-      "@type": "Place",
-      "name": "Athens, Meteora, Delphi, Olympia, Nafplio",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "GR"
-      }
-    },
-    "subTrip": [
-      {
-        "@type": "TouristAttraction",
-        "name": "Acropolis of Athens",
-        "description": "UNESCO World Heritage Site featuring the Parthenon, Propylaia, Erechtheion, and Temple of Athena Nike"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Acropolis Museum",
-        "description": "World-class museum with marble masterpieces and Parthenon sculptures"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Meteora Monasteries",
-        "description": "UNESCO site with Byzantine monasteries perched on towering rock formations"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Delphi Archaeological Site",
-        "description": "Ancient sanctuary of Apollo, known as the navel of the world in antiquity"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Ancient Olympia",
-        "description": "Birthplace of the Olympic Games with Temple of Zeus and Olympic Stadium"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Ancient Mycenae",
-        "description": "Mycenaean civilization site with Lion Gate and Cyclopean Walls"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Epidavros Theater",
-        "description": "UNESCO site, perfectly preserved ancient theater with exceptional acoustics"
-      },
-      {
-        "@type": "TouristAttraction",
-        "name": "Nafplion Old Town",
-        "description": "Most romantic Greek city with Venetian architecture and castle"
-      }
-    ],
-    "includes": [
-      "Return private transportation from Athens",
-      "Pick up from hotel or meeting point",
-      "Professional licensed guide for archaeological sites",
-      "7 nights accommodation in selected hotels",
-      "Liability insurance",
-      "All taxes and fees"
-    ]
+    "inLanguage": "en",
+    "tourBookingPage": "https://unique-greek-tours-3.vercel.app/contact"
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }}
       />
       {children}
     </>
