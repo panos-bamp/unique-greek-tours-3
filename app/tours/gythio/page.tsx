@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
+import { ArrowRight, Clock, MapPin, Star, Compass, Anchor, Castle, Landmark } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,6 +19,8 @@ const gythioTours = [
     type: "Private",
     image: "/images/monemvasia-tour-hero-2.jpg",
     description: "Boat through 1,500m of spectacular underground caves. Marvel at stalactites, stalagmites, and crystal formations in this natural wonder.",
+    icon: Anchor,
+    highlights: ["Underground boat", "Stalactites", "Crystal formations"],
   },
   {
     title: "Monemvasia Castle Tour",
@@ -28,6 +30,8 @@ const gythioTours = [
     type: "Private",
     image: "/images/monemvasia-tour-hero-1.jpg",
     description: "Explore the medieval castle town of Monemvasia. Byzantine alleys, Venetian architecture, and panoramic sea views with a licensed guide.",
+    icon: Castle,
+    highlights: ["Medieval fortress", "Byzantine alleys", "Panoramic views"],
   },
   {
     title: "Sparta & Mystras Tour",
@@ -37,6 +41,8 @@ const gythioTours = [
     type: "Private",
     image: "/images/sparta-tour-hero-1.jpg",
     description: "Visit legendary Sparta and UNESCO Mystras. Archaeological museums, Byzantine churches, and ancient history come alive.",
+    icon: Landmark,
+    highlights: ["Legendary Sparta", "UNESCO Mystras", "Byzantine churches"],
   },
 ];
 
@@ -176,45 +182,63 @@ export default function GythioPage() {
   );
 }
 
-// Tour Card Component
+// Tour Card Component - UPDATED TO MATCH PORTO HELI STYLE
 function TourCard({ tour, basePath }: { tour: any; basePath: string }) {
+  const IconComponent = tour.icon || Compass;
+  
   return (
     <Link 
       href={`${basePath}/${tour.slug}`}
-      className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+      className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-sand-200 hover:shadow-xl transition-all duration-300"
     >
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <Image
           src={tour.image}
           alt={tour.title}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        
+        {/* Icon badge - top left */}
         <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full">
-            {tour.type}
-          </span>
+          <div className="w-12 h-12 bg-accent/90 rounded-full flex items-center justify-center">
+            <IconComponent className="h-6 w-6 text-white" />
+          </div>
         </div>
-        <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
-          <div className="flex items-center gap-2 text-sm">
-            <Clock className="h-4 w-4" />
-            <span>{tour.duration}</span>
-          </div>
-          <div className="text-lg font-bold">
-            From {tour.price}
-          </div>
+        
+        {/* Price badge - top right */}
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+          <span className="font-bold text-primary-dark">From {tour.price}</span>
         </div>
       </div>
+      
       <div className="p-6">
-        <h3 className="font-display text-xl text-primary mb-2 group-hover:text-accent transition-colors">
+        <h3 className="font-display text-2xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
           {tour.title}
         </h3>
-        <p className="text-gray-600 text-sm mb-4 line-clamp-2">{tour.description}</p>
-        <span className="inline-flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all">
-          View Tour Details
-          <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </span>
+        <p className="text-gray-600 mb-4 line-clamp-2">{tour.description}</p>
+        
+        {/* Highlights tags */}
+        {tour.highlights && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tour.highlights.map((highlight: string, idx: number) => (
+              <span key={idx} className="text-xs bg-sand-100 text-gray-700 px-3 py-1 rounded-full">
+                {highlight}
+              </span>
+            ))}
+          </div>
+        )}
+        
+        <div className="flex items-center justify-between pt-4 border-t border-sand-200">
+          <div className="flex items-center gap-2 text-accent">
+            <Clock className="h-4 w-4" />
+            <span className="text-sm">{tour.duration}</span>
+          </div>
+          <span className="text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+            View Details <ArrowRight className="h-4 w-4" />
+          </span>
+        </div>
       </div>
     </Link>
   );
