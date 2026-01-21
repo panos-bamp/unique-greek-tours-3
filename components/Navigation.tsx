@@ -49,6 +49,10 @@ export function Navigation() {
               <Link href="/tours" className="text-gray-700 hover:text-primary font-medium transition-colors">
                 Tours & Experiences
               </Link>
+	      
+	      <Link href="/trips" className="nav-link">
+                Group Trips
+              </Link>	
               
               <Link href="/transfers" className="text-gray-700 hover:text-primary font-medium transition-colors">
                 Transfers
