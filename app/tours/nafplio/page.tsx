@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, Clock, MapPin, Star, Users } from "lucide-react";
+import { ArrowRight, Calendar, Clock, MapPin, Star, Users, Compass, Wine, Utensils, Mountain, Anchor, Castle, Landmark, ChefHat } from "lucide-react";
 
 export const metadata = {
   title: "Nafplio Tours & Experiences | Private Tours from Nafplio | Unique Greek Tours",
@@ -17,6 +17,8 @@ const sightseeingTours = [
     price: "€120",
     type: "Private",
     image: "/images/nafplio-city-tour-hero-1.jpg",
+    icon: Castle,
+    highlights: ["Venetian old town", "Palamidi views", "Local guide"],
   },
   {
     slug: "nafplio-mycenae-epidavros",
@@ -26,6 +28,8 @@ const sightseeingTours = [
     price: "€280",
     type: "Private",
     image: "/images/mycenae-tour-hero-1.jpg",
+    icon: Landmark,
+    highlights: ["UNESCO sites", "Lion Gate", "Ancient theater"],
   },
   {
     slug: "nafplio-corinth-epidavros-tour",
@@ -35,6 +39,8 @@ const sightseeingTours = [
     price: "€320",
     type: "Private",
     image: "/images/round-trip-tour-hero-1.jpg",
+    icon: Compass,
+    highlights: ["Corinth Canal", "Ancient Corinth", "Epidavros theater"],
   },
   {
     slug: "nafplio-sparta-mystras-tour",
@@ -44,6 +50,8 @@ const sightseeingTours = [
     price: "€350",
     type: "Private",
     image: "/images/sparta-tour-hero-1.jpg",
+    icon: Landmark,
+    highlights: ["King Leonidas", "Byzantine Mystras", "UNESCO site"],
   },
   {
     slug: "nafplio-ancient-olympia-tour",
@@ -53,6 +61,8 @@ const sightseeingTours = [
     price: "€380",
     type: "Private",
     image: "/images/olympia-tour-hero-1.jpg",
+    icon: Compass,
+    highlights: ["Olympic Games site", "Zeus temple", "Museum"],
   },
   {
     slug: "nafplio-monemvasia-tour",
@@ -62,6 +72,8 @@ const sightseeingTours = [
     price: "€360",
     type: "Private",
     image: "/images/monemvasia-tour-hero-1.jpg",
+    icon: Castle,
+    highlights: ["Medieval fortress", "Rock peninsula", "Byzantine churches"],
   },
   {
     slug: "nafplio-argos-cultural-tour",
@@ -71,6 +83,8 @@ const sightseeingTours = [
     price: "€180",
     type: "Private",
     image: "/images/mycenae-tour-hero-2.jpg",
+    icon: Landmark,
+    highlights: ["Ancient Argos", "Larisa castle", "Archaeological museum"],
   },
 ];
 
@@ -83,6 +97,8 @@ const culinaryTours = [
     price: "€95",
     type: "Private",
     image: "/images/kalamata-food-tour-hero-1.jpg",
+    icon: Utensils,
+    highlights: ["Family tavernas", "Local delis", "Hidden gems"],
   },
   {
     slug: "nafplio-culture-taste-tour",
@@ -92,6 +108,8 @@ const culinaryTours = [
     price: "€130",
     type: "Private",
     image: "/images/culture-taste-hero-1.jpg",
+    icon: Wine,
+    highlights: ["Palamidi fortress", "Wine tasting", "Local delicacies"],
   },
   {
     slug: "nafplio-cooking-class",
@@ -101,6 +119,8 @@ const culinaryTours = [
     price: "€110",
     type: "Private",
     image: "/images/cooking-class-hero-1.jpg",
+    icon: ChefHat,
+    highlights: ["Hands-on cooking", "Traditional recipes", "Local family"],
   },
   {
     slug: "nafplio-winetasting-tour-nemea",
@@ -110,6 +130,8 @@ const culinaryTours = [
     price: "€220",
     type: "Private",
     image: "/images/wine-tour-hero-1.jpg",
+    icon: Wine,
+    highlights: ["Award-winning wineries", "Agiorgitiko wines", "Vineyard tour"],
   },
   {
     slug: "nafplio-oil-tasting-epidavros-tour",
@@ -119,6 +141,8 @@ const culinaryTours = [
     price: "€260",
     type: "Private",
     image: "/images/kalamata-olive-oil-tour-hero-1.jpg",
+    icon: Utensils,
+    highlights: ["Olive oil tasting", "Traditional mills", "Epidavros theater"],
   },
   {
     slug: "nafplio-beekeeping-tour",
@@ -128,6 +152,8 @@ const culinaryTours = [
     price: "€110",
     type: "Private",
     image: "/images/malevi-tour-hero-1.jpg",
+    icon: Compass,
+    highlights: ["Family apiary", "Traditional beekeeping", "Greek honey"],
   },
   {
     slug: "nafplio-malevi-tour",
@@ -137,6 +163,8 @@ const culinaryTours = [
     price: "€160",
     type: "Private",
     image: "/images/malevi-tour-hero-2.jpg",
+    icon: Wine,
+    highlights: ["Malevi Monastery", "Monastery wines", "Ancient techniques"],
   },
 ];
 
@@ -149,6 +177,8 @@ const adventureTours = [
     price: "€85",
     type: "Small Group",
     image: "/images/nafplio-kayak-tour-hero-1.jpg",
+    icon: Anchor,
+    highlights: ["Bourtzi fortress", "Hidden coves", "Argolic Gulf"],
   },
   {
     slug: "nafplio-sunken-kayak-tour",
@@ -158,6 +188,8 @@ const adventureTours = [
     price: "€95",
     type: "Small Group",
     image: "/images/nafplio-sunken-kayak-tour-hero-1.jpg",
+    icon: Anchor,
+    highlights: ["Sunken city", "Snorkeling", "Ancient ruins"],
   },
   {
     slug: "nafplio-hiking-lousios",
@@ -167,6 +199,8 @@ const adventureTours = [
     price: "€180",
     type: "Private",
     image: "/images/nafplio-hiking-lousios-tour-hero-1.jpg",
+    icon: Mountain,
+    highlights: ["Spectacular gorge", "Cliff monasteries", "Waterfalls"],
   },
   {
     slug: "nafplio-hiking-vytina-elati",
@@ -176,6 +210,8 @@ const adventureTours = [
     price: "€160",
     type: "Private",
     image: "/images/nafplio-hiking-vytina-tour-hero-1.jpg",
+    icon: Mountain,
+    highlights: ["Forested trails", "Mountain villages", "Arcadia"],
   },
   {
     slug: "nafplio-hiking-karathona-beach",
@@ -185,6 +221,8 @@ const adventureTours = [
     price: "€90",
     type: "Private",
     image: "/images/nafplio-hiking-karathona-tour-hero-1.jpg",
+    icon: Mountain,
+    highlights: ["Ancient paths", "Olive groves", "Karathona Beach"],
   },
   {
     slug: "nafplio-hiking-mycenae",
@@ -194,6 +232,8 @@ const adventureTours = [
     price: "€150",
     type: "Private",
     image: "/images/nafplio-hiking-mycenae-tour-hero-1.jpg",
+    icon: Mountain,
+    highlights: ["Hiking & archaeology", "Mycenae trails", "Ancient site"],
   },
 ];
 
@@ -256,6 +296,7 @@ export default function NafplioToursPage() {
         title="Sightseeing & Historical Tours"
         description="Discover the most important archaeological sites and historic destinations accessible from Nafplio. From UNESCO World Heritage Sites to hidden Byzantine treasures, our expert guides bring ancient Greece to life."
         tours={sightseeingTours}
+        baseSlug="nafplio"
         bgColor="bg-sand-50"
       />
 
@@ -265,6 +306,7 @@ export default function NafplioToursPage() {
         title="Culinary & Wine Experiences"
         description="Savor the authentic flavors of Greece with our food tours, wine tastings, cooking classes, and unique culinary experiences. From family tavernas in Nafplio's old town to world-renowned Nemea wineries."
         tours={culinaryTours}
+        baseSlug="nafplio"
         bgColor="bg-white"
       />
 
@@ -274,6 +316,7 @@ export default function NafplioToursPage() {
         title="Adventure & Nature Tours"
         description="Experience the Peloponnese's stunning natural landscapes through kayaking, hiking, and outdoor adventures. From sea caves to mountain gorges, discover Greece's wild beauty."
         tours={adventureTours}
+        baseSlug="nafplio"
         bgColor="bg-sand-50"
       />
 
@@ -350,12 +393,14 @@ function TourSection({
   title, 
   description, 
   tours, 
+  baseSlug,
   bgColor = "bg-white" 
 }: { 
   subtitle: string;
   title: string; 
   description: string; 
   tours: any[]; 
+  baseSlug: string;
   bgColor?: string;
 }) {
   return (
@@ -367,7 +412,7 @@ function TourSection({
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tours.map((tour) => (
-            <TourCard key={tour.slug} tour={tour} />
+            <TourCard key={tour.slug} tour={tour} baseSlug={baseSlug} />
           ))}
         </div>
       </div>
@@ -375,45 +420,63 @@ function TourSection({
   );
 }
 
-// Tour Card Component
-function TourCard({ tour }: { tour: any }) {
+// Tour Card Component - UPDATED TO MATCH PORTO HELI STYLE
+function TourCard({ tour, baseSlug }: { tour: any; baseSlug: string }) {
+  const IconComponent = tour.icon || Compass;
+  
   return (
     <Link 
-      href={`/tours/nafplio/${tour.slug}`} 
-      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-sand-200"
+      href={`/tours/${baseSlug}/${tour.slug}`} 
+      className="group bg-white rounded-2xl shadow-lg overflow-hidden border border-sand-200 hover:shadow-xl transition-all duration-300"
     >
-      <div className="relative h-56 overflow-hidden">
-        <Image
-          src={tour.image}
-          alt={tour.title}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+      <div className="relative h-64 overflow-hidden">
+        <Image 
+          src={tour.image} 
+          alt={tour.title} 
+          fill 
+          className="object-cover group-hover:scale-105 transition-transform duration-500" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        
+        {/* Icon badge - top left */}
         <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full">
-            {tour.type}
-          </span>
-        </div>
-        <div className="absolute bottom-4 left-4 right-4 text-white">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm">
-              <Clock className="h-4 w-4" />
-              <span>{tour.duration}</span>
-            </div>
-            <div className="text-lg font-bold">From {tour.price}</div>
+          <div className="w-12 h-12 bg-accent/90 rounded-full flex items-center justify-center">
+            <IconComponent className="h-6 w-6 text-white" />
           </div>
         </div>
+        
+        {/* Price badge - top right */}
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+          <span className="font-bold text-primary-dark">From {tour.price}</span>
+        </div>
       </div>
+      
       <div className="p-6">
-        <h3 className="font-display text-xl font-bold text-primary-dark mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-display text-2xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
           {tour.title}
         </h3>
-        <p className="text-gray-600 text-sm line-clamp-2 mb-4">{tour.description}</p>
-        <span className="inline-flex items-center text-primary font-semibold text-sm group-hover:text-accent transition-colors">
-          View Tour Details
-          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </span>
+        <p className="text-gray-600 mb-4 line-clamp-2">{tour.description}</p>
+        
+        {/* Highlights tags */}
+        {tour.highlights && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tour.highlights.map((highlight: string, idx: number) => (
+              <span key={idx} className="text-xs bg-sand-100 text-gray-700 px-3 py-1 rounded-full">
+                {highlight}
+              </span>
+            ))}
+          </div>
+        )}
+        
+        <div className="flex items-center justify-between pt-4 border-t border-sand-200">
+          <div className="flex items-center gap-2 text-accent">
+            <Clock className="h-4 w-4" />
+            <span className="text-sm">{tour.duration}</span>
+          </div>
+          <span className="text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+            View Details <ArrowRight className="h-4 w-4" />
+          </span>
+        </div>
       </div>
     </Link>
   );
