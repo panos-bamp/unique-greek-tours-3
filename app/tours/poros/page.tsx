@@ -153,7 +153,7 @@ export default function PorosToursPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-xl font-bold text-primary-dark mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-xl font-bold text-primary-dark mb-2 group-hover:text-accent transition-colors">
                     {tour.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{tour.description}</p>
@@ -165,11 +165,11 @@ export default function PorosToursPage() {
                     ))}
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-sand-200">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Clock className="h-4 w-4" />
+                    <div className="flex items-center gap-2 text-accent">
+                      <Clock className="h-4 w-4 text-accent" />
                       <span className="text-sm">{tour.duration}</span>
                     </div>
-                    <span className="text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                       View Details <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
@@ -190,28 +190,28 @@ export default function PorosToursPage() {
                 <Compass className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Easy Access</h3>
-              <p className="text-gray-600">Just 1 hour from Athens by hydrofoil, or a short ferry from Galatas</p>
+              <p className="text-accent">Just 1 hour from Athens by hydrofoil, or a short ferry from Galatas</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mountain className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Temple of Poseidon</h3>
-              <p className="text-gray-600">Ancient sanctuary where orator Demosthenes met his fate</p>
+              <p className="text-accent">Ancient sanctuary where orator Demosthenes met his fate</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Anchor className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Crystal Waters</h3>
-              <p className="text-gray-600">Perfect for kayaking, swimming, and snorkeling adventures</p>
+              <p className="text-accent">Perfect for kayaking, swimming, and snorkeling adventures</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Authentic Charm</h3>
-              <p className="text-gray-600">Iconic clock tower, waterfront tavernas, and island hospitality</p>
+              <p className="text-accent">Iconic clock tower, waterfront tavernas, and island hospitality</p>
             </div>
           </div>
         </div>

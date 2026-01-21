@@ -131,7 +131,7 @@ export default function PortoHeliToursPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-2xl font-bold text-primary-dark mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-2xl font-bold text-primary-dark mb-3 group-hover:text-accent transition-colors">
                     {tour.title}
                   </h3>
                   <p className="text-gray-600 mb-4 line-clamp-2">{tour.description}</p>
@@ -143,11 +143,11 @@ export default function PortoHeliToursPage() {
                     ))}
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-sand-200">
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Clock className="h-4 w-4" />
+                    <div className="flex items-center gap-2 text-accent">
+                      <Clock className="h-4 w-4 text-accent" />
                       <span className="text-sm">{tour.duration}</span>
                     </div>
-                    <span className="text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                       View Details <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
@@ -168,28 +168,28 @@ export default function PortoHeliToursPage() {
                 <Anchor className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Greek Riviera</h3>
-              <p className="text-gray-600">Exclusive atmosphere with crystal-clear waters and sophisticated marina</p>
+              <p className="text-accent">Exclusive atmosphere with crystal-clear waters and sophisticated marina</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Compass className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Ancient Epidavros</h3>
-              <p className="text-gray-600">Just 30 minutes from the most acoustically perfect ancient theater</p>
+              <p className="text-accent">Just 30 minutes from the most acoustically perfect ancient theater</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MapPin className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Gateway to Mycenae</h3>
-              <p className="text-gray-600">Easy access to the legendary citadel of King Agamemnon</p>
+              <p className="text-accent">Easy access to the legendary citadel of King Agamemnon</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Wine className="h-8 w-8 text-accent" />
               </div>
               <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Wine Country</h3>
-              <p className="text-gray-600">Close to Nemea's renowned wineries and local gastronomic treasures</p>
+              <p className="text-accent">Close to Nemea's renowned wineries and local gastronomic treasures</p>
             </div>
           </div>
         </div>
