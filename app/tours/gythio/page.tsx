@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Clock, MapPin, Star, Compass, Anchor, Castle, Landmark } from "lucide-react";
+import { ArrowRight, Clock, MapPin, Star, Compass, Anchor, Castle, Landmark, Mountain } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -123,23 +123,38 @@ export default function GythioPage() {
       </section>
 
       {/* Why Gythio Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl mb-6">Why Visit Gythio?</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Diros Caves", desc: "One of Europe's most spectacular cave systems, explored by underground boat" },
-              { title: "Gateway to Mani", desc: "Starting point for exploring the wild and dramatic Mani Peninsula" },
-              { title: "Ancient Sparta", desc: "Close proximity to legendary Sparta and Byzantine Mystras" },
-              { title: "Medieval Monemvasia", desc: "Easy access to the stunning 'Gibraltar of the East'" },
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <h3 className="font-display text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-blue-100">{item.desc}</p>
+          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-12">Why Visit Gythio?</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Anchor className="h-8 w-8 text-accent" />
               </div>
-            ))}
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Diros Caves</h3>
+              <p className="text-gray-600">One of Europe's most spectacular cave systems, explored by underground boat</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mountain className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Gateway to Mani</h3>
+              <p className="text-gray-600">Starting point for exploring the wild and dramatic Mani Peninsula</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Landmark className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Ancient Sparta</h3>
+              <p className="text-gray-600">Close proximity to legendary Sparta and Byzantine Mystras</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Castle className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Medieval Monemvasia</h3>
+              <p className="text-gray-600">Easy access to the stunning 'Gibraltar of the East'</p>
+            </div>
           </div>
         </div>
       </section>

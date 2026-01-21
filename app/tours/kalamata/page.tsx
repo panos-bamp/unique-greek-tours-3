@@ -146,23 +146,38 @@ export default function KalamataPage() {
       </section>
 
       {/* Why Kalamata Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl mb-6">Why Visit Kalamata?</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "World-Famous Olives", desc: "Home to the legendary Kalamata olive and some of the finest olive oil in the Mediterranean" },
-              { title: "Gateway to Olympia", desc: "Just 2 hours from Ancient Olympia, birthplace of the Olympic Games" },
-              { title: "Dramatic Mani Coast", desc: "Access to the wild beauty of the Mani Peninsula with its tower villages and caves" },
-              { title: "Pristine Beaches", desc: "Stunning coastline including the crystal-clear waters of Navarino Bay" },
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <h3 className="font-display text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-blue-100">{item.desc}</p>
+          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-12">Why Visit Kalamata?</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Wine className="h-8 w-8 text-accent" />
               </div>
-            ))}
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">World-Famous Olives</h3>
+              <p className="text-gray-600">Home to the legendary Kalamata olive and some of the finest olive oil in the Mediterranean</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Compass className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Gateway to Olympia</h3>
+              <p className="text-gray-600">Just 2 hours from Ancient Olympia, birthplace of the Olympic Games</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mountain className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Dramatic Mani Coast</h3>
+              <p className="text-gray-600">Access to the wild beauty of the Mani Peninsula with its tower villages and caves</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Ship className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Pristine Beaches</h3>
+              <p className="text-gray-600">Stunning coastline including the crystal-clear waters of Navarino Bay</p>
+            </div>
           </div>
         </div>
       </section>

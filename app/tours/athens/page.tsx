@@ -110,23 +110,38 @@ export default function AthensPage() {
       </section>
 
       {/* Why Athens Section */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl mb-6">Why Visit Athens?</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: "Ancient Heritage", desc: "Home to the Acropolis, one of the most important monuments in Western history" },
-              { title: "Cultural Capital", desc: "World-class museums, theaters, and galleries celebrating 5,000 years of history" },
-              { title: "Vibrant Neighborhoods", desc: "From historic Plaka to trendy Kolonaki, each district offers unique character" },
-              { title: "Gateway to Greece", desc: "Perfect starting point for exploring the Peloponnese and Greek islands" },
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <h3 className="font-display text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-blue-100">{item.desc}</p>
+          <h2 className="font-display text-4xl md:text-5xl text-primary text-center mb-12">Why Visit Athens?</h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Landmark className="h-8 w-8 text-accent" />
               </div>
-            ))}
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Ancient Heritage</h3>
+              <p className="text-gray-600">Home to the Acropolis, one of the most important monuments in Western history</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Cultural Capital</h3>
+              <p className="text-gray-600">World-class museums, theaters, and galleries celebrating 5,000 years of history</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Vibrant Neighborhoods</h3>
+              <p className="text-gray-600">From historic Plaka to trendy Kolonaki, each district offers unique character</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Compass className="h-8 w-8 text-accent" />
+              </div>
+              <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Gateway to Greece</h3>
+              <p className="text-gray-600">Perfect starting point for exploring the Peloponnese and Greek islands</p>
+            </div>
           </div>
         </div>
       </section>
