@@ -1,66 +1,136 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, ArrowRight } from "lucide-react";
 
-export default function EightDayGreeceTripPage() {
+const gallery = [
+  "/images/eight-day-greece-hero-1.jpg",
+  "/images/eight-day-greece-hero-2.jpg",
+  "/images/eight-day-greece-hero-3.jpg",
+];
+
+const highlights = [
+  "Acropolis of Athens and Acropolis Museum",
+  "Traditional taverna dinner in Plaka",
+  "Meteora monasteries and sunset views",
+  "Delphi archaeological site and oracle",
+  "Mountain village of Arahova",
+  "Ancient Olympia stadium and Temple of Zeus",
+  "Hermes statue by Praxiteles",
+  "Ancient Mycenae and Lion Gate",
+  "Wine tasting in Nemea region",
+  "Overnight in romantic Nafplion",
+  "Ancient Theater of Epidavros",
+  "Multiple UNESCO World Heritage Sites",
+];
+
+const included = [
+  "7 nights accommodation in selected hotels",
+  "Daily breakfast",
+  "Private transportation throughout the tour",
+  "English-speaking professional driver/guide",
+  "Pick up and drop off from your hotel in Athens",
+  "Entrance fees to archaeological sites",
+  "Wine tasting in Nemea",
+  "Liability insurance",
+  "All taxes and road tolls",
+];
+
+export default function EightDayGreeceTrip() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % gallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col">
       {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-200 py-3">
-        <div className="max-w-7xl mx-auto px-4">
+      <div className="bg-sand-50 py-4 border-b border-gray-100">
+        <div className="container-custom">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/trips" className="hover:text-blue-600">
-              MULTI-DAY TRIPS
-            </Link>
+            <Link href="/trips" className="hover:text-primary">MULTI-DAY TRIPS</Link>
             <span>/</span>
-            <span className="text-gray-900">8-Day Classical Greece Tour</span>
+            <span className="text-primary">8-Day Classical Greece Tour</span>
           </div>
         </div>
       </div>
 
-      {/* Hero Image */}
-      <section className="relative h-[60vh] min-h-[400px]">
-        <Image
-          src="/images/eight-day-greece-hero-1.jpg"
-          alt="8-day classical greece tour gallery"
-          fill
-          className="object-cover"
-          priority
-        />
-      </section>
-
-      {/* Title and Metadata */}
-      <section className="py-8 px-4 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            8-Day Classical Greece Tour
-          </h1>
-          <div className="flex flex-wrap gap-8 text-gray-700">
-            <div>
-              <span className="font-semibold">Duration:</span> 8 days
-            </div>
-            <div>
-              <span className="font-semibold">Group Size:</span> Private tour
-            </div>
-            <div>
-              <span className="font-semibold">Season:</span> Year-round
-            </div>
-            <div>
-              <span className="font-semibold">Meeting:</span> Athens hotel
-            </div>
+      {/* Hero Gallery Section */}
+      <section className="relative">
+        <div className="relative h-[70vh]">
+          <Image
+            src={gallery[currentImage]}
+            alt="8-day classical greece tour gallery"
+            fill
+            className="object-cover"
+            priority
+          />
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
+            <ChevronLeft className="h-6 w-6 text-primary" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
+            <ChevronRight className="h-6 w-6 text-primary" />
+          </button>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {gallery.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left Column - Content */}
-            <div className="lg:col-span-2 space-y-12">
+            {/* Left Column - Main Content */}
+            <div className="lg:col-span-2">
+              <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
+                8-Day Classical Greece Tour
+              </h1>
+
+              <div className="flex flex-wrap gap-6 mb-8 text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-accent" />
+                  <span>8 days</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="h-5 w-5 text-accent" />
+                  <span>Private tour</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-5 w-5 text-accent" />
+                  <span>Year-round</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-5 w-5 text-accent" />
+                  <span>Athens hotel</span>
+                </div>
+              </div>
+
               {/* Overview */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
-                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">Overview</h2>
+                <div className="prose prose-lg max-w-none text-gray-700 space-y-4 leading-relaxed">
                   <p>
                     Embark on an unforgettable 8-day journey through Classical Greece, visiting the most famous monuments and archaeological sites of ancient Greek civilization.
                   </p>
@@ -77,48 +147,47 @@ export default function EightDayGreeceTripPage() {
               </div>
 
               {/* What You Can Expect */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">What You Can Expect</h2>
-                
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Athens: Acropolis & Museum</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-display text-xl text-primary mb-2">Athens: Acropolis & Museum</h3>
+                    <p className="text-gray-700 leading-relaxed">
                       Explore the iconic Acropolis with the Parthenon, Erechtheion, and Temple of Athena Nike. Visit the world-class Acropolis Museum and stroll through the charming Plaka neighborhood.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Meteora: Monasteries in the Sky</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-display text-xl text-primary mb-2">Meteora: Monasteries in the Sky</h3>
+                    <p className="text-gray-700 leading-relaxed">
                       Marvel at the Byzantine monasteries perched atop towering rock formations. Visit multiple monasteries and witness spectacular sunset views over this UNESCO World Heritage Site.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Delphi: The Oracle's Sanctuary</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-display text-xl text-primary mb-2">Delphi: The Oracle's Sanctuary</h3>
+                    <p className="text-gray-700 leading-relaxed">
                       Discover the sacred sanctuary of Apollo and the famous oracle of Delphi. Explore the archaeological museum and visit the mountain village of Arahova.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Ancient Olympia: Birthplace of Olympics</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-display text-xl text-primary mb-2">Ancient Olympia: Birthplace of Olympics</h3>
+                    <p className="text-gray-700 leading-relaxed">
                       Walk through the ancient Olympic stadium, visit the Temple of Zeus, and admire the famous Hermes statue in the archaeological museum.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Mycenae & Nemea Wine Tasting</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-display text-xl text-primary mb-2">Mycenae & Nemea Wine Tasting</h3>
+                    <p className="text-gray-700 leading-relaxed">
                       Explore the legendary kingdom of Agamemnon with the Lion Gate and tomb of Atreus, followed by wine tasting in the renowned Nemea wine region.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Nafplion & Epidavros</h3>
-                    <p className="text-gray-700">
+                    <h3 className="font-display text-xl text-primary mb-2">Nafplion & Epidavros</h3>
+                    <p className="text-gray-700 leading-relaxed">
                       Stay in romantic Nafplion and visit the ancient theater of Epidavros with its perfect acoustics and the healing sanctuary of Asclepius.
                     </p>
                   </div>
@@ -126,39 +195,30 @@ export default function EightDayGreeceTripPage() {
               </div>
 
               {/* Tour Highlights */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Tour Highlights</h2>
-                <div className="space-y-2 text-gray-700">
-                  <p>Acropolis of Athens and Acropolis Museum</p>
-                  <p>Traditional taverna dinner in Plaka</p>
-                  <p>Meteora monasteries and sunset views</p>
-                  <p>Delphi archaeological site and oracle</p>
-                  <p>Mountain village of Arahova</p>
-                  <p>Ancient Olympia stadium and Temple of Zeus</p>
-                  <p>Hermes statue by Praxiteles</p>
-                  <p>Ancient Mycenae and Lion Gate</p>
-                  <p>Wine tasting in Nemea region</p>
-                  <p>Overnight in romantic Nafplion</p>
-                  <p>Ancient Theater of Epidavros</p>
-                  <p>Multiple UNESCO World Heritage Sites</p>
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{highlight}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               {/* What is Included */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">What is Included</h2>
-                <div className="space-y-2 text-gray-700">
-                  <p>7 nights accommodation in selected hotels</p>
-                  <p>Daily breakfast</p>
-                  <p>Private transportation throughout the tour</p>
-                  <p>English-speaking professional driver/guide</p>
-                  <p>Pick up and drop off from your hotel in Athens</p>
-                  <p>Entrance fees to archaeological sites</p>
-                  <p>Wine tasting in Nemea</p>
-                  <p>Liability insurance</p>
-                  <p>All taxes and road tolls</p>
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
+                <div className="grid md:grid-cols-2 gap-3 mb-6">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
-                <p className="mt-6 font-bold text-gray-900">
+                <p className="font-semibold text-primary">
                   **Flexible itinerary that can be customized to your preferences**
                 </p>
               </div>
@@ -166,54 +226,79 @@ export default function EightDayGreeceTripPage() {
 
             {/* Right Column - Booking Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-gray-50 p-6 rounded-lg sticky top-24">
-                <div className="text-center mb-6">
+              <div className="bg-sand-50 p-6 rounded-2xl shadow-lg sticky top-24">
+                <div className="text-center mb-6 pb-6 border-b border-gray-200">
                   <p className="text-sm text-gray-600 mb-2">From</p>
-                  <p className="text-4xl font-bold text-gray-900 mb-1">€1,850</p>
+                  <p className="font-display text-5xl font-bold text-primary mb-1">€1,850</p>
                   <p className="text-sm text-gray-600">per person</p>
                 </div>
 
-                <div className="space-y-3 text-sm mb-6">
-                  <div>
-                    <span className="font-semibold text-gray-900">Duration:</span>
-                    <span className="text-gray-700">8 days</span>
+                <div className="space-y-4 mb-6 pb-6 border-b border-gray-200">
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <Clock className="h-5 w-5 text-accent" />
+                    <div>
+                      <p className="text-sm text-gray-500">Duration</p>
+                      <p className="font-semibold">8 days</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-semibold text-gray-900">Meeting:</span>
-                    <span className="text-gray-700">Athens hotel</span>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <MapPin className="h-5 w-5 text-accent" />
+                    <div>
+                      <p className="text-sm text-gray-500">Meeting Point</p>
+                      <p className="font-semibold">Athens hotel</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-semibold text-gray-900">Period:</span>
-                    <span className="text-gray-700">All year</span>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <Calendar className="h-5 w-5 text-accent" />
+                    <div>
+                      <p className="text-sm text-gray-500">Period</p>
+                      <p className="font-semibold">All year</p>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-semibold text-gray-900">Tour Type:</span>
-                    <span className="text-gray-700">Private</span>
+                  <div className="flex items-center gap-3 text-gray-700">
+                    <Users className="h-5 w-5 text-accent" />
+                    <div>
+                      <p className="text-sm text-gray-500">Tour Type</p>
+                      <p className="font-semibold">Private</p>
+                    </div>
                   </div>
                 </div>
 
                 <Link
                   href="/contact"
-                  className="block w-full bg-blue-600 hover:bg-blue-700 text-white text-center py-3 rounded font-semibold transition-colors mb-4"
+                  className="btn-primary w-full justify-center mb-4"
                 >
                   Book This Tour
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
 
                 <p className="text-center text-sm text-gray-600 mb-6">
                   Reserve now and pay later
                 </p>
 
-                <div className="border-t border-gray-300 pt-4">
-                  <h3 className="font-bold text-gray-900 mb-2">Questions?</h3>
-                  <p className="text-sm text-gray-700 mb-3">
+                <div className="pt-6 border-t border-gray-200">
+                  <h3 className="font-semibold text-primary mb-2">Questions?</h3>
+                  <p className="text-sm text-gray-600 mb-3">
                     Contact our team for personalized assistance
                   </p>
                   <a
                     href="tel:+302752024444"
-                    className="text-blue-600 hover:text-blue-700 text-sm font-semibold"
+                    className="text-accent hover:text-accent-dark text-sm font-semibold"
                   >
                     Call (+30) 27520 24444
                   </a>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-gray-200">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                      ))}
+                    </div>
+                    <span className="text-sm font-semibold text-gray-700">5.0</span>
+                  </div>
+                  <p className="text-sm text-gray-600">Based on 150+ reviews</p>
                 </div>
               </div>
             </div>
@@ -221,33 +306,27 @@ export default function EightDayGreeceTripPage() {
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <Image
-            src="/images/eight-day-greece-hero-3.jpg"
-            alt="Classical Greece landscapes"
-            width={1200}
-            height={600}
-            className="rounded-lg w-full"
-          />
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+      <section className="relative py-32 overflow-hidden">
+        <Image
+          src="/images/eight-day-greece-hero-3.jpg"
+          alt="Book 8-Day Classical Greece Tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center text-white">
+          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
             Ready to Explore Classical Greece?
           </h2>
-          <p className="text-lg text-gray-700 mb-8">
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
             Book your 8-Day Classical Greece Tour and discover the wonders of ancient civilization with expert local guides.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded font-semibold transition-colors"
+          <Link 
+            href="/contact" 
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all text-lg"
           >
             Book Now
+            <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
       </section>

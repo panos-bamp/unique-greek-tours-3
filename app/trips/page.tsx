@@ -1,147 +1,189 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { Calendar, Users, MapPin, ArrowRight, Clock } from "lucide-react";
+
+const trips = [
+  {
+    title: "2-Day Classic Tour in Nafplio",
+    slug: "/trips/two-day-classic-trip",
+    duration: "2 days",
+    groupSize: "Private tour",
+    price: "€380",
+    image: "/images/two-day-classic-hero-1.jpg",
+    description: "Explore ancient Mycenae, charming Nafplion, and the famous Epidavros Theater. Stay overnight in romantic Nafplion.",
+    highlights: ["Corinth Canal", "Ancient Mycenae", "Nafplion Old Town", "Epidavros Theater"],
+    location: "From Athens",
+  },
+  {
+    title: "8-Day Classical Greece Tour",
+    slug: "/trips/eight-day-greece-trip",
+    duration: "8 days",
+    groupSize: "Private tour",
+    price: "€1,850",
+    image: "/images/eight-day-greece-hero-1.jpg",
+    description: "The ultimate journey through Classical Greece visiting Athens, Meteora, Delphi, Ancient Olympia, and Nafplion.",
+    highlights: ["Athens Acropolis", "Meteora Monasteries", "Delphi Oracle", "Ancient Olympia"],
+    location: "From Athens",
+  },
+];
 
 export default function TripsPage() {
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col">
+      {/* Breadcrumb */}
+      <div className="bg-sand-50 py-4 border-b border-gray-100">
+        <div className="container-custom">
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <Link href="/" className="hover:text-primary">HOME</Link>
+            <span>/</span>
+            <span className="text-primary">MULTI-DAY TRIPS</span>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center">
         <Image
-          src="/images/two-day-classic-hero-1.jpg"
-          alt="Multi-Day Group Trips"
+          src="/images/hero-collage.jpg"
+          alt="Multi-Day Greece Tours"
           fill
-          className="object-cover"
+          className="object-cover brightness-50"
           priority
         />
-        <div className="absolute inset-0 bg-black/40" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+        <div className="container-custom relative z-10 text-center text-white">
+          <p className="text-accent-light uppercase tracking-widest text-sm mb-4 animate-fade-in">EXTENDED ADVENTURES</p>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl mb-6 font-bold animate-slide-up">
             Multi-Day Group Trips
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
             Immerse yourself in the rich history and stunning landscapes of Greece with our carefully curated multi-day tours
           </p>
         </div>
       </section>
 
-      {/* Intro Text */}
-      <section className="py-12 px-4 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Our multi-day trips offer a comprehensive exploration of Greece's most iconic destinations. From ancient ruins to breathtaking landscapes, each journey is carefully designed to provide an authentic and unforgettable experience. Travel with expert local guides who bring history to life and discover hidden gems along the way.
-          </p>
-        </div>
-      </section>
+      {/* Trips Listing */}
+      <section className="py-24 bg-white">
+        <div className="container-custom">
+          <div className="space-y-12">
+            {trips.map((trip, index) => (
+              <Link
+                key={index}
+                href={trip.slug}
+                className="group block bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="grid lg:grid-cols-5 gap-0">
+                  {/* Image */}
+                  <div className="lg:col-span-2 relative h-80 lg:h-auto">
+                    <Image
+                      src={trip.image}
+                      alt={trip.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 right-4 bg-white px-4 py-2 rounded-lg shadow-md">
+                      <span className="font-bold text-primary">From {trip.price}</span>
+                    </div>
+                  </div>
 
-      {/* Trip Cards */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Available Tours</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {/* 2-Day Classic Tour */}
-            <Link href="/trips/two-day-classic-trip" className="group block bg-white rounded-lg overflow-hidden border border-gray-200 shadow hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image 
-                  src="/images/two-day-classic-hero-1.jpg" 
-                  alt="2-Day Classical Tour in Nafplio" 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-300" 
-                />
-                <div className="absolute top-4 right-4 bg-white px-4 py-2 rounded font-bold text-gray-900">
-                  From €380
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-sm text-gray-600 mb-2">2 Days • From Athens</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  2-Day Classic Tour in Nafplio
-                </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  Explore ancient Mycenae, charming Nafplion, and the famous Epidavros Theater on this two-day adventure through the heart of the Argolida region.
-                </p>
-                <div className="flex items-center text-blue-600 font-semibold">
-                  View Full Itinerary
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
+                  {/* Content */}
+                  <div className="lg:col-span-3 p-8 lg:p-10">
+                    <p className="text-sm text-accent uppercase tracking-wider mb-3">{trip.location}</p>
+                    
+                    <h2 className="font-display text-3xl md:text-4xl text-primary mb-4 group-hover:text-accent transition-colors">
+                      {trip.title}
+                    </h2>
 
-            {/* 8-Day Classical Greece Tour */}
-            <Link href="/trips/eight-day-greece-trip" className="group block bg-white rounded-lg overflow-hidden border border-gray-200 shadow hover:shadow-xl transition-shadow">
-              <div className="relative h-64">
-                <Image 
-                  src="/images/eight-day-greece-hero-1.jpg" 
-                  alt="8-Day Classical Greece Tour" 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-300" 
-                />
-                <div className="absolute top-4 right-4 bg-white px-4 py-2 rounded font-bold text-gray-900">
-                  From €1,850
+                    <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                      {trip.description}
+                    </p>
+
+                    {/* Metadata */}
+                    <div className="flex flex-wrap gap-6 mb-6 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-5 w-5 text-accent" />
+                        <span>{trip.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="h-5 w-5 text-accent" />
+                        <span>{trip.groupSize}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-5 w-5 text-accent" />
+                        <span>All year</span>
+                      </div>
+                    </div>
+
+                    {/* Highlights */}
+                    <div className="mb-6">
+                      <h3 className="font-semibold text-primary mb-3">Highlights:</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {trip.highlights.map((highlight, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-sand-50 text-gray-700 text-sm rounded-full"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                      View Full Itinerary
+                      <ArrowRight className="h-5 w-5" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <p className="text-sm text-gray-600 mb-2">8 Days • From Athens</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  8-Day Classical Greece Tour
-                </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  The ultimate journey through Classical Greece visiting Athens, Meteora, Delphi, Ancient Olympia, Mycenae, Nafplion, and Epidavros.
-                </p>
-                <div className="flex items-center text-blue-600 font-semibold">
-                  View Full Itinerary
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Why Choose Our Multi-Day Tours</h2>
-          
+      {/* Why Choose Multi-Day Tours */}
+      <section className="py-24 bg-sand-50">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <p className="text-accent uppercase tracking-widest text-sm mb-4">EXPERIENCE MORE</p>
+            <h2 className="section-heading mb-6">
+              Why Choose Multi-Day Tours?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Go beyond day trips and truly immerse yourself in Greek culture, history, and landscapes
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                <MapPin className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Local Guides</h3>
-              <p className="text-gray-700">
-                All tours led by licensed guides with deep knowledge of Greek history and culture
+              <h3 className="font-display text-2xl text-primary mb-4">Comprehensive Exploration</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Visit multiple UNESCO World Heritage Sites and explore regions in depth that single-day tours can't reach.
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                <Users className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Small Groups</h3>
-              <p className="text-gray-700">
-                Private tours ensuring personalized attention and flexibility throughout your journey
+              <h3 className="font-display text-2xl text-primary mb-4">Small Group Experience</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Travel with like-minded explorers in intimate groups, creating lasting friendships and shared memories.
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                <Calendar className="h-8 w-8 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">All-Inclusive</h3>
-              <p className="text-gray-700">
-                Accommodation, transportation, and entrance fees included for a hassle-free experience
+              <h3 className="font-display text-2xl text-primary mb-4">Hassle-Free Planning</h3>
+              <p className="text-gray-600 leading-relaxed">
+                We handle all accommodations, transportation, and logistics so you can focus on enjoying your journey.
               </p>
             </div>
           </div>
@@ -149,26 +191,33 @@ export default function TripsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 px-4">
-        <Image 
-          src="/images/eight-day-greece-hero-3.jpg" 
-          alt="Book your tour" 
-          fill 
-          className="object-cover" 
+      <section className="relative py-32 overflow-hidden">
+        <Image
+          src="/images/monemvasia-tour-hero-1.jpg"
+          alt="Book your multi-day Greece tour"
+          fill
+          className="object-cover brightness-40"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">Ready to Explore Classical Greece?</h2>
-          <p className="text-xl mb-10">
-            Book your multi-day tour today and discover the wonders of ancient Greece with expert local guides
+        <div className="container-custom relative z-10 text-center text-white">
+          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
+            Ready for an Epic Greek Adventure?
+          </h2>
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+            Join us on a journey through ancient Greece and create memories that will last a lifetime
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded font-semibold transition-colors">
-              Contact Us
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-all text-lg"
+            >
+              Book Now
+              <ArrowRight className="h-5 w-5" />
             </Link>
-            <Link href="/tours" className="inline-block bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded font-semibold transition-colors">
-              View Day Tours
+            <Link 
+              href="/plan-trip" 
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-primary transition-all text-lg"
+            >
+              Customize Your Trip
             </Link>
           </div>
         </div>
