@@ -111,7 +111,7 @@ export default function TwoDayClassicTripPage() {
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Ancient Theater of Epidavros</h3>
                     <p className="text-gray-700">
-                      Visit the UNESCO World Heritage Site with perfect acoustics and the sacred Asclepion healing center.
+                      Visit the UNESCO World Heritage theater with perfect acoustics and the sacred Asclepion healing center.
                     </p>
                   </div>
 
