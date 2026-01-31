@@ -73,3 +73,35 @@ body {
     @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
   }
 }
+
+/* =============================================
+   FareHarbor Integration Styles
+   ============================================= */
+
+/* Subtle pulse animation for floating book button */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* FareHarbor calendar container styling */
+.fareharbor-calendar-container {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.fareharbor-calendar-container iframe {
+  display: block;
+}

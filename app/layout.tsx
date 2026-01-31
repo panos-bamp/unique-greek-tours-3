@@ -1,3 +1,5 @@
+import FareHarborScript from "@/components/FareHarborScript";
+import FloatingBookButton from "@/components/FloatingBookButton";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
@@ -26,6 +28,14 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
+        
+        {/* FareHarbor Booking Integration */}
+        <FareHarborScript />
+        <FloatingBookButton 
+          position="bottom-right" 
+          showAfterScroll={300}
+          hideOnPages={['/contact', '/book']}
+        />
       </body>
     </html>
   );
