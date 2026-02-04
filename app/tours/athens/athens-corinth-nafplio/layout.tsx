@@ -89,7 +89,7 @@ export default function CorinthNafplioTourLayout({
     },
     offers: {
       "@type": "Offer",
-      price: "320",
+      price: "350",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: "https://unique-greek-tours-3.vercel.app/tours/athens/athens-corinth-nafplio",

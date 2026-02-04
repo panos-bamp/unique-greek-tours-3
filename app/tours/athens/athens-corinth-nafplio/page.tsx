@@ -39,20 +39,15 @@ const highlights = [
 ];
 
 const included = [
-  "Private transportation from Athens and back",
-  "Professional English-speaking driver",
-  "All taxes and liability insurance",
-  "Bottled water during the tour",
-  "Free time for lunch in Nafplio",
-  "Flexible itinerary tailored to your interests",
+  "Return transportation from Athens",
+  "Liability insurance",
+  "All taxes",
 ];
 
 const notIncluded = [
-  "Professional licensed guide (available upon request)",
-  "Entrance tickets to archaeological sites",
-  "Meals and drinks",
+  "Licensed guide (available upon request)",
+  "Entrance fees to archaeological sites",
   "Personal expenses",
-  "Gratuities (optional)",
 ];
 
 export default function CorinthNafplioTourPage() {
@@ -393,7 +388,7 @@ export default function CorinthNafplioTourPage() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €320
+                      €350
                     </div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
@@ -418,7 +413,7 @@ export default function CorinthNafplioTourPage() {
                   </div>
 
                   <Link
-                    href="/contact"
+                    href="/tour-request?tour=Corinth Canal, Epidavros, Nafplio City & Mycenae Tour"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
                     Book This Tour
@@ -469,7 +464,7 @@ export default function CorinthNafplioTourPage() {
             the Peloponnese. Book your private tour today!
           </p>
           <Link
-            href="/contact"
+            href="/tour-request?tour=Corinth Canal, Epidavros, Nafplio City & Mycenae Tour"
             className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white inline-flex items-center gap-2"
           >
             Book Now
