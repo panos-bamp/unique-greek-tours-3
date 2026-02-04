@@ -17,7 +17,8 @@ import {
   Compass,
   Castle,
   Eye,
-  Camera
+  Camera,
+  Star
 } from "lucide-react";
 
 const gallery = [
@@ -334,122 +335,114 @@ export default function CorinthNafplioTourPage() {
                   {highlights.map((highlight, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-3 text-gray-700"
+                      className="flex items-start gap-3"
                     >
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">{highlight}</span>
+                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* What's Included */}
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h2 className="font-display text-2xl text-primary mb-4">
-                    What's Included
-                  </h2>
-                  <ul className="space-y-3">
+              {/* What is Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">
+                  What is Included
+                </h2>
+                <div className="bg-sand-50 rounded-2xl p-8">
+                  <div className="grid md:grid-cols-2 gap-4">
                     {included.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-gray-700">
+                      <div key={idx} className="flex items-start gap-3">
                         <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
+                        <span className="text-gray-700">{item}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                  <div className="mt-6 pt-6 border-t border-sand-200">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                <div>
-                  <h2 className="font-display text-2xl text-primary mb-4">
-                    Not Included
-                  </h2>
-                  <ul className="space-y-3">
+              {/* Not Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">
+                  Not Included
+                </h2>
+                <div className="bg-gray-50 rounded-2xl p-8">
+                  <div className="space-y-3">
                     {notIncluded.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-gray-600">
-                        <span className="text-gray-400 mt-1">•</span>
+                      <div key={idx} className="flex items-start gap-3 text-gray-700">
+                        <span className="text-red-500">✕</span>
                         <span>{item}</span>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Booking Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-8">
-                <div className="bg-sand-50 rounded-2xl p-8 shadow-lg border border-sand-200">
-                  <div className="mb-6">
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-bold text-primary">€320</span>
-                      <span className="text-gray-600">per person</span>
+              <div className="sticky top-24 space-y-6">
+                {/* Booking Card */}
+                <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
+                  <div className="text-center mb-6 pb-6 border-b border-sand-200">
+                    <div className="text-sm text-gray-600 mb-2">From</div>
+                    <div className="font-display text-4xl font-bold text-primary-dark">
+                      €320
                     </div>
-                    <p className="text-sm text-gray-600">
-                      For groups of 2+ people
-                    </p>
+                    <div className="text-sm text-gray-600">per person</div>
                   </div>
 
-                  <div className="space-y-4 mb-6 text-sm">
-                    <div className="flex items-center gap-3 text-gray-700">
-                      <Clock className="h-5 w-5 text-accent flex-shrink-0" />
-                      <span>11 hours full-day tour</span>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Duration:</span>
+                      <span className="font-semibold text-gray-900">11 hours</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-700">
-                      <Users className="h-5 w-5 text-accent flex-shrink-0" />
-                      <span>Private tour</span>
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Meeting Point:</span>
+                      <span className="font-semibold text-gray-900">Athens</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-700">
-                      <MapPin className="h-5 w-5 text-accent flex-shrink-0" />
-                      <span>Pick-up from Athens</span>
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Period:</span>
+                      <span className="font-semibold text-gray-900">All year</span>
                     </div>
-                    <div className="flex items-center gap-3 text-gray-700">
-                      <Calendar className="h-5 w-5 text-accent flex-shrink-0" />
-                      <span>Available year-round</span>
+                    <div className="flex justify-between py-2">
+                      <span className="text-gray-600">Tour Type:</span>
+                      <span className="font-semibold text-gray-900">Private Tour</span>
                     </div>
                   </div>
 
                   <Link
                     href="/contact"
-                    className="btn-primary w-full flex items-center justify-center gap-2 mb-4"
+                    className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
                     Book This Tour
-                    <ArrowRight className="h-5 w-5" />
                   </Link>
 
-                  <Link
-                    href="/plan-trip"
-                    className="block text-center text-primary hover:text-accent transition-colors font-semibold"
+                  <p className="text-xs text-gray-500 text-center mt-4">
+                    Reserve now and pay later
+                  </p>
+                </div>
+
+                {/* Questions Card */}
+                <div className="bg-primary text-white rounded-2xl p-6">
+                  <h3 className="font-display text-xl font-bold mb-4">
+                    Questions?
+                  </h3>
+                  <p className="text-blue-100 mb-4">
+                    Contact our team for personalized assistance
+                  </p>
+                  <a
+                    href="tel:+302752024444"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
                   >
-                    Customize This Tour
-                  </Link>
-
-                  <div className="mt-8 pt-8 border-t border-sand-300">
-                    <h3 className="font-display text-lg font-bold text-primary mb-4">
-                      Important Information
-                    </h3>
-                    <ul className="space-y-3 text-sm text-gray-600">
-                      <li className="flex gap-2">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span>Free cancellation up to 24 hours before departure</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span>Comfortable walking shoes recommended</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span>Hat and sunscreen advised in summer</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span>Archaeological sites have uneven terrain</span>
-                      </li>
-                      <li className="flex gap-2">
-                        <Check className="h-4 w-4 text-accent flex-shrink-0 mt-0.5" />
-                        <span>Camera recommended for stunning photo opportunities</span>
-                      </li>
-                    </ul>
-                  </div>
+                    Call (+30) 27520 24444
+                  </a>
                 </div>
               </div>
             </div>
@@ -458,38 +451,30 @@ export default function CorinthNafplioTourPage() {
       </section>
 
       {/* CTA Section with Background Image */}
-      <section className="relative py-24 bg-black">
-        <Image
-          src="/images/corinth-nafplio-tour-hero-2.jpg"
-          alt="Plan your Peloponnese adventure"
-          fill
-          className="object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/80" />
-
-        <div className="container-custom relative z-10 text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/corinth-nafplio-tour-hero-2.jpg"
+            alt="Explore Ancient Greece"
+            fill
+            className="object-cover brightness-50"
+          />
+        </div>
+        <div className="container-custom relative z-10 text-center text-white">
+          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
             Ready to Explore Ancient Greece?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
             Join us for an unforgettable journey through the most iconic sites of
             the Peloponnese. Book your private tour today!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
-            >
-              Book This Tour
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/tours/athens"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-sand-50 text-primary px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 shadow-lg"
-            >
-              View More Athens Tours
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white inline-flex items-center gap-2"
+          >
+            Book Now
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
     </div>
