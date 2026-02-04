@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +16,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-export default function TourRequestPage() {
+function TourRequestForm() {
   const searchParams = useSearchParams();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [selectedTour, setSelectedTour] = useState("");
@@ -416,5 +416,20 @@ export default function TourRequestPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function TourRequestPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <TourRequestForm />
+    </Suspense>
   );
 }
