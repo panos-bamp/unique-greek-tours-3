@@ -32,7 +32,7 @@ const excluded = [
   "Personal expenses",
 ];
 
-export default function NafplioSpartaMystras Tour() {
+export default function NafplioSpartaMystras() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
