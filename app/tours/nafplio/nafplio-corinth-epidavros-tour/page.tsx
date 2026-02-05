@@ -1,39 +1,38 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Castle, Theater, Landmark, Eye, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Castle, Theater, Landmark, Columns, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/round-trip-tour-hero-1.jpg",
-  "/images/round-trip-tour-hero-2.jpg",
-  "/images/round-trip-tour-hero-3.jpg",
+  "/images/corinth-epidavros-tour-hero-1.jpg",
+  "/images/corinth-epidavros-tour-hero-2.jpg",
+  "/images/corinth-epidavros-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Visit three major UNESCO World Heritage archaeological sites",
-  "Explore Mycenae - Kingdom of Agamemnon",
-  "See the famous Lion Gate and royal tombs",
-  "Visit Ancient Corinth and Acrocorinth fortress",
-  "Experience Epidavros ancient theater",
-  "Explore the Sanctuary of Asklepios",
+  "Visit three major archaeological sites in one day",
+  "See the famous Corinth Canal",
+  "Explore Ancient Corinth and Temple of Apollo",
+  "Walk through the Lion Gate at Mycenae",
+  "Experience the perfect acoustics of Epidavros Theatre",
+  "UNESCO World Heritage sites",
 ];
 
 const included = [
-  "English-speaking tour leader",
-  "Return transportation from Nafplion",
-  "Pick up from your hotel or meeting point",
-  "Guided tour at all archaeological sites",
-  "Entrance tickets to Mycenae, Corinth, Epidavros",
-  "Stop at Corinth Canal",
-  "Comfortable air-conditioned vehicle",
+  "Return private transportation",
   "Liability insurance",
   "All taxes",
 ];
 
-export default function NafplioRoundTripTour() {
+const excluded = [
+  "Licensed guide (available upon request)",
+  "Entrance fees to archaeological sites",
+  "Personal expenses",
+];
+
+export default function NafplioCorinthEpidavrosTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -53,7 +52,7 @@ export default function NafplioRoundTripTour() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Mycenae, Ancient Corinth & Epidavros</span>
+            <span className="text-primary">Ancient Corinth, Mycenae & Epidavros Tour</span>
           </div>
         </div>
       </div>
@@ -62,7 +61,7 @@ export default function NafplioRoundTripTour() {
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Round trip Mycenae Corinth Epidavros tour"
+            alt="Corinth, Mycenae and Epidavros tour"
             fill
             className="object-cover"
             priority
@@ -98,7 +97,7 @@ export default function NafplioRoundTripTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Mycenae, Ancient Corinth & Epidavros Grand Tour
+                Ancient Corinth, Mycenae & Epidavros Grand Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
@@ -123,137 +122,86 @@ export default function NafplioRoundTripTour() {
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  The Peloponnese was considered the centre of the ancient world. On this tour from Nafplion to Mycenae, 
-                  you will have the opportunity to experience many important parts of it, as well as visit some of its 
-                  most significant archaeological sites and monuments.
+                  Experience the ultimate archaeological adventure through the Peloponnese. This comprehensive tour takes 
+                  you to three of Greece's most significant ancient sites, offering a complete journey through Classical civilization.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Starting our trip from Nafplion, our first stop is a tour to Mycenae. We will travel to the mythical 
-                  Kingdom of Agamemnon, where one of the most brilliant cultures of Greek prehistory, the Mycenaean 
-                  civilization flourished. Walk through the famous Lion Gate, explore the royal tombs, and discover the 
-                  Cyclopean walls that defended this ancient fortress.
+                  Begin at the Corinth Canal, an engineering marvel connecting two seas. Continue to Ancient Corinth to 
+                  explore the Temple of Apollo and the ancient marketplace where St. Paul preached. Visit the imposing 
+                  Acrocorinth fortress with panoramic views.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Next, we head to Ancient Corinth, one of the most important cities of ancient Greece. Visit the Temple 
-                  of Apollo, explore the ancient agora (marketplace), and see the Acrocorinth fortress towering above the 
-                  ruins. We'll also stop at the Corinth Canal, an engineering marvel connecting the Aegean and Ionian seas.
+                  Journey to Mycenae, the legendary kingdom of Agamemnon. Walk through the famous Lion Gate, explore the 
+                  royal tombs, and marvel at the Cyclopean walls that have stood for over 3,000 years.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Our final destination is Epidavros, home to the ancient theater with perfect acoustics and the Sanctuary 
-                  of Asklepios, the healing god. This comprehensive tour covers the essential highlights of the Argolis 
-                  region and gives you an immersive experience of ancient Greek civilization.
+                  Conclude at Epidavros to witness the ancient theatre with its perfect acoustics and visit the Sanctuary 
+                  of Asklepios, the healing god. Both Mycenae and Epidavros are UNESCO World Heritage sites.
                 </p>
               </div>
 
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Castle className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Mycenae Fortress
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Explore Agamemnon's kingdom through the Lion Gate, visit royal tombs, and see Cyclopean walls of this Bronze Age citadel.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Corinth
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit Temple of Apollo, explore ancient agora, and see Acrocorinth fortress overlooking the ruins.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Corinth Canal
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Stop at the engineering marvel connecting Aegean and Ionian seas with dramatic 90-meter depth.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Theater className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Epidavros Theater
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Experience the world-famous ancient theater with exceptional acoustics, seating 14,000 spectators.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Eye className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Sanctuary of Asklepios
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Explore the ancient healing sanctuary where pilgrims came from across the ancient world seeking cures.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* What is Included */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* What is NOT Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Important Information */}
+              <div className="bg-sand-50 rounded-2xl p-8 mb-12">
+                <h2 className="font-display text-2xl text-primary mb-4">Important Information</h2>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Wear comfortable walking shoes - extensive walking at archaeological sites</strong>
+                    </p>
                   </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Bring sun protection and water during summer months</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Licensed guide available upon request for comprehensive historical insights</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
                     <p className="text-sm text-gray-600 flex items-center gap-2">
                       <Star className="h-5 w-5 text-accent" />
                       <strong>Full refund or change of date in case of adverse weather conditions</strong>
@@ -269,9 +217,9 @@ export default function NafplioRoundTripTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €150
+                      €250
                     </div>
-                    <div className="text-sm text-gray-600">per person</div>
+                    <div className="text-sm text-gray-600">per group</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -293,15 +241,17 @@ export default function NafplioRoundTripTour() {
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269605/?flow=482717&from-ssl=yes&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fnafplio-to-mycenae-anc-corinth-epidavros%2F&ga=UA-138348961-1%2C209837950.1765224973%3B&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
-                  </Link>
+                    Book Now
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    Secure booking via FareHarbor
                   </p>
                 </div>
 
@@ -309,15 +259,15 @@ export default function NafplioRoundTripTour() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -325,31 +275,38 @@ export default function NafplioRoundTripTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/round-trip-tour-hero-2.jpg"
-            alt="Ancient Corinth"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready for the Ultimate Archaeological Journey?
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/corinth-epidavros-tour-hero-3.jpg"
+          alt="Book your grand archaeological tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Discover the Wonders of Ancient Greece
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Mycenae, Corinth & Epidavros tour and experience three UNESCO sites 
-            in one unforgettable day.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your comprehensive archaeological tour and experience three magnificent ancient sites in one unforgettable day
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://fareharbor.com/embeds/book/uniquegreektours/items/269605/?flow=482717&from-ssl=yes&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fnafplio-to-mycenae-anc-corinth-epidavros%2F&ga=UA-138348961-1%2C209837950.1765224973%3B&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Book This Tour
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>

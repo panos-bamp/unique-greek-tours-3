@@ -3,31 +3,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Castle, Eye, Camera, Heart, Landmark, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Castle, Church, Camera, Heart, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/monemvasia-tour-hero-1.jpg",
-  "/images/monemvasia-tour-hero-2.jpg",
-  "/images/monemvasia-tour-hero-3.jpg",
+  "/images/gythio-monemvasia-tour-hero-1.jpg",
+  "/images/gythio-monemvasia-tour-hero-2.jpg",
+  "/images/gythio-monemvasia-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Visit one of the top tourist destinations in Greece",
-  "Walk through the gate into the world of medieval past",
-  "See monuments and buildings with Venetian and Ottoman influence",
-  "Explore romantic alleys and panoramic views",
-  "Experience the Gibraltar of Greece",
-  "Enjoy a luxurious and safe transfer",
+  "Explore the medieval castle town of Monemvasia",
+  "Walk through narrow Byzantine streets",
+  "Visit beautiful Byzantine churches",
+  "Stunning views over the Aegean Sea",
+  "Discover the 'Gibraltar of the East'",
+  "Free time to explore shops and tavernas",
 ];
 
 const included = [
-  "Return transportation from Nafplion",
-  "Pick up from your hotel or meeting point",
-  "Professional licensed guide at archaeological sites (upon request with extra cost)",
-  "Comfortable air-conditioned vehicle",
-  "Free time to explore the castle town",
+  "Return private transportation",
   "Liability insurance",
   "All taxes",
+];
+
+const excluded = [
+  "Licensed guide (available upon request)",
+  "Personal expenses",
 ];
 
 export default function NafplioMonemvasiaTour() {
@@ -50,7 +51,7 @@ export default function NafplioMonemvasiaTour() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Monemvasia Castle Town</span>
+            <span className="text-primary">Monemvasia Castle Town Tour</span>
           </div>
         </div>
       </div>
@@ -59,7 +60,7 @@ export default function NafplioMonemvasiaTour() {
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Monemvasia tour gallery"
+            alt="Monemvasia castle town tour"
             fill
             className="object-cover"
             priority
@@ -95,7 +96,7 @@ export default function NafplioMonemvasiaTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Monemvasia Castle Town
+                Monemvasia Medieval Castle Town Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
@@ -113,141 +114,96 @@ export default function NafplioMonemvasiaTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 8:30 AM
+                  <span className="font-semibold">Pick-up:</span> 8:00 AM
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Enjoy a unique tour to the mythical castle-town of Monemvasia, explore the beauty and history 
-                  of one of the top tourist destinations in Greece. We begin our tour by picking you up and transferring 
-                  you to Monemvasia from Nafplion.
+                  Discover one of Greece's most magical destinations on this full-day excursion to Monemvasia, the 
+                  'Gibraltar of the East.' Perched on a massive sea rock connected to the mainland by a single causeway, 
+                  this medieval fortress town is a living museum of Byzantine and Venetian architecture.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  The islet of Monemvasia used to be a promontory that was harshly cut off the mainland after a 
-                  devastating earthquake in 375 A.D. It has a height of 300 m and it is made entirely out of steep 
-                  colorful rock. Slowly, it evolved into a famous castle town and became the strategic base of trade 
-                  and the military fleet of the Byzantine empire. Many people, including the Venetians and the Turks 
-                  conquered it and have put their stamp on it.
+                  Journey along the scenic southeastern coast of the Peloponnese, passing through traditional villages 
+                  and olive groves. Cross the causeway to enter the lower town, a car-free labyrinth of narrow cobblestone 
+                  streets, Byzantine churches, and stone mansions from the 13th-18th centuries.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Wander through atmospheric alleyways where bougainvillea cascades from balconies and cats doze in 
+                  sunny corners. Visit the main square with its 13th-century church and ancient cannon. Browse artisan 
+                  shops and relax in charming cafes with sea views.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Starting our tour we will enter into the castle town through the main gateway, stepping straight 
-                  into the world of medieval past. We will explore the romantic alleys and discover Byzantine monuments 
-                  and buildings with Venetian and Ottoman elements. Next we will see the panoramic views of the Myrtoo 
-                  Sea stretching below the impressive rock, while stories of myths and knights travel us to other times.
+                  For the adventurous, climb to the upper town (optional) for breathtaking panoramic views and the 
+                  ruins of the fortress. The journey back offers time to stop at local tavernas for traditional Laconian 
+                  cuisine. Monemvasia is a photographer's paradise and one of Greece's most romantic destinations.
                 </p>
               </div>
 
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Castle className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Medieval Castle Town
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Enter through the main gateway into a perfectly preserved medieval castle town carved into a 300m rock.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Byzantine Heritage
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Discover Byzantine monuments with Venetian and Ottoman architectural influences throughout the town.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Heart className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Romantic Alleys
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Wander through charming cobblestone alleys lined with stone houses, churches, and traditional cafes.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Eye className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Panoramic Sea Views
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Enjoy breathtaking views of the Myrtoo Sea from the fortress walls and castle heights.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Historical Journey
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Travel through time from Byzantine empire to Venetian and Ottoman rule, experiencing centuries of history.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* What is Included */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* What is NOT Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Important Information */}
+              <div className="bg-sand-50 rounded-2xl p-8 mb-12">
+                <h2 className="font-display text-2xl text-primary mb-4">Important Information</h2>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>The town is car-free - wear comfortable walking shoes</strong>
+                    </p>
                   </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Bring camera for stunning photo opportunities</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Ample free time to explore at your own pace</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
                     <p className="text-sm text-gray-600 flex items-center gap-2">
                       <Star className="h-5 w-5 text-accent" />
                       <strong>Full refund or change of date in case of adverse weather conditions</strong>
@@ -263,9 +219,9 @@ export default function NafplioMonemvasiaTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €180
+                      €310
                     </div>
-                    <div className="text-sm text-gray-600">per person</div>
+                    <div className="text-sm text-gray-600">per group</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -275,7 +231,7 @@ export default function NafplioMonemvasiaTour() {
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">8:30 AM</span>
+                      <span className="font-semibold text-gray-900">8:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
@@ -287,15 +243,17 @@ export default function NafplioMonemvasiaTour() {
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269603/?flow=482717&from-ssl=yes&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fmonemvasia-tour-from-nafplio%2F&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338&ga=UA-138348961-1%2C209837950.1765224973%3B"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
-                  </Link>
+                    Book Now
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    Secure booking via FareHarbor
                   </p>
                 </div>
 
@@ -303,15 +261,15 @@ export default function NafplioMonemvasiaTour() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -319,31 +277,38 @@ export default function NafplioMonemvasiaTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/monemvasia-tour-hero-2.jpg"
-            alt="Monemvasia Castle Town"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Step into Medieval Greece?
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/gythio-monemvasia-tour-hero-3.jpg"
+          alt="Book your Monemvasia tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Step Into a Medieval Fairytale
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Monemvasia Castle Town tour today and experience one of Greece's most romantic 
-            and historic destinations.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your Monemvasia tour and discover Greece's most romantic castle town frozen in time
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://fareharbor.com/embeds/book/uniquegreektours/items/269603/?flow=482717&from-ssl=yes&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fmonemvasia-tour-from-nafplio%2F&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338&ga=UA-138348961-1%2C209837950.1765224973%3B"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Book This Tour
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>

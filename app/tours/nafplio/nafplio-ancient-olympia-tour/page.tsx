@@ -3,31 +3,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Trophy, Landmark, Coffee, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Trophy, Flame, Columns, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/olympia-tour-hero-1.jpg",
-  "/images/olympia-tour-hero-2.jpg",
-  "/images/olympia-tour-hero-3.jpg",
+  "/images/kalamata-olympia-tour-hero-1.jpg",
+  "/images/kalamata-olympia-tour-hero-2.jpg",
+  "/images/kalamata-olympia-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Feel the energy of the ancient stadium where the first Olympic games took place",
-  "Admire the famous and amazing statue of Hermes of Praxiteles",
-  "Visit the Sanctuary of Zeus and learn about the seven wonders",
-  "Explore the archaeological museum with outstanding findings",
-  "Relax enjoying a coffee or a meal at local cafes and restaurants",
-  "Enjoy a luxurious and safe private transfer",
+  "Visit the birthplace of the Olympic Games",
+  "Explore the Temple of Zeus ruins",
+  "See where the Olympic flame is lit",
+  "Walk through the ancient Olympic Stadium",
+  "Visit the Archaeological Museum with Olympic artifacts",
+  "UNESCO World Heritage site",
 ];
 
 const included = [
-  "Return private transportation from Nafplion",
-  "Pick up from your hotel or meeting point",
-  "Professional licensed guide at archaeological sites (upon request with extra cost)",
-  "Comfortable air-conditioned vehicle",
-  "Free time for coffee or meal",
+  "Return private transportation",
   "Liability insurance",
   "All taxes",
+];
+
+const excluded = [
+  "Licensed guide (available upon request)",
+  "Entrance fees to archaeological sites",
+  "Personal expenses",
 ];
 
 export default function NafplioAncientOlympiaTour() {
@@ -50,7 +52,7 @@ export default function NafplioAncientOlympiaTour() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Ancient Olympia Tour</span>
+            <span className="text-primary">Ancient Olympia Day Trip</span>
           </div>
         </div>
       </div>
@@ -59,7 +61,7 @@ export default function NafplioAncientOlympiaTour() {
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Ancient Olympia tour gallery"
+            alt="Ancient Olympia tour"
             fill
             className="object-cover"
             priority
@@ -95,13 +97,13 @@ export default function NafplioAncientOlympiaTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Ancient Olympia Tour
+                Ancient Olympia Day Trip from Nafplio
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 10 hours
+                  <span className="font-semibold">Duration:</span> Full day
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
@@ -113,144 +115,96 @@ export default function NafplioAncientOlympiaTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 8:30 AM
+                  <span className="font-semibold">Pick-up:</span> 7:30 AM
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  The grandeur of the ancient Greek culture unfolds in this corner of the Peloponnese, Ancient Olympia, 
-                  the birthplace of the Olympic Games. Here you will have the chance to experience the honour, glory and 
-                  wisdom of the ancient civilization that wooed the world.
+                  Journey to the birthplace of the Olympic Games, one of the most significant archaeological sites in 
+                  Greece. This full-day excursion takes you across the Peloponnese to ancient Olympia, a UNESCO World 
+                  Heritage site where athletes competed for glory over 2,700 years ago.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  To start our tour we will transfer you in a private air-conditioned car to Olympia from Nafplion, 
-                  for a day trip to one of the most important archaeological sites in Greece.
+                  Walk through the magnificent ruins of the Sanctuary of Zeus, where the colossal statue—one of the 
+                  Seven Wonders of the Ancient World—once stood. Visit the ancient stadium where Olympic champions were 
+                  crowned with olive wreaths, and stand at the starting line where the first Olympic races began.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Here you will see the ancient stadium where the Olympic Games took place. The Sanctuary of Zeus, 
-                  which housed one of the seven wonders of the ancient world, a 13.5-meter golden statue of the god, 
-                  made by Phidias. The archaeological museum, with outstanding findings and you will see the amazing 
-                  Hermes of Praxiteles.
+                  See the altar where the Olympic flame is still lit for every modern Olympics, maintaining a tradition 
+                  that spans millennia. Explore the ruins of temples, training facilities, and treasuries built by 
+                  city-states to honor their victorious athletes.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Continuing on the tour in the surrounding area, you will see buildings and temples that depict the 
-                  beauty, harmony and balance of ancient Greek art. Olympia is an inexhaustible source of culture and 
-                  spirit, an experience that really deserves to live in Greece. At the end of the tour, we will have 
-                  free time to enjoy a coffee or a meal at the nearby local cafes and restaurants.
+                  Visit the renowned Archaeological Museum housing spectacular artifacts including the Hermes of 
+                  Praxiteles and the Nike of Paionios. The journey through scenic countryside makes this a memorable 
+                  full-day adventure into the heart of ancient Greek civilization.
                 </p>
               </div>
 
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Trophy className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Olympic Stadium
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Feel the energy where the first Olympic Games took place and walk on the same track as ancient athletes.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Sanctuary of Zeus
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit the site that housed one of the seven wonders - the 13.5-meter golden statue of Zeus by Phidias.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Archaeological Museum
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Admire the famous Hermes of Praxiteles and other outstanding artifacts from ancient Olympia.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Temples
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Explore buildings and temples showcasing the beauty, harmony and balance of ancient Greek art.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Coffee className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Local Experience
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Enjoy free time to relax at local cafes and restaurants in the charming town of Olympia.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* What is Included */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* What is NOT Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Important Information */}
+              <div className="bg-sand-50 rounded-2xl p-8 mb-12">
+                <h2 className="font-display text-2xl text-primary mb-4">Important Information</h2>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Full-day tour - approximately 10-11 hours including travel time</strong>
+                    </p>
                   </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Comfortable shoes and sun protection essential</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Licensed guide highly recommended to bring ancient Olympics to life</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
                     <p className="text-sm text-gray-600 flex items-center gap-2">
                       <Star className="h-5 w-5 text-accent" />
                       <strong>Full refund or change of date in case of adverse weather conditions</strong>
@@ -266,19 +220,19 @@ export default function NafplioAncientOlympiaTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €150
+                      €290
                     </div>
-                    <div className="text-sm text-gray-600">per person</div>
+                    <div className="text-sm text-gray-600">per group</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">10 hours</span>
+                      <span className="font-semibold text-gray-900">Full day</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">8:30 AM</span>
+                      <span className="font-semibold text-gray-900">7:30 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
@@ -290,15 +244,17 @@ export default function NafplioAncientOlympiaTour() {
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269599/?flow=4827171&from-ssl=yes&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fancient-olympia-from-nafplion%2F&ga=UA-138348961-1%2C209837950.1765224973%3B&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
-                  </Link>
+                    Book Now
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    Secure booking via FareHarbor
                   </p>
                 </div>
 
@@ -306,15 +262,15 @@ export default function NafplioAncientOlympiaTour() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -322,31 +278,38 @@ export default function NafplioAncientOlympiaTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/olympia-tour-hero-3.jpg"
-            alt="Ancient Olympia"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Walk in Ancient Footsteps?
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/kalamata-olympia-tour-hero-3.jpg"
+          alt="Book your Ancient Olympia tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Walk Where Olympians Competed
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Ancient Olympia Tour today and experience the birthplace of the Olympic Games 
-            with our expert guides.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your Ancient Olympia tour and experience the birthplace of the Olympic Games and Western athletic tradition
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://fareharbor.com/embeds/book/uniquegreektours/items/269599/?flow=4827171&from-ssl=yes&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fancient-olympia-from-nafplion%2F&ga=UA-138348961-1%2C209837950.1765224973%3B&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Book This Tour
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>

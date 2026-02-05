@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Castle, Theater, Landmark, Heart, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Castle, Theater, Landmark, Heart, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/mycenae-tour-hero-1.jpg",
@@ -21,14 +21,15 @@ const highlights = [
 ];
 
 const included = [
-  "Return transfer from Nafplion",
-  "Pick up from your hotel or meeting point",
-  "Professional licensed guide at archaeological sites (upon request with extra cost)",
-  "Entrance tickets to both archaeological sites",
-  "Comfortable air-conditioned vehicle",
-  "Free time at each site",
+  "Return private transportation",
   "Liability insurance",
   "All taxes",
+];
+
+const excluded = [
+  "Licensed guide (available upon request)",
+  "Entrance fees to archaeological sites",
+  "Personal expenses",
 ];
 
 export default function NafplioMycenaeEpidavrosTour() {
@@ -122,138 +123,82 @@ export default function NafplioMycenaeEpidavrosTour() {
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
                   Discover two of the most important archaeological sites in Greece on this tour. After getting picked 
-                  up in Nafplion, head to your first stop, Mycenae. Travel to the mythical Kingdom of Agamemnon and 
-                  learn more about one of the most brilliant cultures in prehistoric Greece, the Mycenaean civilization. 
-                  During the 2nd millennium BC, Mycenae was one of the largest Greek civilizations, with powerful military 
-                  fortresses that dominated southern Greece.
+                  up in Nafplion, head to your first stop, Mycenae.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Next head to the Lion Gate, the monumental palace entrance. See the Cyclopean walls around the 
-                  Acropolis and the tombs of Atreus and Clytemnestra, a must for ancient history lovers.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Continuing on the tour, visit the famous archaeological site of Epidaurus. You will visit the Sanctuary 
-                  dedicated to the god Apollo which was founded at around 800BC. Next, you will visit The Asclepieion of 
-                  Epidaurus, dedicated to the gods with healing powers and the healing temple of serious diseases in 
-                  ancient Greece. This site attracts a large number of pilgrims and patients.
+                  Walk through the famous Lion Gate, explore the royal tombs, and discover the Cyclopean walls that 
+                  defended this Bronze Age citadel. Learn about the legendary kingdom of Agamemnon and the Mycenaean 
+                  civilization that flourished here over 3,000 years ago.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Next, explore the ancient theatre, located within the archaeological site of the Sanctuary of Asklepios. 
-                  Built at the end of the classical Era (330 BC) and famous for its elegance, perfect acoustics and unique 
-                  design. It had a capacity of about 13,000 spectators. In 1988, the theater was incorporated, along with 
-                  the entire Asclepius, into the UNESCO World Heritage List.
+                  Continue to Epidavros to visit the spectacular ancient theatre, renowned for its perfect acoustics 
+                  and elegant proportions. Explore the Sanctuary of Asklepios, the ancient healing center where pilgrims 
+                  came seeking cures. Both sites are UNESCO World Heritage monuments.
                 </p>
               </div>
 
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Castle className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Mycenae Acropolis
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Explore the mythical Kingdom of Agamemnon and one of the most important Mycenaean civilization centers.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Lion Gate
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Walk through the monumental Lion Gate, the iconic entrance with massive Cyclopean stone walls.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Royal Tombs
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit the impressive tombs of Atreus and Clytemnestra, masterpieces of ancient architecture.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Theater className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Theatre of Epidavros
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Experience the world-famous ancient theater with perfect acoustics, built in 330 BC.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Heart className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Sanctuary of Asklepios
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit the ancient healing sanctuary dedicated to Asklepios, god of medicine and healing.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* What is Included */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* What is NOT Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Important Information */}
+              <div className="bg-sand-50 rounded-2xl p-8 mb-12">
+                <h2 className="font-display text-2xl text-primary mb-4">Important Information</h2>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Comfortable walking shoes recommended for archaeological sites</strong>
+                    </p>
                   </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Bring sun protection (hat, sunscreen) during summer months</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Licensed guide available upon request for enhanced experience</strong>
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
                     <p className="text-sm text-gray-600 flex items-center gap-2">
                       <Star className="h-5 w-5 text-accent" />
                       <strong>Full refund or change of date in case of adverse weather conditions</strong>
@@ -269,9 +214,9 @@ export default function NafplioMycenaeEpidavrosTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €130
+                      €160
                     </div>
-                    <div className="text-sm text-gray-600">per person</div>
+                    <div className="text-sm text-gray-600">per group</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -293,15 +238,17 @@ export default function NafplioMycenaeEpidavrosTour() {
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269357/?full-items=yes&flow=482717&from-ssl=yes&ga=UA-138348961-1%2C209837950.1765224973%3B&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fnafplion-mycenae-epidavros%2F&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
-                  </Link>
+                    Book Now
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    Secure booking via FareHarbor
                   </p>
                 </div>
 
@@ -309,15 +256,15 @@ export default function NafplioMycenaeEpidavrosTour() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -325,31 +272,38 @@ export default function NafplioMycenaeEpidavrosTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/mycenae-tour-hero-3.jpg"
-            alt="Mycenae and Epidavros"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Explore Ancient Wonders?
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/mycenae-tour-hero-3.jpg"
+          alt="Book your Mycenae & Epidavros tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Ready to Explore Ancient Greece?
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Mycenae & Epidavros Tour today and visit two UNESCO World Heritage sites 
-            in one unforgettable day.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your Mycenae & Epidavros tour today and step back in time to the age of heroes and legends
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://fareharbor.com/embeds/book/uniquegreektours/items/269357/?full-items=yes&flow=482717&from-ssl=yes&ga=UA-138348961-1%2C209837950.1765224973%3B&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fnafplion-mycenae-epidavros%2F&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Book This Tour
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>
