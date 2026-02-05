@@ -3,7 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Castle, Camera, Heart, Landmark, Eye, ArrowRight } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Users,
+  Calendar,
+  MapPin,
+  Check,
+  ArrowRight,
+  Landmark,
+  Building,
+  Camera,
+  Star,
+} from "lucide-react";
 
 const gallery = [
   "/images/nafplio-city-tour-hero-1.jpg",
@@ -12,26 +25,28 @@ const gallery = [
 ];
 
 const highlights = [
-  "Walk through the historic Land Gate entrance",
-  "Explore Psaromahalas - the oldest Greek quarter",
+  "Walk through historic Land Gate",
+  "Explore Psaromahalas Greek quarter",
   "Admire Venetian and Ottoman architecture",
-  "Visit Syntagma Square and historical landmarks",
-  "Discover romantic alleys and ornate doors",
-  "Learn about Nafplion as Greece's first capital",
+  "Visit Syntagma Square with first Greek parliament",
+  "Discover charming alleys and hidden corners",
+  "Learn about Greece's first capital",
+  "Food tastings at local spots",
+  "Photo opportunities at every turn",
 ];
 
 const included = [
-  "English-speaking professional tour leader",
-  "Pick up from your hotel in Nafplion",
-  "3-hour walking tour of old town",
-  "Visit to main historical sites",
-  "Stories and legends of Nafplion",
-  "Photo opportunities at scenic spots",
-  "Comfortable walking pace",
-  "All guidance and information",
+  "Tour Leader",
+  "Food tastings",
+  "Liability insurance",
+  "All taxes",
 ];
 
-export default function NafplioCityTour() {
+const notIncluded = [
+  "Personal expenses",
+];
+
+export default function NafplioCityTourPage() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -44,23 +59,33 @@ export default function NafplioCityTour() {
 
   return (
     <div className="flex flex-col">
+      {/* Breadcrumb */}
       <div className="bg-sand-50 py-4">
         <div className="container-custom">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/tours" className="hover:text-primary">TOURS & EXCURSIONS</Link>
+            <Link href="/" className="hover:text-accent transition-colors">
+              Home
+            </Link>
             <span>/</span>
-            <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
+            <Link href="/tours" className="hover:text-accent transition-colors">
+              Tours
+            </Link>
             <span>/</span>
-            <span className="text-primary">Nafplio City Tour</span>
+            <Link href="/tours/nafplio" className="hover:text-accent transition-colors">
+              Nafplio
+            </Link>
+            <span>/</span>
+            <span className="text-primary font-semibold">City Walking Tour</span>
           </div>
         </div>
       </div>
 
-      <section className="relative">
-        <div className="relative h-[70vh]">
+      {/* Hero Gallery */}
+      <section className="relative h-[60vh] min-h-[500px]">
+        <div className="relative h-full">
           <Image
             src={gallery[currentImage]}
-            alt="Nafplio city tour gallery"
+            alt="Nafplio City Walking Tour"
             fill
             className="object-cover"
             priority
@@ -91,9 +116,11 @@ export default function NafplioCityTour() {
         </div>
       </section>
 
+      {/* Main Content */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
+            {/* Left Column */}
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
                 Nafplio City Walking Tour
@@ -118,113 +145,23 @@ export default function NafplioCityTour() {
                 </div>
               </div>
 
+              {/* Overview */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
                   Discover Nafplio, the romantic city of Argolis, on a 3-hour walking tour ideal for those visiting the 
-                  city for the first time. Start your adventure in the Venetian city by meeting your tour leader at your 
-                  hotel. Walk through the Land Gate, the only entrance to the city during the Venetian occupation, then 
-                  walk to Psaromahalas, the only street inhabited by Greeks during the Turkish occupation.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Admire the views of the old town with its warm, earthy colors and ornate doors. You will have time to 
-                  take some pictures in the alleys where you will feel like you stepped back in time. Continue walking to 
-                  the beautiful Syntagma Square, the heart of Nafplion, surrounded by historical buildings including the 
-                  Venetian arsenal and the first Greek parliament.
+                  city for the first time. Walk through the historic Land Gate, the only entrance to the city during the 
+                  Venetian occupation, and explore the charming Psaromahalas Greek quarter with its narrow alleys and 
+                  traditional architecture.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Explore the charming streets of the old town, learn about Nafplion's role as Greece's first capital from 
-                  1829 to 1834, and discover the fascinating blend of Venetian, Ottoman, and Greek influences that make 
-                  this city unique. Your guide will share stories, legends, and historical facts that bring the romantic 
-                  streets of Nafplio to life.
+                  Visit Syntagma Square, home to Greece's first parliament, and admire the elegant Venetian and Ottoman 
+                  buildings that line the streets. Your expert local guide will share fascinating stories about Nafplio's 
+                  role as Greece's first capital and its rich history spanning thousands of years.
                 </p>
               </div>
 
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Land Gate Entrance
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Walk through the historic Land Gate, the only entrance to Nafplion during the Venetian occupation.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Heart className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Psaromahalas Quarter
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Explore the oldest Greek quarter, the only street inhabited by Greeks during Turkish occupation.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Picturesque Alleys
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Wander through charming alleys with warm earthy colors, ornate doors, and timeless atmosphere.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Castle className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Syntagma Square
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit the heart of Nafplion with Venetian arsenal and first Greek parliament building.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Eye className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Historical Stories
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Learn fascinating stories about Greece's first capital and its Venetian, Ottoman, and Greek heritage.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -237,6 +174,7 @@ export default function NafplioCityTour() {
                 </div>
               </div>
 
+              {/* What is Included */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
                 <div className="bg-sand-50 rounded-2xl p-8">
@@ -251,22 +189,39 @@ export default function NafplioCityTour() {
                   <div className="mt-6 pt-6 border-t border-sand-200">
                     <p className="text-sm text-gray-600 flex items-center gap-2">
                       <Star className="h-5 w-5 text-accent" />
-                      <strong>Perfect introduction to romantic Nafplion for first-time visitors</strong>
+                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
                     </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Not Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">Not Included</h2>
+                <div className="bg-gray-50 rounded-2xl p-8">
+                  <div className="space-y-3">
+                    {notIncluded.map((item, index) => (
+                      <div key={index} className="flex items-start gap-3 text-gray-700">
+                        <span className="text-red-500">✕</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Right Column - Booking Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
+                {/* Booking Card */}
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €45
+                      €80
                     </div>
-                    <div className="text-sm text-gray-600">per person</div>
+                    <div className="text-sm text-gray-600">per person / €60 per child</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -275,7 +230,7 @@ export default function NafplioCityTour() {
                       <span className="font-semibold text-gray-900">3 hours</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Meeting:</span>
+                      <span className="text-gray-600">Meeting Point:</span>
                       <span className="font-semibold text-gray-900">Flexible</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
@@ -284,26 +239,27 @@ export default function NafplioCityTour() {
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
-                      <span className="font-semibold text-gray-900">Walking</span>
+                      <span className="font-semibold text-gray-900">Walking Tour</span>
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269608/?flow=no&from-ssl=yes&ga=UA-138348961-1%2C209837950.1765224973%3B&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fdiscover-nafplio-city-tour%2F&u=7e462d24-c50a-4c5d-918e-674a3b00b338&language=en-us"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
                     Book This Tour
-                  </Link>
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
                     Reserve now and pay later
                   </p>
                 </div>
 
+                {/* Questions Card */}
                 <div className="bg-primary text-white rounded-2xl p-6">
-                  <h3 className="font-display text-xl font-bold mb-4">
-                    Questions?
-                  </h3>
+                  <h3 className="font-display text-xl font-bold mb-4">Questions?</h3>
                   <p className="text-blue-100 mb-4">
                     Contact our team for personalized assistance
                   </p>
@@ -320,30 +276,32 @@ export default function NafplioCityTour() {
         </div>
       </section>
 
+      {/* CTA Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/nafplio-city-tour-hero-3.jpg"
-            alt="Beautiful Nafplion"
+            alt="Explore Nafplio"
             fill
             className="object-cover brightness-50"
           />
         </div>
-        
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Discover Romantic Nafplion?
+            Ready to Explore Nafplio?
           </h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Nafplion City Tour and explore Greece's most beautiful town with an expert local guide.
+            Book your walking tour and discover the romance and history of Greece's first capital.
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
+          <a
+            href="https://fareharbor.com/embeds/book/uniquegreektours/items/269608/?flow=no&from-ssl=yes&ga=UA-138348961-1%2C209837950.1765224973%3B&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fdiscover-nafplio-city-tour%2F&u=7e462d24-c50a-4c5d-918e-674a3b00b338&language=en-us"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white inline-flex items-center gap-2"
           >
             Book Now
             <ArrowRight className="h-5 w-5" />
-          </Link>
+          </a>
         </div>
       </section>
     </div>
