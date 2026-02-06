@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Mountain, Building, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/mani-tour-hero-1.jpg",
-  "/images/mani-tour-hero-2.jpg",
-  "/images/mani-tour-hero-3.jpg",
+  "/images/kalamata-mani-tour-hero-1.jpg",
+  "/images/kalamata-mani-tour-hero-2.jpg",
+  "/images/kalamata-mani-tour-hero-3.jpg",
 ];
 
 const highlights = [

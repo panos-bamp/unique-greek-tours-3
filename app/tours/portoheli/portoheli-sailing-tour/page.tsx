@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Anchor, Waves, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/sailing-tour-hero-1.jpg",
-  "/images/sailing-tour-hero-2.jpg",
-  "/images/sailing-tour-hero-3.jpg",
+  "/images/sailing-hero-1.jpg",
+  "/images/sailing-hero-2.jpg",
+  "/images/sailing-hero-3.jpg",
 ];
 
 const highlights = [

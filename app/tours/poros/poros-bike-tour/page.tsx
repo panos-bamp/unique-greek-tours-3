@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Bike, Mountain, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/poros-tour-hero-1.jpg",
-  "/images/poros-tour-hero-2.jpg",
-  "/images/poros-tour-hero-3.jpg",
+  "/images/bike-tour-hero-1.jpg",
+  "/images/bike-tour-hero-2.jpg",
+  "/images/bike-tour-hero-3.jpg",
 ];
 
 const highlights = [

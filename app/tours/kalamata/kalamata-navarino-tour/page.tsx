@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Anchor, Waves, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/cruise-tour-hero-1.jpg",
-  "/images/cruise-tour-hero-2.jpg",
-  "/images/cruise-tour-hero-3.jpg",
+  "/images/kalamata-navarino-tour-hero-1.jpg",
+  "/images/kalamata-navarino-tour-hero-2.jpg",
+  "/images/kalamata-navarino-tour-hero-3.jpg",
 ];
 
 const highlights = [

@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Droplet, Trees, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/olive-tour-hero-1.jpg",
-  "/images/olive-tour-hero-2.jpg",
-  "/images/olive-tour-hero-3.jpg",
+  "/images/kalamata-olive-oil-tour-hero-1.jpg",
+  "/images/kalamata-olive-oil-tour-hero-2.jpg",
+  "/images/kalamata-olive-oil-tour-hero-3.jpg",
 ];
 
 const highlights = [

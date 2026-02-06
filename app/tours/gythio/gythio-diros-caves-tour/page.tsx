@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Mountain, Waves, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/diros-caves-hero-1.jpg",
-  "/images/diros-caves-hero-2.jpg",
-  "/images/diros-caves-hero-3.jpg",
+  "/images/gythio-diros-caves-tour-hero-1.jpg",
+  "/images/gythio-diros-caves-tour-hero-2.jpg",
+  "/images/gythio-diros-caves-tour-hero-3.jpg",
 ];
 
 const highlights = [

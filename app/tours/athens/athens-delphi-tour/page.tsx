@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Landmark, Mountain, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/delphi-tour-hero-1.jpg",
-  "/images/delphi-tour-hero-2.jpg",
-  "/images/delphi-tour-hero-3.jpg",
+  "/images/athens-delphi-tour-hero-1.jpg",
+  "/images/athens-delphi-tour-hero-2.jpg",
+  "/images/athens-delphi-tour-hero-3.jpg",
 ];
 
 const highlights = [
