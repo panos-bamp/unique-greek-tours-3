@@ -3,36 +3,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Theater, Droplets, Landmark, Eye, Sparkles, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Droplet, Theater, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/corinth-epidavros-tour-hero-1.jpg",
-  "/images/corinth-epidavros-tour-hero-2.jpg",
-  "/images/corinth-epidavros-tour-hero-3.jpg",
+  "/images/kalamata-olive-oil-tour-hero-1.jpg",
+  "/images/kalamata-olive-oil-tour-hero-2.jpg",
+  "/images/kalamata-olive-oil-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Visit the ancient theater of Epidavros with perfect acoustics",
-  "Explore the Sanctuary of Asklepios healing temple",
-  "Tour an authentic olive oil production plant",
-  "Taste premium Greek olive oil and delicacies",
-  "Learn about traditional olive oil production",
-  "Enjoy a luxurious and safe transfer",
+  "Visit traditional olive oil mills",
+  "Taste premium Greek olive oils",
+  "Learn about olive oil production",
+  "Ancient theater of Epidavros",
+  "Combine culture and culinary",
+  "Expert tour leader guidance",
 ];
 
 const included = [
-  "English-speaking tour leader",
-  "Return transportation from Nafplion",
-  "Pick up from your hotel or meeting point",
-  "Guided tour at archaeological sites",
-  "Olive oil production plant visit",
-  "Olive oil and products tasting",
-  "Comfortable air-conditioned vehicle",
+  "Return transportation",
+  "Olive oil tastings",
   "Liability insurance",
   "All taxes",
 ];
 
-export default function NafplioCorinthEpidavrosTour() {
+const excluded = [
+  "Licensed guide (available upon request)",
+  "Entrance fees to archaeological sites",
+  "Personal expenses",
+];
+
+export default function NafplioOliveOilEpidavrosTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -52,7 +53,7 @@ export default function NafplioCorinthEpidavrosTour() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Ancient Epidavros & Olive Oil Tasting</span>
+            <span className="text-primary">Olive Oil & Epidavros Tour</span>
           </div>
         </div>
       </div>
@@ -61,7 +62,7 @@ export default function NafplioCorinthEpidavrosTour() {
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Ancient Corinth Epidavros and Olive Oil tour gallery"
+            alt="Olive Oil & Epidavros Tour"
             fill
             className="object-cover"
             priority
@@ -97,139 +98,54 @@ export default function NafplioCorinthEpidavrosTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Ancient Epidavros & Olive Oil Tasting Tour
+                Olive Oil Tasting & Epidavros Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 6 hours
+                  <span className="font-semibold">Duration:</span> 8 hours
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Size:</span> Private tour
+                  <span className="font-semibold">Group Type:</span> Private
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
                   <span className="font-semibold">Season:</span> Year-round
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 9:00 AM
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Our tour starts from Nafplion and we drive through the Argolic plain towards Epidaurus. Our first 
-                  stop is an Olive Oil Production plant where we stroll around the premises, learning a lot about its 
-                  story, the production process and do a tasting of Greek olive oil, olives and delicacies based on it.
+                  Experience the perfect combination of Greek gastronomy and ancient culture on this unique tour. 
+                  Discover the secrets of premium olive oil production and visit the magnificent ancient theater 
+                  of Epidavros, all in one memorable day.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  We continue the tour to ancient Epidaurus, where we explore the ancient theater, one of the most 
-                  famous archaeological monuments in Greece. We will also visit the Sanctuary of Asklepios, the ancient 
-                  healing temple and one of the most important religious centers in ancient Greece.
+                  Begin with visits to traditional olive oil mills and modern production facilities. Learn about 
+                  the centuries-old process of olive oil making, from harvest to pressing. Taste different varieties 
+                  of extra virgin olive oil and discover how to identify quality, aroma, and flavor profiles.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Meet passionate producers who maintain traditional methods while embracing sustainable practices. 
+                  Understand why Greek olive oil is considered among the world's finest and learn expert tips on 
+                  cooking and pairing with Mediterranean cuisine.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  The theater of Epidaurus is renowned for its exceptional acoustics and elegant design. Built in the 
-                  4th century BC, it could accommodate up to 14,000 spectators and remains one of the best-preserved 
-                  ancient theaters in the world. The Sanctuary of Asklepios was dedicated to the god of medicine and 
-                  attracted pilgrims from all over the ancient world seeking healing.
+                  After your culinary experience, visit the UNESCO World Heritage site of ancient Epidavros. Marvel 
+                  at the theater's perfect acoustics and explore the Sanctuary of Asklepios, the ancient healing center. 
+                  This tour beautifully combines Greece's agricultural heritage with its legendary ancient civilization.
                 </p>
-              </div>
-
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Droplets className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Olive Oil Production Plant
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Tour an authentic olive oil facility, learn about traditional production methods, and discover the story behind Greek liquid gold.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Sparkles className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Premium Olive Oil Tasting
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Taste exceptional Greek olive oils, olives, and delicacies while learning to distinguish quality and flavor profiles.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Theater className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Ancient Theater of Epidavros
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Experience the world-famous ancient theater with perfect acoustics, built in 4th century BC to seat 14,000 spectators.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Landmark className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Sanctuary of Asklepios
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit the ancient healing temple dedicated to Asklepios, god of medicine, a major religious center of the ancient world.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Eye className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Archaeological Exploration
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Explore ancient ruins, learn about Greek history and mythology, and discover the legacy of ancient healing practices.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
@@ -238,21 +154,25 @@ export default function NafplioCorinthEpidavrosTour() {
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
-                    <p className="text-sm text-gray-600 flex items-center gap-2">
-                      <Star className="h-5 w-5 text-accent" />
-                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
-                    </p>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -261,9 +181,9 @@ export default function NafplioCorinthEpidavrosTour() {
               <div className="sticky top-24 space-y-6">
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
-                    <div className="text-sm text-gray-600 mb-2">From</div>
+                    <div className="text-sm text-gray-600 mb-2">Price</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €110
+                      €115
                     </div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
@@ -271,15 +191,11 @@ export default function NafplioCorinthEpidavrosTour() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">6 hours</span>
-                    </div>
-                    <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">9:00 AM</span>
+                      <span className="font-semibold text-gray-900">8 hours</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">All year</span>
+                      <span className="font-semibold text-gray-900">Year-round</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
@@ -287,15 +203,17 @@ export default function NafplioCorinthEpidavrosTour() {
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269670/?back=https://www.uniquegreektours.com/en/tour/porto-heli-anc-epidavros-mycenae-nafplion-tour/&flow=482717&g4=yes"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
-                  </Link>
+                    Book Now
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    Secure booking via FareHarbor
                   </p>
                 </div>
 
@@ -303,15 +221,15 @@ export default function NafplioCorinthEpidavrosTour() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -319,31 +237,37 @@ export default function NafplioCorinthEpidavrosTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/corinth-epidavros-tour-hero-3.jpg"
-            alt="Ancient Epidavros Theater"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Taste Authentic Greece?
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/kalamata-olive-oil-tour-hero-3.jpg"
+          alt="Book your olive oil tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Taste Liquid Gold & Ancient Glory
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Ancient Epidavros & Olive Oil tour today and experience ancient wonders 
-            combined with authentic Greek flavors.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your olive oil and Epidavros tour for a perfect blend of gastronomy and history
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://fareharbor.com/embeds/book/uniquegreektours/items/269670/?back=https://www.uniquegreektours.com/en/tour/porto-heli-anc-epidavros-mycenae-nafplion-tour/&flow=482717&g4=yes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Book This Tour
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>
