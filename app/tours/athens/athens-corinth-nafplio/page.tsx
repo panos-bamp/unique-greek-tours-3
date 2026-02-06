@@ -3,54 +3,35 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  Users,
-  Calendar,
-  MapPin,
-  Check,
-  ArrowRight,
-  Landmark,
-  Building,
-  Compass,
-  Castle,
-  Eye,
-  Camera,
-  Star
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Landmark, Theater, Ship, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/corinth-nafplio-tour-hero-1.jpg",
-  "/images/corinth-nafplio-tour-hero-2.jpg",
-  "/images/corinth-nafplio-tour-hero-3.jpg",
+  "/images/epidavros-tour-hero-1.jpg",
+  "/images/epidavros-tour-hero-2.jpg",
+  "/images/epidavros-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Marvel at the impressive Corinth Canal connecting two seas",
-  "Explore the UNESCO-listed ancient theater of Epidaurus with perfect acoustics",
-  "Visit the Sanctuary of Asclepius, ancient healing center",
-  "Walk through romantic Nafplio's Venetian old town",
-  "See the famous Bourtzi fortress on its island",
-  "Climb to Akronafplia acropolis for panoramic views",
-  "Discover legendary Mycenae and the Lion Gate",
-  "Explore the cyclopean walls and vaulted tombs",
+  "Corinth Canal engineering marvel",
+  "Ancient Epidavros theater",
+  "Sanctuary of Asclepius",
+  "Scenic coastal drive",
+  "UNESCO World Heritage site",
+  "Licensed professional guide",
 ];
 
 const included = [
-  "Return transportation from Athens",
+  "Licensed guide",
   "Liability insurance",
   "All taxes",
 ];
 
-const notIncluded = [
-  "Licensed guide (available upon request)",
-  "Entrance fees to archaeological sites",
+const excluded = [
   "Personal expenses",
+  "Entrance fees",
 ];
 
-export default function CorinthNafplioTourPage() {
+export default function AthensCorinthEpidavrosTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
@@ -63,327 +44,142 @@ export default function CorinthNafplioTourPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Breadcrumb */}
       <div className="bg-sand-50 py-4">
         <div className="container-custom">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-accent transition-colors">
-              Home
-            </Link>
+            <Link href="/tours" className="hover:text-primary">TOURS & EXCURSIONS</Link>
             <span>/</span>
-            <Link
-              href="/tours"
-              className="hover:text-accent transition-colors"
-            >
-              Tours
-            </Link>
+            <Link href="/tours/athens" className="hover:text-primary">Athens Tours</Link>
             <span>/</span>
-            <Link
-              href="/tours/athens"
-              className="hover:text-accent transition-colors"
-            >
-              Athens
-            </Link>
-            <span>/</span>
-            <span className="text-primary font-semibold">
-              Corinth, Epidaurus, Nafplio & Mycenae
-            </span>
+            <span className="text-primary">Corinth Canal & Epidavros Tour</span>
           </div>
         </div>
       </div>
 
-      {/* Hero Gallery */}
-      <section className="relative h-[60vh] min-h-[500px] bg-black">
-        {gallery.map((img, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              idx === currentImage ? "opacity-100" : "opacity-0"
-            }`}
+      <section className="relative">
+        <div className="relative h-[70vh]">
+          <Image
+            src={gallery[currentImage]}
+            alt="Corinth Canal & Epidavros Tour"
+            fill
+            className="object-cover"
+            priority
+          />
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
           >
-            <Image
-              src={img}
-              alt={`Tour gallery image ${idx + 1}`}
-              fill
-              className="object-cover"
-              priority={idx === 0}
-            />
+            <ChevronLeft className="h-6 w-6 text-primary" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
+            <ChevronRight className="h-6 w-6 text-primary" />
+          </button>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {gallery.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
+                }`}
+              />
+            ))}
           </div>
-        ))}
-
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
-        {/* Navigation arrows */}
-        <button
-          onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-3 rounded-full shadow-lg transition-all hover:scale-110"
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-3 rounded-full shadow-lg transition-all hover:scale-110"
-          aria-label="Next image"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
-
-        {/* Image indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-          {gallery.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentImage(idx)}
-              className={`h-2 rounded-full transition-all ${
-                idx === currentImage ? "w-8 bg-white" : "w-2 bg-white/60"
-              }`}
-              aria-label={`Go to image ${idx + 1}`}
-            />
-          ))}
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left Column - Main Content */}
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Corinth Canal, Epidaurus, Nafplio & Mycenae Day Tour
+                Corinth Canal & Epidavros Full Day Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 11 hours
+                  <span className="font-semibold">Duration:</span> Full day
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Size:</span> Private tour
+                  <span className="font-semibold">Group Type:</span> Private
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
                   <span className="font-semibold">Season:</span> Year-round
                 </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Departure:</span> Athens
-                </div>
               </div>
 
-              {/* Overview */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-4">
-                  Overview
-                </h2>
+                <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Embark on an unforgettable journey through some of Greece's most
-                  iconic historical sites. This full-day private tour from Athens
-                  takes you to the heart of the ancient Argolis region, where myth
-                  and history intertwine.
+                  Discover two of Greece's most impressive sites on this full-day journey from Athens. Experience the 
+                  engineering marvel of the Corinth Canal and explore the ancient theater of Epidavros, renowned for 
+                  its perfect acoustics and stunning preservation.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Begin at the spectacular Corinth Canal, a 6.4-kilometer waterway cutting through solid rock to connect 
+                  the Gulf of Corinth with the Saronic Gulf. Stand on the bridge overlooking this dramatic man-made gorge 
+                  carved through the Isthmus of Corinth. Learn about its fascinating history, from ancient dreams to modern 
+                  completion in the late 19th century.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Continue to the UNESCO World Heritage site of Epidavros, home to the best-preserved ancient theater in 
+                  Greece. This magnificent 4th-century BC structure seats 14,000 spectators and is famous for its exceptional 
+                  acoustics - a whisper from the stage can be heard in the highest seats. Your guide demonstrates this 
+                  acoustic wonder and explains the theater's architectural brilliance.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  From the engineering marvel of the Corinth Canal to the acoustic
-                  perfection of Epidaurus, from the romantic streets of Nafplio to
-                  the legendary citadel of Mycenae, this tour offers a comprehensive
-                  exploration of classical Greek civilization and Venetian heritage.
+                  Explore the Sanctuary of Asclepius, the ancient world's most celebrated healing center where pilgrims 
+                  sought cures for their ailments. Visit the archaeological museum displaying medical instruments, votive 
+                  offerings, and sculptures that reveal ancient Greek medical practices. Your licensed guide brings this 
+                  sacred healing sanctuary to life with fascinating stories of ancient medicine and religion.
                 </p>
               </div>
 
-              {/* Journey Sections */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">
-                  Your Journey
-                </h2>
-
-                {/* Corinth Canal */}
-                <div className="flex gap-4 mb-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                      <Landmark className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                      Corinth Canal
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Begin your adventure with a stop at the breathtaking Corinth
-                      Canal, a 19th-century engineering masterpiece that connects
-                      the Corinthian Gulf with the Saronic Gulf. Stand on the bridge
-                      and marvel at the 6.4-kilometer waterway carved through solid
-                      rock, with walls rising up to 90 meters high.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Epidaurus */}
-                <div className="flex gap-4 mb-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                      <Eye className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                      Ancient Epidaurus
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                      Visit the UNESCO World Heritage site of Epidaurus, home to one
-                      of the most famous archaeological monuments in Greece. The
-                      ancient theater, built in the 4th century BC, is renowned for
-                      its perfect acoustics and exceptional preservation. Even today,
-                      a whisper from the stage can be heard in the top row, 55 meters
-                      away.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed">
-                      Explore the Sanctuary of Asclepius, the ancient healing center
-                      where pilgrims came from across Greece seeking cures. See the
-                      remains of the Temple of Asclepius, the Tholos (circular
-                      building), and learn about ancient Greek medicine and religious
-                      practices.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Nafplio */}
-                <div className="flex gap-4 mb-8">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                      <Castle className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                      Romantic Nafplio
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                      Spend time in one of Greece's most charming cities. Walk
-                      through the romantic old town, entering through the Land Gate,
-                      the only entrance during Venetian rule. Stroll past neoclassical
-                      mansions and Venetian buildings to reach Syntagma Square, the
-                      heart of the city.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                      See the spot where Ioannis Kapodistrias, Greece's first
-                      governor, was assassinated, and admire the elegant architecture
-                      of the former Parliament building and Archaeological Museum.
-                      The narrow alleys of the old town offer a fairytale atmosphere
-                      with colorful bougainvillea and cozy cafés.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed">
-                      Climb to Akronafplia, the acropolis of Nafplio, for stunning
-                      panoramic views of the city and sea. End your walk at the
-                      harbor, where you'll see the iconic Bourtzi fortress, a
-                      Venetian castle built on a small island that has become
-                      Nafplio's trademark. This is an ideal time for lunch at one of
-                      the waterfront tavernas.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Mycenae */}
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                      <Compass className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                      Legendary Mycenae
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                      Journey to the kingdom of the mythical King Agamemnon, leader
-                      of the Greek forces in the Trojan War. Mycenae was the center
-                      of one of the most brilliant civilizations of Greek prehistory,
-                      the Mycenaean civilization (1600-1100 BC).
-                    </p>
-                    <p className="text-gray-600 leading-relaxed mb-3">
-                      Enter through the famous Lion Gate, Europe's oldest monumental
-                      sculpture, dating back to 1250 BC. Walk among the massive
-                      cyclopean walls, built with stones so enormous that ancient
-                      Greeks believed only the mythical Cyclopes could have moved
-                      them.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed">
-                      Explore the site's royal palace remains, cisterns, and see the
-                      beehive-shaped vaulted tombs of Atreus and Clytemnestra. These
-                      magnificent tholos tombs showcase the architectural mastery of
-                      the Mycenaeans and continue to fascinate lovers of the ancient
-                      world. After your visit, return to Athens with memories of a
-                      day spent traversing millennia of history.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tour Highlights */}
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">
-                  Tour Highlights
-                </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {highlights.map((highlight, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-start gap-3"
-                    >
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* What is Included */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">
-                  What is Included
-                </h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
-                    <p className="text-sm text-gray-600 flex items-center gap-2">
-                      <Star className="h-5 w-5 text-accent" />
-                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
-                    </p>
-                  </div>
+                <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Not Included */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">
-                  Not Included
-                </h2>
-                <div className="bg-gray-50 rounded-2xl p-8">
-                  <div className="space-y-3">
-                    {notIncluded.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-3 text-gray-700">
-                        <span className="text-red-500">✕</span>
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Booking Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
-                {/* Booking Card */}
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
@@ -396,48 +192,43 @@ export default function CorinthNafplioTourPage() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">11 hours</span>
-                    </div>
-                    <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Meeting Point:</span>
-                      <span className="font-semibold text-gray-900">Athens</span>
+                      <span className="font-semibold text-gray-900">Full day</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">All year</span>
+                      <span className="font-semibold text-gray-900">Year-round</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
-                      <span className="font-semibold text-gray-900">Private Tour</span>
+                      <span className="font-semibold text-gray-900">Private</span>
                     </div>
                   </div>
 
                   <Link
-                    href="/tour-request?tour=Corinth Canal, Epidavros, Nafplio City & Mycenae Tour"
+                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
+                    Request Tour
                   </Link>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    We'll get back to you within 24 hours
                   </p>
                 </div>
 
-                {/* Questions Card */}
                 <div className="bg-primary text-white rounded-2xl p-6">
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -445,31 +236,35 @@ export default function CorinthNafplioTourPage() {
         </div>
       </section>
 
-      {/* CTA Section with Background Image */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/corinth-nafplio-tour-hero-2.jpg"
-            alt="Explore Ancient Greece"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Explore Ancient Greece?
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/epidavros-tour-hero-3.jpg"
+          alt="Book your Epidavros tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Ancient Engineering & Perfect Acoustics
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Join us for an unforgettable journey through the most iconic sites of
-            the Peloponnese. Book your private tour today!
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Request your tour and experience two of Greece's most remarkable sites
           </p>
-          <Link
-            href="/tour-request?tour=Corinth Canal, Epidavros, Nafplio City & Mycenae Tour"
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white inline-flex items-center gap-2"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Request This Tour
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/tours/athens"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Athens Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>

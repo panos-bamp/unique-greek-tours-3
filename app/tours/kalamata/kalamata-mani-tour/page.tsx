@@ -3,39 +3,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Mountain, Anchor, Eye, Home, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Mountain, Building, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/kalamata-mani-tour-hero-1.jpg",
-  "/images/kalamata-mani-tour-hero-2.jpg",
-  "/images/kalamata-mani-tour-hero-3.jpg",
+  "/images/mani-tour-hero-1.jpg",
+  "/images/mani-tour-hero-2.jpg",
+  "/images/mani-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Admire views from the 'Balcony of Kardamyli'",
-  "See the island of Meropi from scenic viewpoint",
-  "Explore natural port of Agios Nikolaos",
-  "Walk through historic Kardamyli village",
-  "Visit home region of writer Patrick Leigh Fermor",
-  "Free time to explore at your own pace",
+  "Explore traditional Mani villages",
+  "Iconic stone tower houses",
+  "Dramatic coastal scenery",
+  "Byzantine churches and caves",
+  "Authentic local culture",
+  "Panoramic mountain views",
 ];
 
 const included = [
-  "Return transportation from Kalamata",
-  "Hotel pick-up or meeting point",
-  "English-speaking driver/guide",
-  "Scenic coastal drive",
-  "Free time in Kardamyli",
-  "Photo stops at viewpoints",
+  "Return transportation",
+  "Tour leader",
   "Liability insurance",
   "All taxes",
+];
+
+const excluded = [
+  "Personal expenses",
 ];
 
 export default function KalamataManiTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
-  const nextImage = () => setCurrentImage((prev) => (prev + 1) % gallery.length);
-  const prevImage = () => setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % gallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
 
   return (
     <div className="flex flex-col">
@@ -53,16 +58,34 @@ export default function KalamataManiTour() {
 
       <section className="relative">
         <div className="relative h-[70vh]">
-          <Image src={gallery[currentImage]} alt="Villages of Mani tour" fill className="object-cover" priority />
-          <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+          <Image
+            src={gallery[currentImage]}
+            alt="Villages of Mani Tour"
+            fill
+            className="object-cover"
+            priority
+          />
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
             <ChevronLeft className="h-6 w-6 text-primary" />
           </button>
-          <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
             <ChevronRight className="h-6 w-6 text-primary" />
           </button>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             {gallery.map((_, index) => (
-              <button key={index} onClick={() => setCurrentImage(index)} className={`w-2 h-2 rounded-full transition-all ${index === currentImage ? "w-8 bg-white" : "bg-white/60"}`} />
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
+                }`}
+              />
             ))}
           </div>
         </div>
@@ -73,118 +96,55 @@ export default function KalamataManiTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Villages of Mani Tour
+                Villages of Mani Full Day Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 4 hours
+                  <span className="font-semibold">Duration:</span> Full day
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Size:</span> Private tour
+                  <span className="font-semibold">Group Type:</span> Private
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
                   <span className="font-semibold">Season:</span> Year-round
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 9:00 AM
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Enjoy a tour through the coastal villages of Mani! You'll first stop at the "Balcony of Kardamyli" 
-                  and admire the views of the island of Meropi. Then, you'll continue towards the natural port of 
-                  Agios Nikolaos.
+                  Journey into the wild and beautiful Mani Peninsula, a land of stone tower houses, ancient traditions, 
+                  and dramatic landscapes where mountains plunge into the sea. Discover traditional villages that seem 
+                  frozen in time, preserving centuries-old customs and a fiercely independent spirit.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Afterwards, you'll go back to Kardamyli, the home of the British writer Sir Patrick Leigh Fermor, 
-                  and have some free time to explore the village. Kardamyli is one of the most picturesque villages 
-                  in the Peloponnese, with its stone towers, Byzantine churches, and traditional architecture.
+                  Explore picturesque stone villages built on mountainsides, their characteristic defensive towers rising 
+                  against the sky. Learn about the unique history of Mani - from its ancient Spartan roots to the powerful 
+                  families whose blood feuds shaped the region's distinctive architecture. Visit beautifully preserved tower 
+                  complexes and narrow stone-paved alleys.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Discover hidden Byzantine churches adorned with remarkable frescoes, some dating back to the 11th century. 
+                  Visit the famous Diros Caves with their spectacular underground lakes and stalactite formations. Stop at 
+                  scenic viewpoints offering breathtaking vistas of the rugged coastline and the endless blue Aegean.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  The Mani peninsula is known for its dramatic landscapes, rugged coastline, and proud traditions. 
-                  This half-day tour gives you a taste of this unique region, from stunning viewpoints to charming 
-                  villages where time seems to stand still. The scenic coastal drive itself is an unforgettable experience.
+                  Meet local residents who maintain traditional ways of life, from olive cultivation to artisan crafts. 
+                  Taste authentic Maniot products and cuisine in family tavernas. Your guide shares fascinating stories 
+                  about local legends, customs, and the indomitable spirit that defines this unique region of Greece.
                 </p>
-              </div>
-
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Eye className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Balcony of Kardamyli</h3>
-                      <p className="text-gray-600 leading-relaxed">Stop at this famous viewpoint for spectacular panoramic views of the coastline and Meropi island.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Mountain className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Island of Meropi Views</h3>
-                      <p className="text-gray-600 leading-relaxed">Admire the beautiful island views from the dramatic Mani coastline viewpoints.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Anchor className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Natural Port of Agios Nikolaos</h3>
-                      <p className="text-gray-600 leading-relaxed">Explore the charming natural harbor with crystal-clear waters and traditional fishing boats.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Home className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Kardamyli Village</h3>
-                      <p className="text-gray-600 leading-relaxed">Walk through the streets of this historic village, once home to writer Patrick Leigh Fermor.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Scenic Coastal Drive</h3>
-                      <p className="text-gray-600 leading-relaxed">Enjoy the dramatic coastal scenery of the Mani peninsula with numerous photo opportunities.</p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
@@ -193,21 +153,25 @@ export default function KalamataManiTour() {
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
-                    <p className="text-sm text-gray-600 flex items-center gap-2">
-                      <Star className="h-5 w-5 text-accent" />
-                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
-                    </p>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -216,23 +180,21 @@ export default function KalamataManiTour() {
               <div className="sticky top-24 space-y-6">
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
-                    <div className="text-sm text-gray-600 mb-2">From</div>
-                    <div className="font-display text-4xl font-bold text-primary-dark">€85</div>
+                    <div className="text-sm text-gray-600 mb-2">Price</div>
+                    <div className="font-display text-4xl font-bold text-primary-dark">
+                      €100
+                    </div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">4 hours</span>
-                    </div>
-                    <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">9:00 AM</span>
+                      <span className="font-semibold text-gray-900">Full day</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">All year</span>
+                      <span className="font-semibold text-gray-900">Year-round</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
@@ -240,18 +202,31 @@ export default function KalamataManiTour() {
                     </div>
                   </div>
 
-                  <Link href="/contact" className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg">
-                    Book This Tour
+                  <Link
+                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
+                    className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
+                  >
+                    Request Tour
                   </Link>
-                  <p className="text-xs text-gray-500 text-center mt-4">Reserve now and pay later</p>
+
+                  <p className="text-xs text-gray-500 text-center mt-4">
+                    We'll get back to you within 24 hours
+                  </p>
                 </div>
 
                 <div className="bg-primary text-white rounded-2xl p-6">
-                  <h3 className="font-display text-xl font-bold mb-4">Questions?</h3>
-                  <p className="text-blue-100 mb-4">Contact our team for personalized assistance</p>
-                  <a href="tel:+302752024444" className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors">
-                    Call (+30) 27520 24444
-                  </a>
+                  <h3 className="font-display text-xl font-bold mb-4">
+                    Questions?
+                  </h3>
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -259,18 +234,35 @@ export default function KalamataManiTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src="/images/kalamata-mani-tour-hero-2.jpg" alt="Mani Villages" fill className="object-cover brightness-50" />
-        </div>
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Ready to Discover Wild Mani?</h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Villages of Mani tour and explore the dramatic coastline and historic villages of this legendary peninsula.
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/mani-tour-hero-3.jpg"
+          alt="Book your Mani tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Discover Greece's Wild Soul
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Request your Mani villages tour and explore a land where time stands still
           </p>
-          <Link href="/contact" className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white">
-            Book Now <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Request This Tour
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/tours/kalamata"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Kalamata Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>

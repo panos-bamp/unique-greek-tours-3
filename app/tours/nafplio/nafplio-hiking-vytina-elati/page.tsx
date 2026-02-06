@@ -3,36 +3,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Mountain, TreePine, Church, Footprints, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Mountain, Trees, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/nafplio-hiking-vytina-tour-hero-1.jpg",
-  "/images/nafplio-hiking-vytina-tour-hero-2.jpg",
-  "/images/nafplio-hiking-vytina-tour-hero-3.jpg",
+  "/images/vytina-tour-hero-1.jpg",
+  "/images/vytina-tour-hero-2.jpg",
+  "/images/vytina-tour-hero-3.jpg",
 ];
 
 const highlights = [
-  "Beautiful mountain town of Vytina at 1000m altitude",
-  "Walk alongside Milaon River and ravine",
-  "Historic Kokoros watermill",
-  "Wooden bridge and stone Zazios bridge",
-  "Byzantine church of Zoodochos Pigi",
-  "One of Mount Mainalo's finest trails",
+  "Hike through pristine mountain forests",
+  "Visit picturesque Vytina village",
+  "Explore traditional Elati settlement",
+  "Professional mountain guide",
+  "Fresh mountain air and scenery",
+  "Traditional architecture and culture",
 ];
 
 const included = [
+  "Return transportation",
   "Professional mountain guide",
-  "Pick up from hotel or meeting point",
-  "Return private transportation from Nafplio",
   "Liability insurance",
   "All taxes",
 ];
 
-export default function NafplioHikingVytinaTour() {
+const excluded = [
+  "Personal expenses",
+];
+
+export default function NafplioVytinaHikingTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
-  const nextImage = () => setCurrentImage((prev) => (prev + 1) % gallery.length);
-  const prevImage = () => setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % gallery.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
 
   return (
     <div className="flex flex-col">
@@ -43,23 +51,41 @@ export default function NafplioHikingVytinaTour() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Hiking Vytina - Elati</span>
+            <span className="text-primary">Vytina & Elati Hiking</span>
           </div>
         </div>
       </div>
 
       <section className="relative">
         <div className="relative h-[70vh]">
-          <Image src={gallery[currentImage]} alt="Hiking Vytina to Elati" fill className="object-cover" priority />
-          <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+          <Image
+            src={gallery[currentImage]}
+            alt="Vytina & Elati Hiking"
+            fill
+            className="object-cover"
+            priority
+          />
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
             <ChevronLeft className="h-6 w-6 text-primary" />
           </button>
-          <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
+          >
             <ChevronRight className="h-6 w-6 text-primary" />
           </button>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             {gallery.map((_, index) => (
-              <button key={index} onClick={() => setCurrentImage(index)} className={`w-2 h-2 rounded-full transition-all ${index === currentImage ? "w-8 bg-white" : "bg-white/60"}`} />
+              <button
+                key={index}
+                onClick={() => setCurrentImage(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
+                }`}
+              />
             ))}
           </div>
         </div>
@@ -70,125 +96,55 @@ export default function NafplioHikingVytinaTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Hiking Vytina - Elati
+                Vytina & Elati Mountain Hiking Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 2.5-3 hours
+                  <span className="font-semibold">Duration:</span> Full day
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Size:</span> Small groups, families
+                  <span className="font-semibold">Difficulty:</span> Moderate
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Season:</span> Mar-Jun & Sep-Nov
+                  <span className="font-semibold">Season:</span> Year-round
                 </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 9:00 AM
-                </div>
-              </div>
-
-              <div className="mb-8 p-4 bg-green-50 rounded-lg border border-green-200">
-                <p className="text-green-800 font-semibold">
-                  <Mountain className="inline h-5 w-5 mr-2" />
-                  Difficulty: Easy | Distance: 8.5 km | Altitude: ~1000m
-                </p>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  One of the finest and easiest hiking trails of Mount Mainalo, suitable for all types of travellers 
-                  and families. This scenic mountain hike takes you through some of the most beautiful landscapes 
-                  in the Peloponnese.
+                  Discover the enchanting mountain villages of Vytina and Elati on this scenic hiking adventure through 
+                  the forests of Mount Mainalo. Experience traditional Arcadian mountain life, pristine nature, and 
+                  breathtaking landscapes on well-marked trails through one of Greece's most beautiful regions.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Hiking starts at Vytina, at an altitude of about 1000 meters, which is one of the most beautiful 
-                  mountain towns in the country. The route continues alongside the Milaon River and its ravine, 
-                  offering stunning natural scenery and peaceful surroundings.
+                  Begin in the picturesque village of Vytina, known for its stone architecture, cobblestone streets, 
+                  and traditional character. Your professional guide leads you through dense fir and black pine forests, 
+                  following ancient paths once used by shepherds and merchants crossing the mountains.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Hike to the charming settlement of Elati, perched at 1,050 meters altitude. Walk through fragrant 
+                  pine forests, cross crystal-clear mountain streams, and enjoy panoramic views of the surrounding 
+                  peaks. Learn about the local flora and fauna, including rare endemic species found only in these mountains.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  On our way we will have the chance to see the old watermill of Kokoros, a wooden bridge and the 
-                  historic stone bridge of Zazios. Our hiking ends just outside Elati, where in an idyllic setting 
-                  we will find the church of Zoodochos Pigi, built in a plan of Byzantine architecture.
+                  Stop in traditional tavernas to taste local specialties and meet friendly locals who maintain 
+                  centuries-old traditions. Experience the changing seasons - spring wildflowers, summer greenery, 
+                  autumn colors, or winter snow-covered landscapes. This tour offers a perfect blend of nature, culture, 
+                  and authentic Greek mountain hospitality.
                 </p>
               </div>
 
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Mountain className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Mountain Town of Vytina</h3>
-                      <p className="text-gray-600 leading-relaxed">Start your hike at one of Greece's most beautiful mountain towns, perched at 1000 meters altitude on Mount Mainalo.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <TreePine className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Milaon River Trail</h3>
-                      <p className="text-gray-600 leading-relaxed">Walk alongside the scenic Milaon River and its ravine, surrounded by lush vegetation and natural beauty.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Footprints className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Historic Bridges & Watermill</h3>
-                      <p className="text-gray-600 leading-relaxed">Discover the old Kokoros watermill, a charming wooden bridge, and the historic stone bridge of Zazios.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Church className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Byzantine Church Finale</h3>
-                      <p className="text-gray-600 leading-relaxed">End your hike at the beautiful Zoodochos Pigi church near Elati, built in traditional Byzantine architectural style.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Camera className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Stunning Photography</h3>
-                      <p className="text-gray-600 leading-relaxed">Capture incredible photos of mountain landscapes, river gorges, and traditional Greek countryside scenery.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <h2 className="font-display text-3xl text-primary mb-6">Hiking Highlights</h2>
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
@@ -197,21 +153,25 @@ export default function NafplioHikingVytinaTour() {
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
-                    <p className="text-sm text-gray-600 flex items-center gap-2">
-                      <Star className="h-5 w-5 text-accent" />
-                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
-                    </p>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -220,42 +180,53 @@ export default function NafplioHikingVytinaTour() {
               <div className="sticky top-24 space-y-6">
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
-                    <div className="text-sm text-gray-600 mb-2">From</div>
-                    <div className="font-display text-4xl font-bold text-primary-dark">€65</div>
+                    <div className="text-sm text-gray-600 mb-2">Price</div>
+                    <div className="font-display text-4xl font-bold text-primary-dark">
+                      €130
+                    </div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">2.5-3 hours</span>
-                    </div>
-                    <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">9:00 AM</span>
+                      <span className="font-semibold text-gray-900">Full day</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Difficulty:</span>
-                      <span className="font-semibold text-green-600">Easy</span>
+                      <span className="font-semibold text-gray-900">Moderate</span>
                     </div>
                     <div className="flex justify-between py-2">
-                      <span className="text-gray-600">Distance:</span>
-                      <span className="font-semibold text-gray-900">8.5 km</span>
+                      <span className="text-gray-600">Season:</span>
+                      <span className="font-semibold text-gray-900">Year-round</span>
                     </div>
                   </div>
 
-                  <Link href="/contact" className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg">
-                    Book This Tour
+                  <Link
+                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
+                    className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
+                  >
+                    Request Tour
                   </Link>
-                  <p className="text-xs text-gray-500 text-center mt-4">Reserve now and pay later</p>
+
+                  <p className="text-xs text-gray-500 text-center mt-4">
+                    We'll get back to you within 24 hours
+                  </p>
                 </div>
 
                 <div className="bg-primary text-white rounded-2xl p-6">
-                  <h3 className="font-display text-xl font-bold mb-4">Questions?</h3>
-                  <p className="text-blue-100 mb-4">Contact our team for personalized assistance</p>
-                  <a href="tel:+302752024444" className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors">
-                    Call (+30) 27520 24444
-                  </a>
+                  <h3 className="font-display text-xl font-bold mb-4">
+                    Questions?
+                  </h3>
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -263,18 +234,35 @@ export default function NafplioHikingVytinaTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src="/images/nafplio-hiking-vytina-tour-hero-2.jpg" alt="Vytina Hiking" fill className="object-cover brightness-50" />
-        </div>
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Discover Mountain Greece</h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Vytina-Elati hiking tour and experience the stunning natural beauty of Mount Mainalo.
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/vytina-tour-hero-3.jpg"
+          alt="Book your mountain hiking tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Explore Mountain Paradise
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Request your Vytina & Elati hiking tour and discover Arcadia's mountain treasures
           </p>
-          <Link href="/contact" className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white">
-            Book Now <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Request This Tour
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>
