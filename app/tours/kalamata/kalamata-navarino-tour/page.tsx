@@ -28,7 +28,7 @@ const included = [
   "All taxes",
 ];
 
-const excluded = [];
+const excluded: string[] = [];
 
 export default function KalamataNavarinoCruise() {
   const [currentImage, setCurrentImage] = useState(0);
