@@ -157,7 +157,7 @@ const culinaryTours = [
   },
   {
     slug: "nafplio-malevi-tour",
-    title: "Malevi Monastery & Wine Tour",
+    title: "Holy Monastery of Malevi Tour",
     description: "Discover the historic Malevi Monastery and taste wines made using centuries-old techniques.",
     duration: "5 hours",
     price: "€130",

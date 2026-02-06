@@ -34,7 +34,7 @@ const destinations = [
     name: "Athens",
     slug: "athens",
     description: "Birthplace of democracy and Western civilization",
-    tourCount: 2,
+    tourCount: 3,
     image: "/images/destination-athens.jpg",
   },
   {
