@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Church, Castle, Camera, Mountain, ArrowRight } from "lucide-react";
 
 const gallery = [
-  "/images/sparta-mystras-tour-hero-1.jpg",
-  "/images/sparta-mystras-tour-hero-2.jpg",
-  "/images/sparta-mystras-tour-hero-3.jpg",
+  "/images/sparta-tour-hero-1.jpg",
+  "/images/sparta-tour-hero-2.jpg",
+  "/images/sparta-tour-hero-3.jpg",
 ];
 
 const highlights = [
