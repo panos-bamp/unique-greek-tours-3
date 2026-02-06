@@ -25,7 +25,7 @@ const sightseeingTours = [
     title: "Mycenae & Epidaurus Tour",
     description: "Visit two UNESCO World Heritage sites - the ancient citadel of Mycenae and the legendary theater of Epidaurus.",
     duration: "8 hours",
-    price: "From €160",
+    price: "€160",
     type: "Private",
     image: "/images/mycenae-tour-hero-1.jpg",
     icon: Landmark,
@@ -36,7 +36,7 @@ const sightseeingTours = [
     title: "Corinth & Epidaurus Tour",
     description: "Explore Ancient Corinth, the Corinth Canal, and the acoustically perfect theater of Epidaurus.",
     duration: "9 hours",
-    price: "From €230",
+    price: "€230",
     type: "Private",
     image: "/images/round-trip-tour-hero-1.jpg",
     icon: Compass,
@@ -47,7 +47,7 @@ const sightseeingTours = [
     title: "Sparta & Mystras Byzantine Tour",
     description: "Walk in the footsteps of King Leonidas and explore the Byzantine ghost town of Mystras.",
     duration: "10 hours",
-    price: "From €250",
+    price: "€250",
     type: "Private",
     image: "/images/sparta-tour-hero-1.jpg",
     icon: Landmark,
@@ -58,7 +58,7 @@ const sightseeingTours = [
     title: "Ancient Olympia Day Trip",
     description: "Journey to the birthplace of the Olympic Games and explore the archaeological site and museum.",
     duration: "Full day",
-    price: "From €290",
+    price: "€290",
     type: "Private",
     image: "/images/olympia-tour-hero-1.jpg",
     icon: Compass,
@@ -69,7 +69,7 @@ const sightseeingTours = [
     title: "Monemvasia Castle Tour",
     description: "Discover the hidden medieval fortress town carved into a dramatic rock peninsula.",
     duration: "10 hours",
-    price: "From €310",
+    price: "€310",
     type: "Private",
     image: "/images/monemvasia-tour-hero-1.jpg",
     icon: Castle,
@@ -80,7 +80,7 @@ const sightseeingTours = [
     title: "Argos Cultural Heritage Tour",
     description: "Explore ancient Argos, one of the oldest continuously inhabited cities in the world.",
     duration: "6 hours",
-    price: "From €190",
+    price: "€190",
     type: "Private",
     image: "/images/mycenae-tour-hero-2.jpg",
     icon: Landmark,
@@ -160,7 +160,7 @@ const culinaryTours = [
     title: "Malevi Monastery & Wine Tour",
     description: "Discover the historic Malevi Monastery and taste wines made using centuries-old techniques.",
     duration: "5 hours",
-    price: "From €130",
+    price: "€130",
     type: "Private",
     image: "/images/malevi-tour-hero-2.jpg",
     icon: Wine,
@@ -447,7 +447,9 @@ function TourCard({ tour, baseSlug }: { tour: any; baseSlug: string }) {
         
         {/* Price badge - top right */}
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="font-bold text-primary-dark">From {tour.price}</span>
+          <span className="font-bold text-primary-dark">
+                      {tour.price.startsWith('€') ? `From ${tour.price}` : tour.price}
+                    </span>
         </div>
       </div>
       

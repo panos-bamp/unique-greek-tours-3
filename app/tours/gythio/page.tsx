@@ -15,7 +15,7 @@ const gythioTours = [
     title: "Diros Caves Tour",
     slug: "gythio-diros-caves-tour",
     duration: "4 hours",
-    price: "From €180",
+    price: "€180",
     type: "Private",
     image: "/images/monemvasia-tour-hero-2.jpg",
     description: "Boat through 1,500m of spectacular underground caves. Marvel at stalactites, stalagmites, and crystal formations in this natural wonder.",
@@ -26,7 +26,7 @@ const gythioTours = [
     title: "Monemvasia Castle Tour",
     slug: "gythio-monemvasia-tour",
     duration: "6 hours",
-    price: "From €220",
+    price: "€220",
     type: "Private",
     image: "/images/monemvasia-tour-hero-1.jpg",
     description: "Explore the medieval castle town of Monemvasia. Byzantine alleys, Venetian architecture, and panoramic sea views with a licensed guide.",
@@ -37,7 +37,7 @@ const gythioTours = [
     title: "Sparta & Mystras Tour",
     slug: "gythio-sparta-mystras-tour",
     duration: "5-6 hours",
-    price: "From €200",
+    price: "€200",
     type: "Private",
     image: "/images/sparta-tour-hero-1.jpg",
     description: "Visit legendary Sparta and UNESCO Mystras. Archaeological museums, Byzantine churches, and ancient history come alive.",
@@ -224,7 +224,9 @@ function TourCard({ tour, basePath }: { tour: any; basePath: string }) {
         
         {/* Price badge - top right */}
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="font-bold text-primary-dark">From {tour.price}</span>
+          <span className="font-bold text-primary-dark">
+                      {tour.price.startsWith('€') ? `From ${tour.price}` : tour.price}
+                    </span>
         </div>
       </div>
       

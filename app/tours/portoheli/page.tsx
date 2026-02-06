@@ -36,7 +36,7 @@ const tours = [
     title: "Ancient Epidavros, Mycenae & Nafplio",
     description: "Full-day tour to UNESCO World Heritage sites - Ancient Theatre of Epidavros and Mycenae citadel.",
     duration: "9 hours",
-    price: "From €230",
+    price: "€230",
     priceNote: "per person",
     image: "/images/portoheli-epidavros-mycenae-tour-hero-1.jpg",
     highlights: ["UNESCO Epidavros", "Mycenae Lion's Gate", "Nafplio free time"],
@@ -121,7 +121,9 @@ export default function PortoHeliToursPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <span className="font-bold text-primary-dark">From {tour.price}</span>
+                    <span className="font-bold text-primary-dark">
+                      {tour.price.startsWith('€') ? `From ${tour.price}` : tour.price}
+                    </span>
                     <span className="text-xs text-gray-500 block">{tour.priceNote}</span>
                   </div>
                   <div className="absolute top-4 left-4">

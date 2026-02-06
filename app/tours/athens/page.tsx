@@ -11,7 +11,7 @@ const tours = [
     description:
       "Explore the iconic Acropolis, ancient Agora, and vibrant neighborhoods of Athens with an expert guide.",
     duration: "8 hours",
-    price: "From €250",
+    price: "€250",
     image: "/images/athens-city-tour-hero-1.jpg",
     highlights: [
       "Acropolis & Parthenon",
@@ -26,7 +26,7 @@ const tours = [
     description:
       "Journey to the ancient Oracle of Delphi, the center of the ancient Greek world.",
     duration: "10 hours",
-    price: "From €350",
+    price: "€350",
     image: "/images/athens-delphi-tour-hero-1.jpg",
     highlights: [
       "Oracle of Delphi",
@@ -41,7 +41,7 @@ const tours = [
     description:
       "Full-day private tour to the Corinth Canal, ancient Epidaurus, romantic Nafplio, and legendary Mycenae.",
     duration: "11 hours",
-    price: "From €350",
+    price: "€350",
     image: "/images/corinth-nafplio-tour-hero-1.jpg",
     highlights: [
       "Corinth Canal",

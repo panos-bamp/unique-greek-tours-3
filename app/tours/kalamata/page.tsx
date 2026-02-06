@@ -15,7 +15,7 @@ const kalamataTours = [
     title: "Ancient Olympia Tour",
     slug: "kalamata-ancient-olympia-tour",
     duration: "7 hours",
-    price: "From €300",
+    price: "€300",
     type: "Private",
     image: "/images/kalamata-olympia-tour-hero-1.jpg",
     description: "Visit the birthplace of the Olympic Games. See the ancient stadium, Temple of Zeus, and world-famous archaeological museum.",
@@ -26,7 +26,7 @@ const kalamataTours = [
     title: "Castle Olive Oil Tasting Tour",
     slug: "kalamata-olive-oil-tour",
     duration: "4 hours",
-    price: "From €150",
+    price: "€150",
     type: "Private",
     image: "/images/kalamata-olive-oil-tour-hero-1.jpg",
     description: "Experience Greek olive oil culture at the 13th century Castle of Androusa. Olive walk, mill tours, expert tasting, and traditional meal.",
@@ -37,7 +37,7 @@ const kalamataTours = [
     title: "Kalamata Food Tasting Tour",
     slug: "kalamata-food-tasting-tour",
     duration: "3 hours",
-    price: "From €100",
+    price: "€100",
     type: "Walking",
     image: "/images/kalamata-food-tour-hero-1.jpg",
     description: "Experience Greek food like a local. Visit family stores, taste regional specialties, and explore hidden historic areas.",
@@ -48,7 +48,7 @@ const kalamataTours = [
     title: "Villages of Mani Tour",
     slug: "kalamata-mani-tour",
     duration: "4 hours",
-    price: "From €100",
+    price: "€100",
     type: "Private",
     image: "/images/kalamata-mani-tour-hero-1.jpg",
     description: "Explore coastal Mani villages. Visit the Balcony of Kardamyli, natural port of Agios Nikolaos, and historic Kardamyli.",
@@ -59,7 +59,7 @@ const kalamataTours = [
     title: "Navarino Bay Mini Cruise",
     slug: "kalamata-navarino-tour",
     duration: "5 hours",
-    price: "From €130",
+    price: "€130",
     type: "Boat",
     image: "/images/kalamata-navarino-tour-hero-1.jpg",
     description: "Cruise turquoise Navarino Bay. Swim at secluded spots, visit historic islands, spot sea turtles and dolphins.",
@@ -247,7 +247,9 @@ function TourCard({ tour, basePath }: { tour: any; basePath: string }) {
         
         {/* Price badge - top right */}
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-          <span className="font-bold text-primary-dark">From {tour.price}</span>
+          <span className="font-bold text-primary-dark">
+                      {tour.price.startsWith('€') ? `From ${tour.price}` : tour.price}
+                    </span>
         </div>
       </div>
       
