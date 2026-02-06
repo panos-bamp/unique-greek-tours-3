@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Lighthouse, Mountain, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Compass, Mountain, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/poros-tour-hero-1.jpg",
