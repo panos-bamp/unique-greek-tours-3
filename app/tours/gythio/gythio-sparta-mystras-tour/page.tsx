@@ -32,7 +32,7 @@ const excluded = [
   "Personal expenses",
 ];
 
-export default function GythioSpartaMystras Tour() {
+export default function GythioSpartaMystrasTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const nextImage = () => {
