@@ -190,6 +190,97 @@ export default function TripsPage() {
         </div>
       </section>
 
+      {/* Custom Multi-Day Tours Section */}
+      <section className="py-24 bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image */}
+            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/hero-collage.jpg"
+                alt="Custom Multi-Day Tours"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <p className="text-accent-light uppercase tracking-widest text-sm mb-2">TAILORED FOR YOU</p>
+                <h3 className="font-display text-3xl md:text-4xl font-bold">
+                  Design Your Perfect Greek Journey
+                </h3>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div>
+              <p className="text-accent uppercase tracking-widest text-sm mb-4">BESPOKE EXPERIENCES</p>
+              <h2 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
+                Custom Multi-Day Tours
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Want to explore Greece on your own terms? Our custom multi-day tours are designed 
+                specifically around your interests, pace, and preferences. Whether you're passionate 
+                about ancient history, culinary experiences, outdoor adventures, or island hopping, 
+                we'll craft the perfect itinerary just for you.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                Choose your destinations, select your accommodations, decide your travel pace, and 
+                let us handle all the details. From 3 days to 3 weeks, we create unforgettable 
+                journeys tailored to your dreams.
+              </p>
+
+              {/* Benefits List */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-accent text-sm">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-primary mb-1">Personalized Itineraries</h4>
+                    <p className="text-gray-600">Every detail crafted around your interests and travel style</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-accent text-sm">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-primary mb-1">Flexible Duration</h4>
+                    <p className="text-gray-600">From weekend getaways to extended explorations</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-accent text-sm">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-primary mb-1">Private or Small Group</h4>
+                    <p className="text-gray-600">Travel with your family, friends, or join a curated group</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-accent text-sm">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-primary mb-1">Expert Local Guides</h4>
+                    <p className="text-gray-600">Insider knowledge and authentic experiences</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link 
+                href="/trips/custom-trip" 
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-all text-lg shadow-lg hover:shadow-xl"
+              >
+                Plan Your Custom Tour
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative py-32 overflow-hidden">
         <Image
