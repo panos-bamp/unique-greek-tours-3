@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Church, Mountain, Sparkles, Coffee, Eye, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Church, Mountain, Camera, Wine, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/malevi-tour-hero-1.jpg",
@@ -12,23 +12,25 @@ const gallery = [
 ];
 
 const highlights = [
-  "Experience the majesty of religion",
-  "Visit the magnificent Holy Monastery of Malevi",
-  "Enjoy nature on the slopes of Parnon mountain",
-  "See the miraculous icon by Evangelist Luke",
-  "Opportunity to taste a traditional lunch",
-  "Enjoy a luxurious and safe transfer",
+  "Visit the historic Malevi Monastery",
+  "Explore beautiful mountain scenery",
+  "Learn about monastic life and traditions",
+  "Discover Byzantine architecture",
+  "Peaceful spiritual atmosphere",
+  "Panoramic mountain views",
 ];
 
 const included = [
-  "English-speaking tour leader",
-  "Return private transportation from Nafplion",
-  "Pick up from your hotel or meeting point",
-  "Visit to Holy Monastery of Malevi",
-  "Optional visits to Loukou and Palaiopanagia monasteries",
-  "Comfortable air-conditioned vehicle",
+  "Tour leader",
+  "Return transportation",
   "Liability insurance",
   "All taxes",
+];
+
+const excluded = [
+  "Licensed guide (available upon request)",
+  "Entrance fees",
+  "Personal expenses",
 ];
 
 export default function NafplioMaleviTour() {
@@ -60,7 +62,7 @@ export default function NafplioMaleviTour() {
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Malevi Monastery tour gallery"
+            alt="Malevi Monastery Tour"
             fill
             className="object-cover"
             priority
@@ -102,7 +104,7 @@ export default function NafplioMaleviTour() {
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> 2.5 - 3 hours
+                  <span className="font-semibold">Duration:</span> 5 hours
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
@@ -114,146 +116,70 @@ export default function NafplioMaleviTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Pick-up:</span> 9:00 AM - 11:00 AM
+                  <span className="font-semibold">Pick-up:</span> 9:00 AM
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  This tour gives you the opportunity to experience the majesty of your faith and come closer to 
-                  your religion by visiting one of the most famous monasteries of Kynouria, the magnificent Holy 
-                  Monastery of Panagia Malevis.
+                  Escape to the serene mountains of Arcadia for a peaceful visit to the Holy Monastery of Malevi, 
+                  one of the most important religious sites in the Peloponnese. Perched at 1,100 meters on the slopes 
+                  of Mount Mainalon, this monastery offers spiritual tranquility and stunning natural beauty.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  We start your tour by picking you up from Nafplion and head towards Astros. We will end up in 
-                  the idyllic, cedar-covered area of Agios Petros Kynourias, on the slopes of Parnon mountain, 
-                  where the impressive Malevi Monastery is found. The name Malevi is associated with the highest 
-                  peak of Parnon (Malevo) where the monastery was originally built.
+                  Founded in the 13th century and dedicated to the Dormition of the Virgin Mary, the monastery is a 
+                  masterpiece of Byzantine architecture. Explore the main church with its beautiful frescoes and icons, 
+                  visit the library housing rare manuscripts, and walk through the peaceful courtyards.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Learn about the monastery's fascinating history from your tour leader, including its role as a 
+                  center of resistance during Ottoman rule and its significance in Greek Orthodox tradition. The 
+                  monastery celebrates its major feast day on August 15th, drawing thousands of pilgrims.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  This monastery was founded in 717 AD and here you will see the miraculous icon of the Assumption 
-                  of the Virgin, the work of Evangelist Luke. If you wish, we are also able to have lunch in one of 
-                  the surrounding villages that spring up through the firs. We can also visit the Loukou Monastery 
-                  and the Monastery of Palaiopanagia, which are on our way. The tour ends with your return to our 
-                  meeting point.
+                  Enjoy the spectacular mountain scenery, fresh air, and peaceful atmosphere. The journey through 
+                  traditional mountain villages and pine forests is an experience in itself, offering a glimpse of 
+                  rural Greek life away from the tourist crowds.
                 </p>
               </div>
 
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Church className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Holy Monastery Visit
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Experience the magnificent Holy Monastery of Panagia Malevis, founded in 717 AD on Mount Parnon.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Mountain className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Mount Parnon Journey
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Travel through cedar forests on the slopes of Mount Parnon to reach this sacred site in Agios Petros.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Sparkles className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Miraculous Icon
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        See the miraculous icon of the Assumption of the Virgin, a masterpiece created by Evangelist Luke.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Eye className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Optional Monastery Visits
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Visit Loukou Monastery and Monastery of Palaiopanagia on the return journey.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Coffee className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Traditional Lunch Option
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Opportunity to enjoy traditional lunch in one of the surrounding mountain villages with fir trees.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Tour Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* What is Included */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 pt-6 border-t border-sand-200">
-                    <p className="text-sm text-gray-600 flex items-center gap-2">
-                      <Star className="h-5 w-5 text-accent" />
-                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
-                    </p>
-                  </div>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* What is NOT Included */}
+              <div className="mb-12">
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -264,19 +190,19 @@ export default function NafplioMaleviTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €90
+                      €130
                     </div>
-                    <div className="text-sm text-gray-600">per person</div>
+                    <div className="text-sm text-gray-600">per group</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">2.5 - 3 hours</span>
+                      <span className="font-semibold text-gray-900">5 hours</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Pick-up Time:</span>
-                      <span className="font-semibold text-gray-900">9:00 AM - 11:00 AM</span>
+                      <span className="font-semibold text-gray-900">9:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
@@ -288,15 +214,17 @@ export default function NafplioMaleviTour() {
                     </div>
                   </div>
 
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://fareharbor.com/embeds/book/uniquegreektours/items/269628/?flow=482717&from-ssl=yes&ga=UA-138348961-1%2C209837950.1765224973%3B&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fholy-monastery-of-malevis-tour%2F&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Tour
-                  </Link>
+                    Book Now
+                  </a>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    Secure booking via FareHarbor
                   </p>
                 </div>
 
@@ -304,15 +232,15 @@ export default function NafplioMaleviTour() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -320,31 +248,38 @@ export default function NafplioMaleviTour() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/malevi-tour-hero-3.jpg"
-            alt="Malevi Monastery"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready for a Spiritual Journey?
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/malevi-tour-hero-3.jpg"
+          alt="Book your Malevi Monastery tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Find Peace in the Mountains
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Malevi Monastery Tour today and experience the sacred beauty of Mount Parnon 
-            with our expert guides.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Book your Malevi Monastery tour and experience spiritual serenity in beautiful Arcadian highlands
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://fareharbor.com/embeds/book/uniquegreektours/items/269628/?flow=482717&from-ssl=yes&ga=UA-138348961-1%2C209837950.1765224973%3B&ga4t=AW-748580769%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Fwww.uniquegreektours.com%2Fen%2Fprivate_tours%2Fholy-monastery-of-malevis-tour%2F&language=en-us&u=7e462d24-c50a-4c5d-918e-674a3b00b338"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Book This Tour
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>

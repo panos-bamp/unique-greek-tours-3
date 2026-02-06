@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, ChefHat, Utensils, Waves, BookOpen, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, ChefHat, Utensils, Camera, Heart, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/cooking-class-hero-1.jpg",
@@ -12,29 +12,25 @@ const gallery = [
 ];
 
 const highlights = [
-  "Hands-on cooking class with expert guidance",
-  "Learn authentic traditional Greek recipes",
-  "Use fresh ingredients from our garden",
-  "Relax by the pool while food cooks",
-  "Enjoy a delicious homemade lunch",
-  "Take home a recipe booklet",
+  "Hands-on Greek cooking experience",
+  "Learn traditional recipes",
+  "Professional chef instruction",
+  "Fresh local ingredients",
+  "Enjoy the meal you prepare",
+  "Take recipes home",
 ];
 
 const included = [
-  "Hands-on cooking class with expert guidance",
-  "Use of fresh, homegrown ingredients",
-  "Access to swimming pool and garden amenities",
-  "A delicious lunch featuring traditional Greek dishes",
-  "Recipe booklet to take home",
-  "All equipment and materials",
+  "Chef instructor",
+  "All ingredients",
+  "Meal (dishes you prepare)",
+  "Return transportation",
+  "Liability insurance",
+  "All taxes",
 ];
 
-const perfectFor = [
-  "Families seeking a hands-on, educational activity",
-  "Couples looking for a romantic Greek experience",
-  "University and student groups for cultural immersion",
-  "Corporate teams looking to bond over shared activity",
-  "Foodies eager to learn traditional Greek recipes",
+const excluded = [
+  "Personal expenses",
 ];
 
 export default function NafplioCookingClass() {
@@ -50,7 +46,6 @@ export default function NafplioCookingClass() {
 
   return (
     <div className="flex flex-col">
-      {/* Breadcrumb */}
       <div className="bg-sand-50 py-4">
         <div className="container-custom">
           <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -58,17 +53,16 @@ export default function NafplioCookingClass() {
             <span>/</span>
             <Link href="/tours/nafplio" className="hover:text-primary">Nafplio Tours</Link>
             <span>/</span>
-            <span className="text-primary">Farmhouse Cooking Class</span>
+            <span className="text-primary">Greek Cooking Class</span>
           </div>
         </div>
       </div>
 
-      {/* Image Gallery Carousel */}
       <section className="relative">
         <div className="relative h-[70vh]">
           <Image
             src={gallery[currentImage]}
-            alt="Cooking class gallery"
+            alt="Greek Cooking Class"
             fill
             className="object-cover"
             priority
@@ -99,14 +93,12 @@ export default function NafplioCookingClass() {
         </div>
       </section>
 
-      {/* Tour Details */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Main Content */}
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Farmhouse Cooking Class
+                Greek Cooking Class Experience
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
@@ -116,189 +108,87 @@ export default function NafplioCookingClass() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Size:</span> Max 10 people
+                  <span className="font-semibold">Group Type:</span> Private
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
                   <span className="font-semibold">Season:</span> Year-round
                 </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Location:</span> Country farmhouse
-                </div>
               </div>
 
-              {/* Overview */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-4">The Experience</h2>
+                <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Join us for a delightful Farmhouse Culinary Experience at our charming country house, 
-                  nestled amidst fruit trees and a lush vegetable garden. This immersive cooking class 
-                  offers a unique opportunity to learn the secrets of traditional Greek cuisine.
+                  Immerse yourself in authentic Greek cuisine with this hands-on cooking class led by a professional 
+                  chef. Learn to prepare traditional dishes using fresh, local ingredients and time-honored techniques 
+                  passed down through generations.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Our guests have raved about the cooking during our sea kayak tours, and now you can 
-                  dive deeper into these beloved recipes. Engage in hands-on cooking, relax by the pool, 
-                  and savor a delicious meal in a picturesque garden setting.
+                  Your culinary adventure begins at a traditional kitchen where your chef instructor will introduce you 
+                  to Greek cooking basics - from selecting quality olive oil to mastering the perfect Greek salad. Learn 
+                  the secrets of classic dishes like moussaka, spanakopita, tzatziki, and more.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Work alongside your chef to prepare a complete Greek meal, learning tips and tricks that will help you 
+                  recreate these dishes at home. Discover the importance of fresh herbs, understand traditional cooking 
+                  methods, and learn about the Mediterranean diet's health benefits.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Led by an expert local cook, you'll learn to prepare authentic Greek dishes using 
-                  fresh, locally-sourced ingredients straight from our garden. This is more than a 
-                  cooking class—it's a complete Greek culinary experience.
+                  After cooking, sit down to enjoy the delicious meal you've prepared, accompanied by local wine. Take 
+                  home recipe cards so you can share your new culinary skills with family and friends. This is more than 
+                  a cooking class - it's a cultural experience that connects you with the heart of Greek hospitality.
                 </p>
               </div>
 
-              {/* What You Can Expect */}
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <ChefHat className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Hands-On Cooking Class
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Participate in a hands-on cooking session where you'll learn to prepare authentic 
-                        Greek dishes using fresh, locally-sourced ingredients from our garden. Our expert 
-                        will guide you through each step, sharing family recipes and culinary tips.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Utensils className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Traditional Recipes
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Discover the art of traditional Greek cooking, from savory pies and hearty stews 
-                        to delectable desserts. Engage in the preparation and cooking process, and uncover 
-                        the secrets behind each flavorful dish.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Waves className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Relaxation Time
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        While the food is cooking, enjoy an hour of leisure in our beautiful surroundings. 
-                        Take a refreshing swim in our pool, play in the garden, or simply unwind on our 
-                        sun-beds or hammock, soaking in the tranquil atmosphere.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Star className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Delicious Lunch
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Once the cooking is complete, sit down to a sumptuous meal in our scenic garden. 
-                        Savor the dishes you've helped prepare, complemented by fresh produce from our 
-                        farm, and enjoy the company of fellow food enthusiasts.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <BookOpen className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">
-                        Recipe Booklet
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        Take home a beautifully crafted recipe booklet containing all the recipes you 
-                        learned during the class, so you can recreate these authentic Greek dishes 
-                        in your own kitchen.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Highlights */}
+              {/* Tour Highlights */}
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-6">Experience Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-2 gap-3">
                   {highlights.map((highlight, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <Check className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                       <span className="text-gray-700">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Perfect For */}
+              {/* What is Included */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">Perfect For</h2>
-                <div className="bg-accent/5 rounded-2xl p-8">
-                  <div className="space-y-3">
-                    {perfectFor.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {included.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* What's Included */}
+              {/* What is NOT Included */}
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What's Included</h2>
-                <div className="bg-sand-50 rounded-2xl p-8">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {included.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {excluded.map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Sidebar - Booking Card */}
             <div className="lg:col-span-1">
               <div className="sticky top-24 space-y-6">
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
-                    <div className="text-sm text-gray-600 mb-2">From</div>
+                    <div className="text-sm text-gray-600 mb-2">Price</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
                       €110
                     </div>
                     <div className="text-sm text-gray-600">per person</div>
-                    <div className="text-sm text-accent mt-2">€80 for children (5-12 years)</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
@@ -307,28 +197,24 @@ export default function NafplioCookingClass() {
                       <span className="font-semibold text-gray-900">4 hours</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Location:</span>
-                      <span className="font-semibold text-gray-900">Country farmhouse</span>
-                    </div>
-                    <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">All year</span>
+                      <span className="font-semibold text-gray-900">Year-round</span>
                     </div>
                     <div className="flex justify-between py-2">
-                      <span className="text-gray-600">Group Size:</span>
-                      <span className="font-semibold text-gray-900">Max 10</span>
+                      <span className="text-gray-600">Class Type:</span>
+                      <span className="font-semibold text-gray-900">Private</span>
                     </div>
                   </div>
 
                   <Link
-                    href="/contact"
+                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
-                    Book This Experience
+                    Request Class
                   </Link>
 
                   <p className="text-xs text-gray-500 text-center mt-4">
-                    Reserve now and pay later
+                    We'll get back to you within 24 hours
                   </p>
                 </div>
 
@@ -336,15 +222,15 @@ export default function NafplioCookingClass() {
                   <h3 className="font-display text-xl font-bold mb-4">
                     Questions?
                   </h3>
-                  <p className="text-blue-100 mb-4">
-                    Contact our team for personalized assistance
+                  <p className="text-sm mb-4 text-blue-100">
+                    Contact us for custom requests or group bookings
                   </p>
-                  <a
-                    href="tel:+302752024444"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                  <Link
+                    href="/contact"
+                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
                   >
-                    Call (+30) 27520 24444
-                  </a>
+                    Contact Us
+                  </Link>
                 </div>
               </div>
             </div>
@@ -352,32 +238,36 @@ export default function NafplioCookingClass() {
         </div>
       </section>
 
-      {/* CTA Section with Background Image */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/cooking-class-hero-1.jpg"
-            alt="Greek cooking experience"
-            fill
-            className="object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="container-custom relative z-10 text-center text-white">
-          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">
-            Ready to Cook Greek?
+      {/* CTA Section */}
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/cooking-class-hero-3.jpg"
+          alt="Book your cooking class"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Master the Art of Greek Cooking
           </h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your Farmhouse Cooking Class today and discover the secrets of 
-            authentic Greek cuisine in a beautiful countryside setting.
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Request your cooking class and bring the flavors of Greece to your own kitchen
           </p>
-          <Link 
-            href="/contact" 
-            className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white"
-          >
-            Book Now
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Request This Class
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/tours/nafplio"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Nafplio Tours
+            </Link>
+          </div>
         </div>
       </section>
     </div>
