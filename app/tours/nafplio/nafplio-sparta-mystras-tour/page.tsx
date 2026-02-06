@@ -279,7 +279,7 @@ export default function NafplioSpartaMystras() {
       {/* CTA Section */}
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/sparta-mystras-tour-hero-3.jpg"
+          src="/images/sparta-tour-hero-2.jpg"
           alt="Book your Sparta Mystras tour"
           fill
           className="object-cover brightness-40"
