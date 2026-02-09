@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    await resend.emails.send({
       from: 'Unique Greek Tours <bookings@uniquegreektours.com>',
       to: ['info@uniquegreektours.com'],
       replyTo: formData.email,
@@ -176,8 +176,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ 
       success: true, 
-      message: 'Email sent successfully',
-      messageId: data.id
+      message: 'Email sent successfully'
     });
 
   } catch (error: any) {
