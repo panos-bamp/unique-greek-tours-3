@@ -114,3 +114,32 @@ const contactInfo = [
     content: "Monday - Saturday: 9:00 AM - 6:00 PM",
   },
 ];
+// 1. Add state
+const [loading, setLoading] = useState(false);
+const [status, setStatus] = useState({ type: null, message: '' });
+
+// 2. Add handleSubmit function
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  
+  const response = await fetch('/api/send-email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      formType: 'contact', // or 'tour-request' or 'plan-trip'
+      formData: { /* your form data */ }
+    }),
+  });
+  
+  // Handle response...
+};
+
+// 3. Update form JSX
+<form onSubmit={handleSubmit}>
+  {/* Status message */}
+  {/* Form fields */}
+  <button disabled={loading}>
+    {loading ? 'Sending...' : 'Submit'}
+  </button>
+</form>

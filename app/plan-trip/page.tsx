@@ -143,3 +143,33 @@ export default function PlanTripPage() {
 
 const destinations = ["Nafplio", "Mycenae", "Epidaurus", "Olympia", "Delphi", "Monemvasia", "Corinth", "Other"];
 const interests = ["Archaeological Sites", "Food & Wine", "Cultural Experiences", "Nature & Hiking", "Photography", "Family Activities"];
+
+// 1. Add state
+const [loading, setLoading] = useState(false);
+const [status, setStatus] = useState({ type: null, message: '' });
+
+// 2. Add handleSubmit function
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  
+  const response = await fetch('/api/send-email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      formType: 'contact', // or 'tour-request' or 'plan-trip'
+      formData: { /* your form data */ }
+    }),
+  });
+  
+  // Handle response...
+};
+
+// 3. Update form JSX
+<form onSubmit={handleSubmit}>
+  {/* Status message */}
+  {/* Form fields */}
+  <button disabled={loading}>
+    {loading ? 'Sending...' : 'Submit'}
+  </button>
+</form>
