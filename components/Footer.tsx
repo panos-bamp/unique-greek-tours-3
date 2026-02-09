@@ -1,143 +1,77 @@
 import Link from "next/link";
-import { MapPin, Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-primary-dark text-white">
       <div className="container-custom py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
+        <div className="grid md:grid-cols-4 gap-12">
+          {/* About */}
           <div>
-            <div className="mb-2">
-              <img 
-                src="/images/logo.png"
-                alt="Unique Greek Tours"
-                className="w-[122px] h-[122px] object-contain -mb-6"
-                style={{ imageRendering: 'crisp-edges' }}
-              />
-            </div>
-            <p className="text-blue-100 mb-6 leading-relaxed text-sm">
-              Experience the real Peloponnese with authentic tours led by Argos natives. 
-              We share our homeland with passion and deep local knowledge.
+            <h3 className="font-display text-2xl mb-4 text-accent-light">Unique Greek Tours</h3>
+            <p className="text-blue-100 leading-relaxed mb-4">
+              Authentic experiences in the Peloponnese, crafted by local experts who are passionate about sharing Greece's hidden treasures.
             </p>
             <div className="flex gap-4">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-accent rounded-full flex items-center justify-center transition-colors"
-              >
+              <a href="https://facebook.com/uniquegreektours" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-accent rounded-full flex items-center justify-center transition-colors"
-              >
+              <a href="https://instagram.com/uniquegreektours" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-accent rounded-full flex items-center justify-center transition-colors"
-              >
-                <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display text-xl font-semibold mb-6 text-accent-light">
-              Quick Links
-            </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/tours" className="text-blue-100 hover:text-accent-light transition-colors">
-                  All Tours
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-blue-100 hover:text-accent-light transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Travel Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/plan-trip" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Plan Your Trip
-                </Link>
-              </li>
+            <h3 className="font-display text-xl mb-4 text-accent-light">Quick Links</h3>
+            <ul className="space-y-2 text-blue-100">
+              <li><Link href="/tours" className="hover:text-accent transition-colors">All Tours</Link></li>
+              <li><Link href="/tours/nafplio" className="hover:text-accent transition-colors">Nafplio Tours</Link></li>
+              <li><Link href="/tours/poros" className="hover:text-accent transition-colors">Poros Tours</Link></li>
+              <li><Link href="/tours/athens" className="hover:text-accent transition-colors">Athens Tours</Link></li>
+              <li><Link href="/trips" className="hover:text-accent transition-colors">Multi-Day Trips</Link></li>
+              <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
             </ul>
           </div>
 
-          {/* Destinations */}
+          {/* Popular Tours */}
           <div>
-            <h3 className="font-display text-xl font-semibold mb-6 text-accent-light">
-              Popular Destinations
-            </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/tours/nafplio" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Nafplio
-                </Link>
-              </li>
-              <li>
-                <Link href="/tours/mycenae" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Mycenae
-                </Link>
-              </li>
-              <li>
-                <Link href="/tours/epidaurus" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Epidaurus
-                </Link>
-              </li>
-              <li>
-                <Link href="/tours/olympia" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Ancient Olympia
-                </Link>
-              </li>
-              <li>
-                <Link href="/tours/delphi" className="text-blue-100 hover:text-accent-light transition-colors">
-                  Delphi
-                </Link>
-              </li>
+            <h3 className="font-display text-xl mb-4 text-accent-light">Popular Tours</h3>
+            <ul className="space-y-2 text-blue-100">
+              <li><Link href="/tours/nafplio/nafplio-mycenae-epidavros" className="hover:text-accent transition-colors">Mycenae & Epidaurus</Link></li>
+              <li><Link href="/tours/nafplio/nafplio-ancient-olympia-tour" className="hover:text-accent transition-colors">Ancient Olympia</Link></li>
+              <li><Link href="/tours/nafplio/nafplio-sparta-mystras-tour" className="hover:text-accent transition-colors">Sparta & Mystras</Link></li>
+              <li><Link href="/tours/nafplio/nafplio-monemvasia-tour" className="hover:text-accent transition-colors">Monemvasia</Link></li>
+              <li><Link href="/tours/nafplio/nafplio-winetasting-tour-nemea" className="hover:text-accent transition-colors">Nemea Wine Tour</Link></li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="font-display text-xl font-semibold mb-6 text-accent-light">
-              Get in Touch
-            </h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-blue-100">
-                  Argos, Peloponnese<br />
-                  Greece
-                </span>
+            <h3 className="font-display text-xl mb-4 text-accent-light">Contact Us</h3>
+            <ul className="space-y-3 text-blue-100">
+              <li className="flex items-start gap-2">
+                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-accent" />
+                <span>Argos, Peloponnese<br />Greece</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="tel:+302752024444" className="text-blue-100 hover:text-accent-light transition-colors">
-                  (+30) 27520 24444
-                </a>
+              <li className="flex items-start gap-2">
+                <Phone className="h-5 w-5 flex-shrink-0 mt-0.5 text-accent" />
+                <div>
+                  <a href="tel:+302751067616" className="hover:text-accent transition-colors block">+30 27510 67616</a>
+                  <a href="tel:+306984261899" className="hover:text-accent transition-colors block">+30 698 4261899</a>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@uniquegreektours.com" className="text-blue-100 hover:text-accent-light transition-colors break-all">
+              <li className="flex items-start gap-2">
+                <Phone className="h-5 w-5 flex-shrink-0 mt-0.5 text-accent" />
+                <div>
+                  <span className="block text-accent-light">Vaggelis Zouzias</span>
+                  <a href="tel:+306945890920" className="hover:text-accent transition-colors">+30 694 5890920</a>
+                </div>
+              </li>
+              <li className="flex items-start gap-2">
+                <Mail className="h-5 w-5 flex-shrink-0 mt-0.5 text-accent" />
+                <a href="mailto:info@uniquegreektours.com" className="hover:text-accent transition-colors">
                   info@uniquegreektours.com
                 </a>
               </li>
@@ -147,22 +81,13 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-primary/30">
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200">
-            <div>
-              © {new Date().getFullYear()} Unique Greek Tours. All rights reserved.
-            </div>
-            <div className="flex items-center gap-6">
-              <span className="text-accent-light text-xs">Licensed by Greek Ministry of Culture</span>
-              <span className="hidden md:inline">•</span>
-              <Link href="/privacy" className="hover:text-accent-light transition-colors">
-                Privacy Policy
-              </Link>
-              <span>•</span>
-              <Link href="/terms" className="hover:text-accent-light transition-colors">
-                Terms & Conditions
-              </Link>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-100">
+            <p>&copy; {new Date().getFullYear()} Unique Greek Tours. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>

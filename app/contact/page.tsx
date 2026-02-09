@@ -1,11 +1,82 @@
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+"use client";
 
-export const metadata = {
-  title: "Contact Us | Unique Greek Tours",
-  description: "Get in touch with Unique Greek Tours. Plan your perfect Peloponnese adventure with our local experts.",
-};
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactPage() {
+  // State for form data
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  });
+  
+  // State for loading and status
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error' | null, message: string }>({ 
+    type: null, 
+    message: '' 
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          formType: 'contact',
+          formData: {
+            name: `${formData.firstName} ${formData.lastName}`,
+            email: formData.email,
+            subject: 'Contact Form Inquiry',
+            message: formData.message,
+          }
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus({ 
+          type: 'success', 
+          message: 'Thank you! Your message has been sent. We\'ll get back to you soon.' 
+        });
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        setStatus({ 
+          type: 'error', 
+          message: 'Sorry, there was an error sending your message. Please email us directly at info@uniquegreektours.com' 
+        });
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus({ 
+        type: 'error', 
+        message: 'Sorry, there was an error sending your message. Please email us directly at info@uniquegreektours.com' 
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex flex-col">
       {/* Hero */}
@@ -55,32 +126,64 @@ export default function ContactPage() {
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
                 <h2 className="font-display text-3xl text-primary mb-8">Send Us a Message</h2>
-                <form className="space-y-6">
+                
+                {/* Status Message */}
+                {status.type && (
+                  <div className={`p-4 rounded-lg mb-6 ${
+                    status.type === 'success' 
+                      ? 'bg-green-50 text-green-800 border border-green-200' 
+                      : 'bg-red-50 text-red-800 border border-red-200'
+                  }`}>
+                    {status.message}
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <input
                       type="text"
+                      name="firstName"
                       placeholder="First Name *"
+                      required
+                      value={formData.firstName}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     />
                     <input
                       type="text"
+                      name="lastName"
                       placeholder="Last Name *"
+                      required
+                      value={formData.lastName}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     />
                   </div>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email Address *"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                   />
                   <textarea
+                    name="message"
                     rows={6}
                     placeholder="Tell us about your trip *"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
                   ></textarea>
-                  <button type="submit" className="w-full btn-primary justify-center">
+                  <button 
+                    type="submit" 
+                    disabled={loading}
+                    className="w-full btn-primary justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
                     <Send className="h-5 w-5" />
-                    Send Message
+                    {loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>
@@ -101,7 +204,12 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    content: "(+30) 27520 24444",
+    content: "+30 27510 67616 / +30 698 4261899",
+  },
+  {
+    icon: Phone,
+    title: "Vaggelis Zouzias",
+    content: "+30 694 5890920",
   },
   {
     icon: Mail,
@@ -114,32 +222,3 @@ const contactInfo = [
     content: "Monday - Saturday: 9:00 AM - 6:00 PM",
   },
 ];
-// 1. Add state
-const [loading, setLoading] = useState(false);
-const [status, setStatus] = useState({ type: null, message: '' });
-
-// 2. Add handleSubmit function
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  
-  const response = await fetch('/api/send-email', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      formType: 'contact', // or 'tour-request' or 'plan-trip'
-      formData: { /* your form data */ }
-    }),
-  });
-  
-  // Handle response...
-};
-
-// 3. Update form JSX
-<form onSubmit={handleSubmit}>
-  {/* Status message */}
-  {/* Form fields */}
-  <button disabled={loading}>
-    {loading ? 'Sending...' : 'Submit'}
-  </button>
-</form>
