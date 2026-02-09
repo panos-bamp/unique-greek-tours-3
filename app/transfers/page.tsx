@@ -1,4 +1,5 @@
 import { Car, MapPin, Briefcase, Users, Heart, Music, Landmark, Package, Shield, Calendar } from "lucide-react";
+import TransferBookingWidget from "@/components/TransferBookingWidget";
 
 export const metadata = {
   title: "Transfer Services | Unique Greek Tours",
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function TransfersPage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col scroll-smooth">
       {/* Hero Section with Background Image */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center">
         <img
@@ -26,13 +27,13 @@ export default function TransfersPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="/contact"
+                href="#book-transfer"
                 className="inline-flex items-center px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all font-semibold text-lg shadow-lg"
               >
                 Book Transfer
               </a>
               <a
-                href="tel:+302752024444"
+                href="tel:+302751067616"
                 className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white text-white rounded-lg hover:bg-white/20 transition-all font-semibold text-lg"
               >
                 <Car className="h-5 w-5 mr-2" />
@@ -55,6 +56,19 @@ export default function TransfersPage() {
             to the Peloponnese and throughout Greece. We are available <strong>24 hours a day, 365 days a year</strong> and 
             provide immediate service with high quality travel, safety, consistency, comfort and discretion.
           </p>
+        </div>
+      </section>
+
+      {/* Booking Widget Section */}
+      <section id="book-transfer" className="py-20 bg-gradient-to-br from-primary via-primary-dark to-primary text-white scroll-mt-20">
+        <div className="container-custom">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-center mb-4">
+            Book Your Transfer
+          </h2>
+          <p className="text-xl text-blue-50 text-center mb-10 max-w-3xl mx-auto">
+            Select your pickup and destination to get an instant quote
+          </p>
+          <TransferBookingWidget />
         </div>
       </section>
 
@@ -164,28 +178,28 @@ export default function TransfersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary-dark to-primary text-white">
+      <section className="py-20 bg-sand-100">
         <div className="container-custom text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-primary-dark">
             Ready to Book Your Transfer?
           </h2>
-          <p className="text-xl text-blue-50 mb-10 max-w-3xl mx-auto">
-            Contact us now for immediate service. Professional transfers throughout Greece with luxury vehicles.
+          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+            Book online for instant confirmation, or call us for personalized service.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="/contact"
+              href="#book-transfer"
               className="inline-flex items-center px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all font-semibold text-lg shadow-lg"
             >
               <Calendar className="h-5 w-5 mr-2" />
               Book Now
             </a>
             <a
-              href="tel:+302752024444"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary rounded-lg hover:bg-blue-50 transition-all font-semibold text-lg shadow-lg"
+              href="tel:+302751067616"
+              className="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all font-semibold text-lg shadow-lg"
             >
               <Car className="h-5 w-5 mr-2" />
-              (+30) 27520 24444
+              (+30) 27510 67616
             </a>
           </div>
         </div>

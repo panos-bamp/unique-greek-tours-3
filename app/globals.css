@@ -105,3 +105,6 @@ body {
 .fareharbor-calendar-container iframe {
   display: block;
 }
+html {
+  scroll-behavior: smooth;
+}
