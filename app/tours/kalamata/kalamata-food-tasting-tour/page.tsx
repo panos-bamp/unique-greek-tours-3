@@ -245,7 +245,7 @@ export default function KalamataFoodTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/food-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your food tour"
           fill
           className="object-cover brightness-40"

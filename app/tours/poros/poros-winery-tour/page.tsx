@@ -240,7 +240,7 @@ export default function PorosWineryTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/wine-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your volcano and winery tour"
           fill
           className="object-cover brightness-40"

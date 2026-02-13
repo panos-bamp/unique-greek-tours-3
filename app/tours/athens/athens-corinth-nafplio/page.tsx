@@ -247,6 +247,38 @@ export default function AthensCorinthNafplioMycenaeTour() {
           </div>
         </div>
       </section>
+
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src={gallery[0]}
+          alt="Book your Corinth, Epidavros, Nafplio & Mycenae tour"
+          fill
+          className="object-cover brightness-40"
+        />
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
+            Experience Ancient Greece in One Day
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Request your tour to Corinth Canal, Epidavros, Nafplio & Mycenae
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
+            >
+              Request This Tour
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/tours/athens"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
+            >
+              View All Athens Tours
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

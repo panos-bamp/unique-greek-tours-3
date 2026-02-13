@@ -245,7 +245,7 @@ export default function PortoHeliSailingTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/sailing-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your private sailing tour"
           fill
           className="object-cover brightness-40"

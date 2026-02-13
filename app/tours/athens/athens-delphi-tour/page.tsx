@@ -238,7 +238,7 @@ export default function AthensDelphiTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/delphi-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your Delphi tour"
           fill
           className="object-cover brightness-40"

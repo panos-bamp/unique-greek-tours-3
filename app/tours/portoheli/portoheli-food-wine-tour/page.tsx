@@ -248,7 +248,7 @@ export default function PortoHeliWineFoodTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/wine-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your wine and food tour"
           fill
           className="object-cover brightness-40"

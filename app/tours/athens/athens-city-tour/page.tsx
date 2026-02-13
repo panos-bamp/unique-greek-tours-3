@@ -237,7 +237,7 @@ export default function AthensCityTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/athens-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your Athens tour"
           fill
           className="object-cover brightness-40"

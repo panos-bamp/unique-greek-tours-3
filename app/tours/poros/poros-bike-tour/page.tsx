@@ -235,7 +235,7 @@ export default function PorosBikeTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/poros-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your e-bike tour"
           fill
           className="object-cover brightness-40"

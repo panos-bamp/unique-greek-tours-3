@@ -247,7 +247,7 @@ export default function GythioSpartaMystrasTour() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/mystras-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your Sparta and Mystras tour"
           fill
           className="object-cover brightness-40"

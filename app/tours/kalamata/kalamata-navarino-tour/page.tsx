@@ -247,7 +247,7 @@ export default function KalamataNavarinoCruise() {
 
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/cruise-tour-hero-3.jpg"
+          src={gallery[2]}
           alt="Book your Navarino Bay cruise"
           fill
           className="object-cover brightness-40"
