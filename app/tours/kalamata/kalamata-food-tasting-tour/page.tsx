@@ -102,7 +102,11 @@ export default function KalamataFoodTour() {
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> Half day
+                  <span className="font-semibold">Duration:</span> 3 hours
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <MapPin className="h-5 w-5 text-accent" />
+                  <span className="font-semibold">Pick-up:</span> 10:00 AM
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
@@ -191,7 +195,11 @@ export default function KalamataFoodTour() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">Half day</span>
+                      <span className="font-semibold text-gray-900">3 hours</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Pick-up Time:</span>
+                      <span className="font-semibold text-gray-900">10:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>

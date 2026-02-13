@@ -21,14 +21,14 @@ const highlights = [
 ];
 
 const included = [
-  "Return transportation",
-  "Liability insurance",
-  "All taxes",
+  "Return private transportation from Gythio to Sparta & Mystras",
+  "Guided tour by an English-speaking licensed guide (upon request)",
+  "Liability & Taxes",
+  "Full refund or change of date in case of adverse weather conditions",
 ];
 
 const excluded = [
-  "Licensed guide (available upon request)",
-  "Entrance fees",
+  "Entrance tickets to the sites",
   "Personal expenses",
 ];
 
@@ -103,7 +103,11 @@ export default function GythioSpartaMystrasTour() {
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> Full day
+                  <span className="font-semibold">Duration:</span> 5-6 hours
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <MapPin className="h-5 w-5 text-accent" />
+                  <span className="font-semibold">Pick-up:</span> 9:00 AM
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
@@ -193,7 +197,11 @@ export default function GythioSpartaMystrasTour() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">Full day</span>
+                      <span className="font-semibold text-gray-900">5-6 hours</span>
+                    </div>
+                    <div className="flex justify-between py-2 border-b border-sand-100">
+                      <span className="text-gray-600">Pick-up Time:</span>
+                      <span className="font-semibold text-gray-900">9:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>

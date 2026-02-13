@@ -102,7 +102,7 @@ export default function PorosKayakErosTour() {
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
                 <div className="flex items-center gap-2 text-gray-700">
                   <Clock className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Duration:</span> Half day
+                  <span className="font-semibold">Duration:</span> 2 or 4 hours session
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
@@ -189,7 +189,7 @@ export default function PorosKayakErosTour() {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Duration:</span>
-                      <span className="font-semibold text-gray-900">Half day</span>
+                      <span className="font-semibold text-gray-900">2 or 4 hours session</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
