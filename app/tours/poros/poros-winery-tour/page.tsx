@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Flame, Wine, Ship, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Flame, Wine, Ship, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/wine-tour-hero-1.jpg",
@@ -12,21 +12,22 @@ const gallery = [
 ];
 
 const highlights = [
-  "Explore Methana volcano peninsula",
-  "Wine tasting at local winery",
-  "Boat trip across the strait",
-  "Geological wonders and hot springs",
-  "Traditional meal included",
-  "Full day adventure",
+  "Hike to active volcano crater on Methana",
+  "Wine tasting and wine & food pairing",
+  "Vineyard tour at local winery",
+  "Lunch at the winery",
+  "Optional Peristera Cave visit",
+  "Swim in cave's fresh sea water lake",
 ];
 
 const included = [
-  "Return transportation",
+  "Pick up from your hotel",
+  "Private return transportation",
   "Boat trip",
-  "Tastings and meal",
-  "Tour leader",
-  "Liability insurance",
-  "All taxes",
+  "All tastings and meal",
+  "Local tour leader",
+  "Liability",
+  "Taxes",
 ];
 
 const excluded = [
@@ -108,38 +109,29 @@ export default function PorosWineryTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Type:</span> Private
+                  <span className="font-semibold">Group Type:</span> Small groups, families, couples (min 3 pax)
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Season:</span> Year-round
+                  <span className="font-semibold">Season:</span> All year
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Embark on a fascinating journey combining geology, wine, and gastronomy on this unique full-day 
-                  adventure to the Methana volcano peninsula. Cross the strait by boat from Poros and discover one 
-                  of Greece's most unusual volcanic landscapes, complete with hot springs and dramatic scenery.
+                  We know that with every hike in nature, everyone gets much more than they seek. It is an 
+                  adventure that fills your soul. So imagine taking a unique hike to the foothills or a crater 
+                  of an active volcano on the Methana peninsula. A place full of energy and a landscape full of 
+                  wild beauty that will reward even the most demanding hiker.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Explore the Methana volcano, one of the most accessible volcanic areas in Greece. Walk on ancient 
-                  lava flows, discover steaming fumaroles, and learn about the area's geological history from your 
-                  knowledgeable guide. Visit therapeutic hot springs where locals have bathed for centuries, believed 
-                  to have healing properties.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Continue to a local winery producing exceptional wines from grapes grown in volcanic soil. The 
-                  unique terroir imparts distinctive mineral flavors to the wines. Tour the vineyards and cellars, 
-                  learning about traditional and modern winemaking techniques, then enjoy a tasting of premium wines 
-                  paired with local delicacies.
+                  After spending time in a crater and enjoying the wonderful view we will visit a local winery 
+                  for wine tasting, wine and food pairing, vineyard tour and enjoy our lunch.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Savor a delicious traditional meal featuring fresh local ingredients and authentic Greek recipes. 
-                  The combination of volcanic landscapes, fine wine, and excellent cuisine creates an unforgettable 
-                  experience. This tour offers a perfect blend of nature, culture, and gastronomy in a setting few 
-                  tourists ever discover.
+                  * Optional you can visit the Peristera cave and swim to the amazing lake with the fresh sea 
+                  water that there is inside.
                 </p>
               </div>
 
@@ -177,6 +169,12 @@ export default function PorosWineryTour() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-6 pt-4 border-t border-sand-200">
+                  <p className="text-sm text-gray-600 flex items-center gap-2">
+                    <Star className="h-5 w-5 text-accent" />
+                    <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -198,16 +196,16 @@ export default function PorosWineryTour() {
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">Year-round</span>
+                      <span className="font-semibold text-gray-900">All Year</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
-                      <span className="font-semibold text-gray-900">Private</span>
+                      <span className="font-semibold text-gray-900">Small groups, families, couples</span>
                     </div>
                   </div>
 
                   <Link
-                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
+                    href="/tour-request"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
                     Request Tour
@@ -254,7 +252,7 @@ export default function PorosWineryTour() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              href="/tour-request"
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
             >
               Request This Tour

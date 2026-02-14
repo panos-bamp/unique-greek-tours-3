@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Bike, Mountain, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Bike, Mountain, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/bike-tour-hero-1.jpg",
@@ -12,19 +12,19 @@ const gallery = [
 ];
 
 const highlights = [
-  "E-bike adventure through mountains",
-  "Stunning panoramic views",
-  "Visit traditional villages",
-  "Professional bike instructor",
-  "Suitable for all fitness levels",
-  "Hidden island trails",
+  "3 stops: Monastery, Temple of Poseidon, Vrysoula",
+  "Tour of Sfairia and the port of Poros",
+  "Off-road section towards Russian Naval Station",
+  "Views of Poros from above",
+  "Beach break for snorkeling and relaxation",
+  "Rest under the coolness of plane trees",
 ];
 
 const included = [
-  "Equipment",
   "Professional bike instructor",
-  "Liability insurance",
-  "All taxes",
+  "Equipment",
+  "Liability",
+  "Taxes",
 ];
 
 const excluded = [
@@ -106,7 +106,7 @@ export default function PorosBikeTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Difficulty:</span> Easy
+                  <span className="font-semibold">Group Type:</span> Small groups, families, couples (min 2 pax)
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
@@ -117,24 +117,24 @@ export default function PorosBikeTour() {
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Explore the hidden beauty of Poros on an exciting e-bike adventure through the island's mountainous 
-                  interior. Electric bikes make even the steepest hills effortless, allowing you to cover more ground 
-                  and discover remote areas inaccessible by car while enjoying breathtaking panoramic views.
+                  The tour of Poros will take place through dirt and asphalt routes. There will be 3 stops — in 
+                  the Monastery, in the Temple of Poseidon and in Vrysoula.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Your professional cycling instructor provides high-quality e-bikes and safety equipment, along with 
-                  a thorough briefing on how to use them. The electric assist makes this tour suitable for all fitness 
-                  levels - simply pedal as much or as little as you want while the motor does the hard work.
+                  The route will start from the port of Poros, we will make the tour of the Sfairia and we will 
+                  head to our first stop at the Monastery. We continue on the uphill route to Poseidon Temple — 
+                  about 2km uphill, the most difficult part of our route. After a while we reach the Temple of 
+                  Poseidon, our second stop. Leaving there, an easy, downhill section begins that leads us to 
+                  Vrysoula, the third stop, where we will rest under the coolness of the plane trees.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Ride through fragrant pine forests on scenic mountain trails, stopping at viewpoints offering spectacular 
-                  vistas of the Saronic Gulf and neighboring islands. Visit traditional villages where time seems to have 
-                  stood still, meeting friendly locals and discovering authentic island life away from tourist areas.
+                  Then we enter an off road part that starts from Vrysoula towards the Russian Naval Station 
+                  enjoying the view of Poros from above. Descending from the off road part we cross the whole 
+                  area of Neorio in the direction of the port where our finish is.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  The route takes you past ancient ruins, hidden churches, and secluded beaches, with plenty of photo 
-                  opportunities along the way. Learn about Poros's history, geology, and ecology from your guide while 
-                  enjoying an eco-friendly adventure that combines exercise, nature, and culture in perfect harmony.
+                  During our tour we will make a break in a beautiful beach for snorkeling and relaxation near 
+                  by the sea.
                 </p>
               </div>
 
@@ -172,6 +172,12 @@ export default function PorosBikeTour() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-6 pt-4 border-t border-sand-200">
+                  <p className="text-sm text-gray-600 flex items-center gap-2">
+                    <Star className="h-5 w-5 text-accent" />
+                    <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -192,17 +198,17 @@ export default function PorosBikeTour() {
                       <span className="font-semibold text-gray-900">2 or 4 hours session</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Difficulty:</span>
-                      <span className="font-semibold text-gray-900">Easy</span>
+                      <span className="text-gray-600">Period:</span>
+                      <span className="font-semibold text-gray-900">Spring to Autumn</span>
                     </div>
                     <div className="flex justify-between py-2">
-                      <span className="text-gray-600">Season:</span>
-                      <span className="font-semibold text-gray-900">Spring to Autumn</span>
+                      <span className="text-gray-600">Tour Type:</span>
+                      <span className="font-semibold text-gray-900">Small groups, families, couples</span>
                     </div>
                   </div>
 
                   <Link
-                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
+                    href="/tour-request"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
                     Request Tour
@@ -249,7 +255,7 @@ export default function PorosBikeTour() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              href="/tour-request"
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
             >
               Request This Tour

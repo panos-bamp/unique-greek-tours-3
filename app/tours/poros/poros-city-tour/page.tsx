@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Ship, Camera, Church, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Star, Ship, Camera, Church, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/city-tour-hero-1.jpg",
@@ -12,18 +12,18 @@ const gallery = [
 ];
 
 const highlights = [
-  "Explore charming Poros town",
-  "Visit the Clock Tower landmark",
-  "Discover hidden local gems",
-  "Panoramic island views",
-  "Traditional architecture",
-  "Local culture and history",
+  "Agioi Anargyroi Chapel with Saronic Gulf views",
+  "Stone windmill from the Ottoman Empire",
+  "Traditional courtyard with local lemonade",
+  "The iconic Clock Tower of Poros",
+  "Scenic alleys of the traditional settlement",
+  "Panoramic views of Poros and Galatas canal",
 ];
 
 const included = [
-  "Tour Leader",
-  "Liability insurance",
-  "All taxes",
+  "Local tour leader",
+  "Liability",
+  "Taxes",
 ];
 
 const excluded = [
@@ -50,7 +50,7 @@ export default function PorosCityTour() {
             <span>/</span>
             <Link href="/tours/poros" className="hover:text-primary">Poros Tours</Link>
             <span>/</span>
-            <span className="text-primary">Three Picks City Tour</span>
+            <span className="text-primary">Three Peaks City Tour</span>
           </div>
         </div>
       </div>
@@ -95,7 +95,7 @@ export default function PorosCityTour() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Poros Three Picks City Tour
+                Poros Three Peaks City Tour
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
@@ -105,35 +105,32 @@ export default function PorosCityTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Type:</span> Private
+                  <span className="font-semibold">Group Type:</span> Small groups, families, couples (min 2 pax)
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Season:</span> Year-round
+                  <span className="font-semibold">Season:</span> All year
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Discover the charming island of Poros through the eyes of a local on this carefully curated walking 
-                  tour. Your guide shares their three favorite spots - hidden gems that showcase the authentic character, 
-                  history, and beauty of this picturesque Saronic Gulf island.
+                  We connect the three peaks of Poros island, visit some of the most significant points of interest, 
+                  enjoying the best view and visit a traditional yard where you can taste a local surprise! Our treat 
+                  to welcome you to our paradise!!
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Wander through the narrow streets of Poros town, where neoclassical mansions and traditional white-washed 
-                  houses cascade down the hillside toward the harbor. Visit the iconic Clock Tower, the island's most 
-                  recognizable landmark, and enjoy panoramic views across the strait to the Peloponnese coast.
-                </p>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Explore quiet neighborhoods away from the waterfront bustle, discovering local churches, traditional 
-                  bakeries, and artisan workshops. Learn about Poros's fascinating naval history, its role in the Greek 
-                  War of Independence, and the island's transformation into a popular getaway for Athenians.
+                  Meeting at the new port and hiking on the ring road of the island. We head to the first ridge of 
+                  the island where the chapel of Agioi Anargyroi is located and we have a magnificent view of the 
+                  Saronic Gulf and the canal that separates Poros with Galatas. We continue on foot to the ridge 
+                  where it heads to the second point where there is a stone windmill from the Ottoman Empire.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Your guide tailors the tour to your interests, whether that's photography, architecture, local culture, 
-                  or simply finding the best spots for authentic Greek hospitality. Stop at local cafes and tavernas where 
-                  residents gather, experiencing the genuine island lifestyle beyond the tourist areas.
+                  Then we start the descent through the alleys of the traditional settlement of the resource and 
+                  make a stop in a traditional courtyard where we serve local lemonade. We continue to our last 
+                  station, on the trademark of the island. The clock tower. We end up descending to the old port 
+                  of Poros.
                 </p>
               </div>
 
@@ -171,6 +168,12 @@ export default function PorosCityTour() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-6 pt-4 border-t border-sand-200">
+                  <p className="text-sm text-gray-600 flex items-center gap-2">
+                    <Star className="h-5 w-5 text-accent" />
+                    <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -192,16 +195,16 @@ export default function PorosCityTour() {
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
                       <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">Year-round</span>
+                      <span className="font-semibold text-gray-900">All Year</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
-                      <span className="font-semibold text-gray-900">Private</span>
+                      <span className="font-semibold text-gray-900">Small groups, families, couples</span>
                     </div>
                   </div>
 
                   <Link
-                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
+                    href="/tour-request"
                     className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
                   >
                     Request Tour
@@ -248,7 +251,7 @@ export default function PorosCityTour() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://unique-greek-tours-3.vercel.app/tour-request/"
+              href="/tour-request"
               className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
             >
               Request This Tour
