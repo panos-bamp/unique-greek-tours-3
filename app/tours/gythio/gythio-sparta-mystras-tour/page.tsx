@@ -189,7 +189,7 @@ export default function GythioSpartaMystrasTour() {
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">From</div>
                     <div className="font-display text-4xl font-bold text-primary-dark">
-                      €180
+                      €200
                     </div>
                     <div className="text-sm text-gray-600">per group</div>
                   </div>
