@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Heart, Lighthouse, Fish, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Heart, Navigation, Fish, Camera, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/kayak-eros-hero-1.jpg",
@@ -135,7 +135,7 @@ export default function PorosKayakErosTour() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Lighthouse className="h-6 w-6" />
+                        <Navigation className="h-6 w-6" />
                       </div>
                     </div>
                     <div className="flex-1">

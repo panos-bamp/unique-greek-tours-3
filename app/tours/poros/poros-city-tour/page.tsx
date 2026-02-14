@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Church, Wind, Citrus, Clock3, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Church, Wind, Coffee, Timer, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/city-tour-hero-1.jpg",
@@ -132,7 +132,7 @@ export default function PorosCityTour() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Citrus className="h-6 w-6" />
+                        <Coffee className="h-6 w-6" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -144,7 +144,7 @@ export default function PorosCityTour() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-                        <Clock3 className="h-6 w-6" />
+                        <Timer className="h-6 w-6" />
                       </div>
                     </div>
                     <div className="flex-1">
