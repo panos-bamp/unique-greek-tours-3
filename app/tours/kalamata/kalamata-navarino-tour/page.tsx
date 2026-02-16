@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Anchor, Waves, Camera, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Ship, Waves, Mountain, Fish, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/kalamata-navarino-tour-hero-1.jpg",
@@ -11,35 +11,20 @@ const gallery = [
   "/images/kalamata-navarino-tour-hero-3.jpg",
 ];
 
-const highlights = [
-  "Sail through historic Navarino Bay",
-  "Visit Sfakteria Island",
-  "Swim in crystal-clear waters",
-  "See the site of famous naval battle",
-  "Explore sea caves and coves",
-  "Onboard refreshments included",
-];
-
 const included = [
-  "Boat cruise",
-  "Skipper",
-  "Refreshments",
-  "Liability insurance",
-  "All taxes",
+  "Hotel pick up",
+  "Boat trip",
+  "Certified Captain",
+  "Return private transportation",
+  "Liability",
+  "Taxes",
 ];
-
-const excluded: string[] = [];
 
 export default function KalamataNavarinoCruise() {
   const [currentImage, setCurrentImage] = useState(0);
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % gallery.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
-  };
+  const nextImage = () => setCurrentImage((prev) => (prev + 1) % gallery.length);
+  const prevImage = () => setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
 
   return (
     <div className="flex flex-col">
@@ -50,41 +35,23 @@ export default function KalamataNavarinoCruise() {
             <span>/</span>
             <Link href="/tours/kalamata" className="hover:text-primary">Kalamata Tours</Link>
             <span>/</span>
-            <span className="text-primary">Navarino Bay Mini Cruise</span>
+            <span className="text-primary">Mini Cruise Tour in Navarino Bay</span>
           </div>
         </div>
       </div>
 
       <section className="relative">
         <div className="relative h-[70vh]">
-          <Image
-            src={gallery[currentImage]}
-            alt="Navarino Bay Mini Cruise"
-            fill
-            className="object-cover"
-            priority
-          />
-          <button
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
-          >
+          <Image src={gallery[currentImage]} alt="Mini Cruise Tour in Navarino Bay" fill className="object-cover" priority />
+          <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
             <ChevronLeft className="h-6 w-6 text-primary" />
           </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
-          >
+          <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
             <ChevronRight className="h-6 w-6 text-primary" />
           </button>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             {gallery.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImage(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
-                }`}
-              />
+              <button key={index} onClick={() => setCurrentImage(index)} className={`w-2 h-2 rounded-full transition-all ${index === currentImage ? "w-8 bg-white" : "bg-white/60"}`} />
             ))}
           </div>
         </div>
@@ -95,7 +62,7 @@ export default function KalamataNavarinoCruise() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h1 className="font-display text-4xl md:text-5xl text-primary mb-6 font-bold">
-                Navarino Bay Mini Cruise
+                Mini Cruise Tour in Navarino Bay
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8 text-sm">
@@ -109,7 +76,7 @@ export default function KalamataNavarinoCruise() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Type:</span> Small Group
+                  <span className="font-semibold">Group Type:</span> For all
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
@@ -120,67 +87,101 @@ export default function KalamataNavarinoCruise() {
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Sail through the historic waters of Navarino Bay, site of the famous 1827 naval battle that helped 
-                  secure Greek independence. This scenic mini cruise combines stunning natural beauty with fascinating 
-                  history as you explore one of the Mediterranean's most magnificent natural harbors.
+                  This tour is a unique experience in the turquoise waters of Navarino bay.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Depart from Pylos harbor and cruise along the dramatic coastline, passing the historic Niokastro fortress 
-                  that guards the bay entrance. Your skipper shares stories about the Battle of Navarino, where combined 
-                  British, French, and Russian fleets defeated the Ottoman-Egyptian navy in the last major naval battle 
-                  fought entirely under sail.
+                  Your driver will pick you up from your hotel and drive you to the harbor where you will start 
+                  the cruise. You will get on board and meet with your certified licensed captain. He is a friendly, 
+                  professional and vastly experienced captain and he will take you on this gorgeous mini-cruise, 
+                  securely and comfortably.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Visit Sfakteria Island, exploring hidden coves and sea caves accessible only by boat. Anchor in 
-                  crystal-clear turquoise waters for swimming and snorkeling. The sheltered bay offers calm, warm 
-                  waters perfect for enjoying the Mediterranean sea. Discover secluded beaches where you can relax on 
-                  pristine sand away from the crowds.
+                  Navarino is a beautifully sheltered bay, with exceptional natural beauty and long history. It is 
+                  a highly strategic location, where 2500 years ago the Spartans took over, winning the battle with 
+                  the Athenians. It is also the bay where the epic Battle of Navarino took place back in 1827, a 
+                  decisive naval engagement in the war of Greek Independence against the Ottoman Empire.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Enjoy refreshments onboard while taking in the spectacular scenery - rugged coastlines, verdant 
-                  hillsides, and the azure waters of this protected natural harbor. See monuments commemorating the 
-                  historic battle and enjoy panoramic views of Pylos and the surrounding landscape. This relaxing cruise 
-                  offers the perfect blend of history, nature, and seaside leisure.
+                  Small stops in tiny islets, enormously beautiful scenery and, if you are lucky, giant sea turtles 
+                  or dolphins, will make this cruise unforgettable.
                 </p>
               </div>
 
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">Cruise Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {highlights.map((highlight, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{highlight}</span>
+                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Waves className="h-6 w-6" />
+                      </div>
                     </div>
-                  ))}
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Crystal Clear Swimming</h3>
+                      <p className="text-gray-600 leading-relaxed">Take a swim in crystal clear turquoise waters at secluded spots throughout the bay.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Mountain className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Sphaktiria Island</h3>
+                      <p className="text-gray-600 leading-relaxed">Explore the natural wave breaker that is Sphaktiria island with its dramatic landscapes.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Ship className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Chelonaki Islet Monument</h3>
+                      <p className="text-gray-600 leading-relaxed">Visit the monument to the fallen British officers and sailors on tiny Chelonaki islet.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Fish className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Wildlife Encounters</h3>
+                      <p className="text-gray-600 leading-relaxed">If you are lucky, spot giant sea turtles or dolphins in the beautiful scenery of the Ionian Sea.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {included.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {excluded.length > 0 && (
-                <div className="mb-12">
-                  <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {excluded.map((item, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
-                      </div>
+                <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
+                  <h3 className="font-display text-2xl text-primary mb-4 flex items-center gap-2">
+                    <Check className="h-6 w-6 text-green-600" />
+                    What's Included
+                  </h3>
+                  <ul className="space-y-3">
+                    {included.map((item, index) => (
+                      <li key={index} className="flex items-start gap-2 text-gray-700">
+                        <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
                     ))}
+                  </ul>
+                  <div className="mt-6 pt-6 border-t border-green-200">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                    </p>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
 
             <div className="lg:col-span-1">
@@ -188,9 +189,7 @@ export default function KalamataNavarinoCruise() {
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">Price</div>
-                    <div className="font-display text-4xl font-bold text-primary-dark">
-                      €130
-                    </div>
+                    <div className="font-display text-4xl font-bold text-primary-dark">€130</div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
 
@@ -204,40 +203,32 @@ export default function KalamataNavarinoCruise() {
                       <span className="font-semibold text-gray-900">8:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Period:</span>
+                      <span className="text-gray-600">Availability:</span>
                       <span className="font-semibold text-gray-900">May to September</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
-                      <span className="font-semibold text-gray-900">Small Group</span>
+                      <span className="font-semibold text-gray-900">For All</span>
                     </div>
                   </div>
 
-                  <Link
-                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
-                    className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
-                  >
-                    Request Tour
+                  <Link href="/tour-request" className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg">
+                    Book This Tour
                   </Link>
-
-                  <p className="text-xs text-gray-500 text-center mt-4">
-                    We'll get back to you within 24 hours
-                  </p>
+                  <p className="text-xs text-gray-500 text-center mt-4">Reserve now and pay later</p>
                 </div>
 
                 <div className="bg-primary text-white rounded-2xl p-6">
-                  <h3 className="font-display text-xl font-bold mb-4">
-                    Questions?
-                  </h3>
-                  <p className="text-sm mb-4 text-blue-100">
-                    Contact us for custom requests or group bookings
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
-                  >
-                    Contact Us
-                  </Link>
+                  <h3 className="font-display text-xl font-bold mb-4">Questions?</h3>
+                  <p className="text-blue-100 mb-4">Contact our team for personalized assistance</p>
+                  <div className="space-y-2">
+                    <a href="tel:+302751067616" className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors">
+                      Call +30 27510 67616
+                    </a>
+                    <a href="tel:+306945890920" className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors text-sm">
+                      Vaggelis: +30 694 5890920
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,35 +236,18 @@ export default function KalamataNavarinoCruise() {
         </div>
       </section>
 
-      <section className="relative py-24 overflow-hidden">
-        <Image
-          src={gallery[2]}
-          alt="Book your Navarino Bay cruise"
-          fill
-          className="object-cover brightness-40"
-        />
-        <div className="container-custom relative z-10 text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
-            Sail Through History
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Request your Navarino Bay cruise and explore where history was made
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/kalamata-navarino-tour-hero-3.jpg" alt="Navarino Bay" fill className="object-cover brightness-50" />
+        </div>
+        <div className="container-custom relative z-10 text-center text-white">
+          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Sail Through History</h2>
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Book your Navarino Bay cruise and explore where history was made.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="https://unique-greek-tours-3.vercel.app/tour-request/"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
-            >
-              Request This Tour
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/tours/kalamata"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
-            >
-              View All Kalamata Tours
-            </Link>
-          </div>
+          <Link href="/tour-request" className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white">
+            Book Now <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
     </div>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, X, Utensils, Camera, Wine, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Clock, Users, Calendar, MapPin, Check, Star, Store, UtensilsCrossed, Map, Coffee, ArrowRight } from "lucide-react";
 
 const gallery = [
   "/images/food-tour-hero-1.jpg",
@@ -11,36 +11,20 @@ const gallery = [
   "/images/food-tour-hero-3.jpg",
 ];
 
-const highlights = [
-  "Explore Kalamata's culinary scene",
-  "Visit local markets and producers",
-  "Taste traditional Messinian dishes",
-  "Sample Kalamata olives and products",
-  "Meet local food artisans",
-  "Discover authentic tavernas",
-];
-
 const included = [
-  "Tour leader",
-  "Food tastings",
-  "Liability insurance",
-  "All taxes",
-];
-
-const excluded = [
-  "Personal expenses",
+  "Tour escort",
+  "All tastings & light lunch",
+  "Snacks",
+  "Hotel pick up",
+  "Liability",
+  "Taxes",
 ];
 
 export default function KalamataFoodTour() {
   const [currentImage, setCurrentImage] = useState(0);
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % gallery.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
-  };
+  const nextImage = () => setCurrentImage((prev) => (prev + 1) % gallery.length);
+  const prevImage = () => setCurrentImage((prev) => (prev - 1 + gallery.length) % gallery.length);
 
   return (
     <div className="flex flex-col">
@@ -51,41 +35,23 @@ export default function KalamataFoodTour() {
             <span>/</span>
             <Link href="/tours/kalamata" className="hover:text-primary">Kalamata Tours</Link>
             <span>/</span>
-            <span className="text-primary">Food Tasting Tour</span>
+            <span className="text-primary">Kalamata Food Tasting Tour</span>
           </div>
         </div>
       </div>
 
       <section className="relative">
         <div className="relative h-[70vh]">
-          <Image
-            src={gallery[currentImage]}
-            alt="Food Tasting Tour"
-            fill
-            className="object-cover"
-            priority
-          />
-          <button
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
-          >
+          <Image src={gallery[currentImage]} alt="Kalamata Food Tasting Tour" fill className="object-cover" priority />
+          <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
             <ChevronLeft className="h-6 w-6 text-primary" />
           </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10"
-          >
+          <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all z-10">
             <ChevronRight className="h-6 w-6 text-primary" />
           </button>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             {gallery.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImage(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentImage ? "w-8 bg-white" : "bg-white/60"
-                }`}
-              />
+              <button key={index} onClick={() => setCurrentImage(index)} className={`w-2 h-2 rounded-full transition-all ${index === currentImage ? "w-8 bg-white" : "bg-white/60"}`} />
             ))}
           </div>
         </div>
@@ -110,73 +76,105 @@ export default function KalamataFoodTour() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Users className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Group Type:</span> Private
+                  <span className="font-semibold">Group Type:</span> For all
                 </div>
                 <div className="flex items-center gap-2 text-gray-700">
                   <Calendar className="h-5 w-5 text-accent" />
-                  <span className="font-semibold">Season:</span> Year-round
+                  <span className="font-semibold">Season:</span> All year
                 </div>
               </div>
 
               <div className="mb-12">
                 <h2 className="font-display text-3xl text-primary mb-4">Overview</h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Embark on a delicious journey through Kalamata's vibrant food scene on this comprehensive tasting tour. 
-                  Discover why Messinia is considered one of Greece's finest gastronomic regions, sampling local specialties, 
-                  artisan products, and traditional dishes that have delighted generations.
+                  Experience Greek food as a local as we visit selected traditional family stores.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Begin at the bustling central market where local farmers sell fresh produce, herbs, and regional 
-                  products. Meet vendors who supply the city's best restaurants and learn about seasonal Messinian 
-                  ingredients. Taste the world-famous Kalamata olives, preserved in traditional ways, along with local 
-                  cheeses, cured meats, and artisan breads.
+                  You will meet local people, taste different types of Greek traditional and regional food, learn 
+                  about the Greek food culture and how food has changed throughout the centuries while strolling 
+                  in the historical centre of the city visiting non-touristic areas.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  Visit family-run shops specializing in traditional products - from pasteli (sesame seed bars) and 
-                  diples (honey-soaked pastries) to premium olive oils and regional wines. Learn about production 
-                  methods passed down through generations and why Messinian products are prized throughout Greece.
+                  We will stop at several food shops finishing off our walk, with a light lunch.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Your food tour culminates in a traditional taverna where you'll enjoy authentic Messinian cuisine. 
-                  Taste local specialties like lalaggia (fried dough), syglino (smoked pork), and seasonal dishes prepared 
-                  with fresh local ingredients. Your guide shares stories about local food culture, customs, and the role 
-                  of cuisine in Greek hospitality.
+                  Do you have some hours to spend and want a taste of the regional food? This is the tour for you!
                 </p>
               </div>
 
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">Culinary Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {highlights.map((highlight, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{highlight}</span>
+                <h2 className="font-display text-3xl text-primary mb-6">What You Can Expect</h2>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Store className="h-6 w-6" />
+                      </div>
                     </div>
-                  ))}
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Traditional Family Stores</h3>
+                      <p className="text-gray-600 leading-relaxed">Visit selected traditional family stores and meet local people who preserve culinary traditions.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <UtensilsCrossed className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Regional Food Tastings</h3>
+                      <p className="text-gray-600 leading-relaxed">Taste different types of Greek traditional and regional food and learn how food has changed throughout the centuries.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Map className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Hidden Historic Areas</h3>
+                      <p className="text-gray-600 leading-relaxed">Stroll through the historical centre of Kalamata visiting non-touristic areas most visitors never see.</p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+                        <Coffee className="h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display text-xl font-bold text-primary-dark mb-2">Light Lunch Finale</h3>
+                      <p className="text-gray-600 leading-relaxed">Finish the walk at a food shop with a satisfying light lunch of local specialties.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What is Included</h2>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {included.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mb-12">
-                <h2 className="font-display text-3xl text-primary mb-6">What is NOT Included</h2>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {excluded.map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <X className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
-                  ))}
+                <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
+                  <h3 className="font-display text-2xl text-primary mb-4 flex items-center gap-2">
+                    <Check className="h-6 w-6 text-green-600" />
+                    What's Included
+                  </h3>
+                  <ul className="space-y-3">
+                    {included.map((item, index) => (
+                      <li key={index} className="flex items-start gap-2 text-gray-700">
+                        <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 pt-6 border-t border-green-200">
+                    <p className="text-sm text-gray-600 flex items-center gap-2">
+                      <Star className="h-5 w-5 text-accent" />
+                      <strong>Full refund or change of date in case of adverse weather conditions</strong>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -186,9 +184,7 @@ export default function KalamataFoodTour() {
                 <div className="bg-white rounded-2xl shadow-xl border border-sand-200 p-8">
                   <div className="text-center mb-6 pb-6 border-b border-sand-200">
                     <div className="text-sm text-gray-600 mb-2">Price</div>
-                    <div className="font-display text-4xl font-bold text-primary-dark">
-                      €100
-                    </div>
+                    <div className="font-display text-4xl font-bold text-primary-dark">€100</div>
                     <div className="text-sm text-gray-600">per person</div>
                   </div>
 
@@ -202,40 +198,32 @@ export default function KalamataFoodTour() {
                       <span className="font-semibold text-gray-900">10:00 AM</span>
                     </div>
                     <div className="flex justify-between py-2 border-b border-sand-100">
-                      <span className="text-gray-600">Period:</span>
-                      <span className="font-semibold text-gray-900">Year-round</span>
+                      <span className="text-gray-600">Availability:</span>
+                      <span className="font-semibold text-gray-900">All Year</span>
                     </div>
                     <div className="flex justify-between py-2">
                       <span className="text-gray-600">Tour Type:</span>
-                      <span className="font-semibold text-gray-900">Private</span>
+                      <span className="font-semibold text-gray-900">For All</span>
                     </div>
                   </div>
 
-                  <Link
-                    href="https://unique-greek-tours-3.vercel.app/tour-request/"
-                    className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg"
-                  >
-                    Request Tour
+                  <Link href="/tour-request" className="block w-full py-4 bg-accent text-white text-center font-semibold rounded-lg hover:bg-accent-dark transition-all shadow-md hover:shadow-lg text-lg">
+                    Book This Tour
                   </Link>
-
-                  <p className="text-xs text-gray-500 text-center mt-4">
-                    We'll get back to you within 24 hours
-                  </p>
+                  <p className="text-xs text-gray-500 text-center mt-4">Reserve now and pay later</p>
                 </div>
 
                 <div className="bg-primary text-white rounded-2xl p-6">
-                  <h3 className="font-display text-xl font-bold mb-4">
-                    Questions?
-                  </h3>
-                  <p className="text-sm mb-4 text-blue-100">
-                    Contact us for custom requests or group bookings
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-sand-50 transition-all"
-                  >
-                    Contact Us
-                  </Link>
+                  <h3 className="font-display text-xl font-bold mb-4">Questions?</h3>
+                  <p className="text-blue-100 mb-4">Contact our team for personalized assistance</p>
+                  <div className="space-y-2">
+                    <a href="tel:+302751067616" className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors">
+                      Call +30 27510 67616
+                    </a>
+                    <a href="tel:+306945890920" className="block w-full py-3 bg-white text-primary text-center font-semibold rounded-lg hover:bg-blue-50 transition-colors text-sm">
+                      Vaggelis: +30 694 5890920
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -243,35 +231,18 @@ export default function KalamataFoodTour() {
         </div>
       </section>
 
-      <section className="relative py-24 overflow-hidden">
-        <Image
-          src={gallery[2]}
-          alt="Book your food tour"
-          fill
-          className="object-cover brightness-40"
-        />
-        <div className="container-custom relative z-10 text-center">
-          <h2 className="font-display text-4xl md:text-5xl text-white mb-6 font-bold">
-            Taste the Flavors of Messinia
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Request your food tour and discover Kalamata's culinary treasures
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/food-tour-hero-3.jpg" alt="Kalamata Food Tour" fill className="object-cover brightness-50" />
+        </div>
+        <div className="container-custom relative z-10 text-center text-white">
+          <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Taste the Flavors of Messinia</h2>
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            Book your food tasting tour and discover Kalamata's culinary treasures.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="https://unique-greek-tours-3.vercel.app/tour-request/"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent-dark transition-all shadow-lg hover:shadow-xl font-semibold text-lg"
-            >
-              Request This Tour
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/tours/kalamata"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-lg hover:bg-sand-50 transition-all shadow-lg font-semibold text-lg"
-            >
-              View All Kalamata Tours
-            </Link>
-          </div>
+          <Link href="/tour-request" className="btn-primary text-lg bg-white text-primary hover:bg-accent hover:text-white">
+            Book Now <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
     </div>
