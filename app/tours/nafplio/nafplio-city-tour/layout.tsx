@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "Unique Greek Tours",
     images: [
       {
-        url: "https://unique-greek-tours-3.vercel.app/images/nafplio-city-tour-hero-1.jpg",
+        url: "https://uniquegreektours.com/images/nafplio-city-tour-hero-1.jpg",
         width: 1600,
         height: 1067,
         alt: "Nafplio City Walking Tour",
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nafplio City Walking Tour - Romantic Old Town",
     description: "Explore charming Nafplio on foot with food tastings. Visit historic sites and learn about Greece's first capital.",
-    images: ["https://unique-greek-tours-3.vercel.app/images/nafplio-city-tour-hero-1.jpg"],
+    images: ["https://uniquegreektours.com/images/nafplio-city-tour-hero-1.jpg"],
   },
   alternates: {
-    canonical: "https://unique-greek-tours-3.vercel.app/tours/nafplio/nafplio-city-tour",
+    canonical: "https://uniquegreektours.com/tours/nafplio/nafplio-city-tour",
   },
 };
 
@@ -41,9 +41,9 @@ export default function NafplioCityTourLayout({
     name: "Nafplio City Walking Tour",
     description: "Discover romantic Nafplio on 3-hour walking tour with food tastings. Walk through Land Gate, explore Psaromahalas Greek quarter, admire Venetian and Ottoman architecture, visit Syntagma Square with first Greek parliament, and wander picturesque alleys.",
     image: [
-      "https://unique-greek-tours-3.vercel.app/images/nafplio-city-tour-hero-1.jpg",
-      "https://unique-greek-tours-3.vercel.app/images/nafplio-city-tour-hero-2.jpg",
-      "https://unique-greek-tours-3.vercel.app/images/nafplio-city-tour-hero-3.jpg"
+      "https://uniquegreektours.com/images/nafplio-city-tour-hero-1.jpg",
+      "https://uniquegreektours.com/images/nafplio-city-tour-hero-2.jpg",
+      "https://uniquegreektours.com/images/nafplio-city-tour-hero-3.jpg"
     ],
     touristType: ["Cultural Tourist", "History Lover", "Architecture Enthusiast", "Photography Enthusiast"],
     itinerary: {
@@ -98,8 +98,8 @@ export default function NafplioCityTourLayout({
     provider: {
       "@type": "TouristInformationCenter",
       name: "Unique Greek Tours",
-      url: "https://unique-greek-tours-3.vercel.app",
-      image: "https://unique-greek-tours-3.vercel.app/images/nafplio-city-tour-hero-1.jpg",
+      url: "https://uniquegreektours.com",
+      image: "https://uniquegreektours.com/images/nafplio-city-tour-hero-1.jpg",
       priceRange: "€€",
       address: {
         "@type": "PostalAddress",

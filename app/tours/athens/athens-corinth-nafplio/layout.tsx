@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "Unique Greek Tours",
     images: [
       {
-        url: "https://unique-greek-tours-3.vercel.app/images/corinth-nafplio-tour-hero-1.jpg",
+        url: "https://uniquegreektours.com/images/corinth-nafplio-tour-hero-1.jpg",
         width: 1600,
         height: 1067,
         alt: "Nafplio harbor at sunset with Bourtzi fortress",
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Corinth, Epidaurus, Nafplio & Mycenae Day Tour",
     description: "Full-day tour from Athens to the greatest sites of the Argolis: Corinth Canal, Epidaurus, Nafplio, and Mycenae.",
-    images: ["https://unique-greek-tours-3.vercel.app/images/corinth-nafplio-tour-hero-1.jpg"],
+    images: ["https://uniquegreektours.com/images/corinth-nafplio-tour-hero-1.jpg"],
   },
   alternates: {
-    canonical: "https://unique-greek-tours-3.vercel.app/tours/athens/athens-corinth-nafplio",
+    canonical: "https://uniquegreektours.com/tours/athens/athens-corinth-nafplio",
   },
 };
 
@@ -41,9 +41,9 @@ export default function CorinthNafplioTourLayout({
     name: "Corinth Canal, Epidaurus, Nafplio & Mycenae Day Tour from Athens",
     description: "A full-day excursion from Athens to the most important archaeological and historical sites of the Argolis region. Visit the impressive Corinth Canal, the ancient theater of Epidaurus (UNESCO World Heritage), explore the romantic Venetian city of Nafplio, and discover the legendary kingdom of Mycenae with its Lion Gate and cyclopean walls.",
     image: [
-      "https://unique-greek-tours-3.vercel.app/images/corinth-nafplio-tour-hero-1.jpg",
-      "https://unique-greek-tours-3.vercel.app/images/corinth-nafplio-tour-hero-2.jpg",
-      "https://unique-greek-tours-3.vercel.app/images/corinth-nafplio-tour-hero-3.jpg"
+      "https://uniquegreektours.com/images/corinth-nafplio-tour-hero-1.jpg",
+      "https://uniquegreektours.com/images/corinth-nafplio-tour-hero-2.jpg",
+      "https://uniquegreektours.com/images/corinth-nafplio-tour-hero-3.jpg"
     ],
     touristType: ["History Lovers", "Culture Enthusiasts", "Families", "Couples", "Photographers"],
     itinerary: {
@@ -92,14 +92,14 @@ export default function CorinthNafplioTourLayout({
       price: "350",
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
-      url: "https://unique-greek-tours-3.vercel.app/tours/athens/athens-corinth-nafplio",
+      url: "https://uniquegreektours.com/tours/athens/athens-corinth-nafplio",
       validFrom: "2024-01-01"
     },
     provider: {
       "@type": "TouristInformationCenter",
       name: "Unique Greek Tours",
-      url: "https://unique-greek-tours-3.vercel.app",
-      image: "https://unique-greek-tours-3.vercel.app/images/corinth-nafplio-tour-hero-1.jpg",
+      url: "https://uniquegreektours.com",
+      image: "https://uniquegreektours.com/images/corinth-nafplio-tour-hero-1.jpg",
       priceRange: "€€€",
       address: {
         "@type": "PostalAddress",
@@ -124,7 +124,7 @@ export default function CorinthNafplioTourLayout({
     },
     duration: "PT11H",
     inLanguage: "en",
-    tourBookingPage: "https://unique-greek-tours-3.vercel.app/contact"
+    tourBookingPage: "https://uniquegreektours.com/contact"
   };
 
   return (

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: "Unique Greek Tours",
     images: [
       {
-        url: "https://unique-greek-tours-3.vercel.app/images/sailing-hero-1.jpg",
+        url: "https://uniquegreektours.com/images/sailing-hero-1.jpg",
         width: 1600,
         height: 1067,
         alt: "Porto Heli Sailing Tour - private yacht charter",
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Porto Heli Private Sailing Tours",
     description: "Luxury private sailing charters exploring Spetses, Hydra, Nafplio and the Greek Riviera.",
-    images: ["https://unique-greek-tours-3.vercel.app/images/sailing-hero-1.jpg"],
+    images: ["https://uniquegreektours.com/images/sailing-hero-1.jpg"],
   },
   alternates: {
-    canonical: "https://unique-greek-tours-3.vercel.app/tours/portoheli/portoheli-sailing-tour",
+    canonical: "https://uniquegreektours.com/tours/portoheli/portoheli-sailing-tour",
   },
 };
 
@@ -41,9 +41,9 @@ export default function SailingTourLayout({
     name: "Porto Heli Private Sailing Tours",
     description: "Private sailing charters from Porto Heli exploring the Greek Riviera, Spetses, Hydra, and Nafplio. Full-day luxury cruises with swimming, snorkeling, and island hopping.",
     image: [
-      "https://unique-greek-tours-3.vercel.app/images/sailing-hero-1.jpg",
-      "https://unique-greek-tours-3.vercel.app/images/sailing-hero-2.jpg",
-      "https://unique-greek-tours-3.vercel.app/images/sailing-hero-3.jpg"
+      "https://uniquegreektours.com/images/sailing-hero-1.jpg",
+      "https://uniquegreektours.com/images/sailing-hero-2.jpg",
+      "https://uniquegreektours.com/images/sailing-hero-3.jpg"
     ],
     touristType: ["Couples", "Families", "Luxury Travelers", "Island Hoppers"],
     itinerary: {
@@ -85,7 +85,7 @@ export default function SailingTourLayout({
       highPrice: "1500",
       offerCount: "3",
       availability: "https://schema.org/InStock",
-      url: "https://unique-greek-tours-3.vercel.app/tours/portoheli/portoheli-sailing-tour"
+      url: "https://uniquegreektours.com/tours/portoheli/portoheli-sailing-tour"
     },
     provider: {
       "@type": "TouristInformationCenter",
@@ -101,7 +101,7 @@ export default function SailingTourLayout({
     },
     duration: "PT8H",
     inLanguage: "en",
-    tourBookingPage: "https://unique-greek-tours-3.vercel.app/contact"
+    tourBookingPage: "https://uniquegreektours.com/contact"
   };
 
   return (
