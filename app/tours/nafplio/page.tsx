@@ -162,7 +162,7 @@ const culinaryTours = [
     duration: "2.5 - 3 hours",
     price: "€75",
     type: "For All (not recommended for children under 10 y.o.)",
-    image: "/images/malevi-tour-hero-1.jpg",
+    image: "/images/beekeeping-tour-hero-1",
     icon: Compass,
     highlights: ["Beekeeping museum", "Bee gardens", "Honey tasting"],
   },
