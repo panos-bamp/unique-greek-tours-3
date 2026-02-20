@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, BookOpen, Calendar, Check, ChevronLeft, ChevronRight, Clock, Landmark, MapPin, Star, Trophy, Users } from "lucide-react";
 
 const gallery = [
-  "/images/olympia-tour-hero-1.jpg",
-  "/images/olympia-tour-hero-2.jpg",
-  "/images/olympia-tour-hero-3.jpg",
+  "/images/kalamata-olympia-tour-hero-1.jpg",
+  "/images/kalamata-olympia-tour-hero-2.jpg",
+  "/images/kalamata-olympia-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -114,7 +114,7 @@ export default function NafplioAncientOlympiaTour() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/olympia-tour-hero-3.jpg" alt="Nafplion: Ancient Olympia" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/kalamata-olympia-tour-hero-3.jpg" alt="Nafplion: Ancient Olympia" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Visit the Birthplace of the Olympics</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your tour to Ancient Olympia from Nafplion.</p>
