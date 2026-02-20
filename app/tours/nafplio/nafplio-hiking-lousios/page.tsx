@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Landmark, MapPin, Mountain, Star, Users, Waves } from "lucide-react";
 
 const gallery = [
-  "/images/vytina-tour-hero-1.jpg",
-  "/images/vytina-tour-hero-2.jpg",
-  "/images/vytina-tour-hero-3.jpg",
+  "/images/nafplio-hiking-lousios-tour-hero-1.jpg",
+  "/images/nafplio-hiking-lousios-tour-hero-2.jpg",
+  "/images/nafplio-hiking-lousios-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -113,7 +113,7 @@ export default function NafplioHikingLousios() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/vytina-tour-hero-3.jpg" alt="Hiking Lousios Gorge - Dimitsana - Anc. Gortyna" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/nafplio-hiking-lousios-tour-hero-3.jpg" alt="Hiking Lousios Gorge - Dimitsana - Anc. Gortyna" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Conquer Lousios Gorge</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your hiking adventure through gorges and Byzantine monasteries.</p>

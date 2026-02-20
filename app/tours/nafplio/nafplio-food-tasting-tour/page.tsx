@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Eye, MapPin, Star, Store, Users, Wine } from "lucide-react";
 
 const gallery = [
-  "/images/nafplio-food-tour-hero-1.jpg",
-  "/images/nafplio-food-tour-hero-2.jpg",
-  "/images/nafplio-food-tour-hero-3.jpg",
+  "/images/nafplio-food-tasting-1.jpg",
+  "/images/nafplio-food-tasting-2.jpg",
+  "/images/nafplio-food-tasting-3.jpg",
 ];
 
 const included = [
@@ -112,7 +112,7 @@ export default function NafplioFoodTastingTour() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/nafplio-food-tour-hero-3.jpg" alt="Food Tasting Tour" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/nafplio-food-tasting-3.jpg" alt="Food Tasting Tour" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Savor the Flavors of Nafplion</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your food tasting tour.</p>

@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Droplets, Landmark, MapPin, Star, Users } from "lucide-react";
 
 const gallery = [
-  "/images/kalamata-olive-oil-tour-hero-1.jpg",
-  "/images/kalamata-olive-oil-tour-hero-2.jpg",
-  "/images/kalamata-olive-oil-tour-hero-3.jpg",
+  "/images/corinth-epidavros-tour-hero-1.jpg",
+  "/images/corinth-epidavros-tour-hero-2.jpg",
+  "/images/corinth-epidavros-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -111,7 +111,7 @@ export default function NafplioOilTastingEpidavros() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/kalamata-olive-oil-tour-hero-3.jpg" alt="Ancient Epidavros & Olive Oil Tasting" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/corinth-epidavros-tour-hero-3.jpg" alt="Ancient Epidavros & Olive Oil Tasting" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Taste & Explore</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your Olive Oil Tasting and Epidavros tour.</p>

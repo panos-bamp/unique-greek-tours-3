@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Landmark, MapPin, Mountain, Navigation, Star, Users } from "lucide-react";
 
 const gallery = [
-  "/images/mycenae-tour-hero-1.jpg",
-  "/images/mycenae-tour-hero-2.jpg",
-  "/images/mycenae-tour-hero-3.jpg",
+  "/images/nafplio-hiking-mycenae-tour-hero-1.jpg",
+  "/images/nafplio-hiking-mycenae-tour-hero-2.jpg",
+  "/images/nafplio-hiking-mycenae-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -112,7 +112,7 @@ export default function NafplioHikingMycenae() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/mycenae-tour-hero-3.jpg" alt="Hiking Mycenae - Prosymna" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/nafplio-hiking-mycenae-tour-hero-3.jpg" alt="Hiking Mycenae - Prosymna" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Hike Through Ancient History</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your hiking tour from Mycenae to Prosymna.</p>
