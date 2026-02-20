@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Landmark, MapPin, Star, Users, Wine } from "lucide-react";
 
 const gallery = [
-  "/images/nemea-wine-hero-1.jpg",
-  "/images/nemea-wine-hero-2.jpg",
-  "/images/nemea-wine-hero-3.jpg",
+  "/images/wine-tour-hero-1.jpg",
+  "/images/wine-tour-hero-2.jpg",
+  "/images/wine-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -113,7 +113,7 @@ export default function NafplioWineTastingNemea() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/nemea-wine-hero-3.jpg" alt="Nemea Wine Tour" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/wine-tour-hero-3.jpg" alt="Nemea Wine Tour" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Discover Nemea Wines</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your wine tour to the famous Nemea region.</p>

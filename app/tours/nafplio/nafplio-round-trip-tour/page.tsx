@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, BookOpen, Calendar, Check, ChevronLeft, ChevronRight, Clock, Landmark, MapPin, Shield, Star, Users } from "lucide-react";
 
 const gallery = [
-  "/images/round-trip-hero-1.jpg",
-  "/images/round-trip-hero-2.jpg",
-  "/images/round-trip-hero-3.jpg",
+  "/images/round-trip-tour-hero-1.jpg",
+  "/images/round-trip-tour-hero-2.jpg",
+  "/images/round-trip-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -114,7 +114,7 @@ export default function NafplioRoundTripTour() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/round-trip-hero-3.jpg" alt="Nafplio: Mycenae - Anc. Corinth/Canal - Epidavros Tour" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/round-trip-tour-hero-3.jpg" alt="Nafplio: Mycenae - Anc. Corinth/Canal - Epidavros Tour" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">The Ultimate Ancient Greece Tour</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your round trip to Mycenae, Corinth and Epidavros.</p>

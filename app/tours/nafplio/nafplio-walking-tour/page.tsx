@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Eye, Landmark, MapPin, Navigation, Star, Users } from "lucide-react";
 
 const gallery = [
-  "/images/nafplio-walking-hero-1.jpg",
-  "/images/nafplio-walking-hero-2.jpg",
-  "/images/nafplio-walking-hero-3.jpg",
+  "/images/nafplio-city-tour-hero-1.jpg",
+  "/images/nafplio-city-tour-hero-2.jpg",
+  "/images/nafplio-city-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -116,7 +116,7 @@ export default function NafplioWalkingTour() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/nafplio-walking-hero-3.jpg" alt="Nafplio Walking Tour" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/nafplio-city-tour-hero-3.jpg" alt="Nafplio Walking Tour" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Walk Through History</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your guided walking tour of Nafplio.</p>

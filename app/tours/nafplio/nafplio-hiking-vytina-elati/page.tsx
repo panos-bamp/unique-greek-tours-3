@@ -6,9 +6,9 @@ import { useState } from "react";
 import { ArrowRight, Calendar, Check, ChevronLeft, ChevronRight, Clock, Eye, Landmark, MapPin, Mountain, Star, Users } from "lucide-react";
 
 const gallery = [
-  "/images/hiking-vytina-hero-1.jpg",
-  "/images/hiking-vytina-hero-2.jpg",
-  "/images/hiking-vytina-hero-3.jpg",
+  "/images/vytina-tour-hero-1.jpg",
+  "/images/vytina-tour-hero-2.jpg",
+  "/images/vytina-tour-hero-3.jpg",
 ];
 
 const included = [
@@ -112,7 +112,7 @@ export default function NafplioHikingVytina() {
         </div>
       </section>
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0"><Image src="/images/hiking-vytina-hero-3.jpg" alt="Hiking Vytina - Elati" fill className="object-cover brightness-50" /></div>
+        <div className="absolute inset-0"><Image src="/images/vytina-tour-hero-3.jpg" alt="Hiking Vytina - Elati" fill className="object-cover brightness-50" /></div>
         <div className="container-custom relative z-10 text-center text-white">
           <h2 className="font-display text-4xl md:text-6xl mb-6 font-bold">Explore Mount Mainalo</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Book your hiking tour from Vytina to Elati.</p>
