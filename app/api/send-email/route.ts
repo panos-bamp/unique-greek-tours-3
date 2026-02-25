@@ -8,184 +8,123 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { formType, formData } = body;
 
+    // Build email content based on form type
     let subject = '';
     let htmlContent = '';
 
-    // Build email based on form type
-    switch (formType) {
-      case 'contact':
-        subject = `New Contact Form - ${formData.name}`;
-        htmlContent = `
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <style>
-                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                h2 { color: #1a4d6d; border-bottom: 3px solid #c9a86a; padding-bottom: 10px; }
-                .section { margin: 20px 0; padding: 15px; background: #f9f5ed; border-left: 4px solid #c9a86a; }
-                .label { font-weight: bold; color: #1a4d6d; }
-                .value { margin-left: 10px; }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <h2>📧 New Contact Form Submission</h2>
-                
-                <div class="section">
-                  <p><span class="label">Name:</span><span class="value">${formData.name}</span></p>
-                  <p><span class="label">Email:</span><span class="value"><a href="mailto:${formData.email}">${formData.email}</a></span></p>
-                  <p><span class="label">Phone:</span><span class="value">${formData.phone || 'Not provided'}</span></p>
-                  <p><span class="label">Subject:</span><span class="value">${formData.subject}</span></p>
-                </div>
-                
-                <div class="section">
-                  <p class="label">Message:</p>
-                  <p>${formData.message.replace(/\n/g, '<br>')}</p>
-                </div>
-              </div>
-            </body>
-          </html>
-        `;
-        break;
-
-      case 'tour-request':
-        subject = `New Tour Request - ${formData.tourType || 'Custom Tour'}`;
-        htmlContent = `
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <style>
-                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                h2 { color: #1a4d6d; border-bottom: 3px solid #c9a86a; padding-bottom: 10px; }
-                h3 { color: #1a4d6d; margin-top: 20px; }
-                .section { margin: 20px 0; padding: 15px; background: #f9f5ed; border-left: 4px solid #c9a86a; }
-                .label { font-weight: bold; color: #1a4d6d; }
-                .value { margin-left: 10px; }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <h2>🎫 New Tour Request</h2>
-                
-                <h3>Contact Information</h3>
-                <div class="section">
-                  <p><span class="label">Name:</span><span class="value">${formData.name}</span></p>
-                  <p><span class="label">Email:</span><span class="value"><a href="mailto:${formData.email}">${formData.email}</a></span></p>
-                  <p><span class="label">Phone:</span><span class="value">${formData.phone || 'Not provided'}</span></p>
-                </div>
-                
-                <h3>Tour Details</h3>
-                <div class="section">
-                  <p><span class="label">Tour Type:</span><span class="value">${formData.tourType}</span></p>
-                  <p><span class="label">Preferred Date:</span><span class="value">${formData.date}</span></p>
-                  <p><span class="label">Number of People:</span><span class="value">${formData.numberOfPeople}</span></p>
-                  <p><span class="label">Pickup Location:</span><span class="value">${formData.pickupLocation || 'Not specified'}</span></p>
-                </div>
-                
-                ${formData.additionalInfo ? `
-                <h3>Additional Information</h3>
-                <div class="section">
-                  <p>${formData.additionalInfo.replace(/\n/g, '<br>')}</p>
-                </div>
-                ` : ''}
-              </div>
-            </body>
-          </html>
-        `;
-        break;
-
-      case 'plan-trip':
-        subject = `New Custom Trip Request - ${formData.name}`;
-        htmlContent = `
-          <!DOCTYPE html>
-          <html>
-            <head>
-              <style>
-                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                h2 { color: #1a4d6d; border-bottom: 3px solid #c9a86a; padding-bottom: 10px; }
-                h3 { color: #1a4d6d; margin-top: 20px; }
-                .section { margin: 20px 0; padding: 15px; background: #f9f5ed; border-left: 4px solid #c9a86a; }
-                .label { font-weight: bold; color: #1a4d6d; }
-                .value { margin-left: 10px; }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <h2>✈️ New Custom Multi-Day Trip Request</h2>
-                
-                <h3>Contact Information</h3>
-                <div class="section">
-                  <p><span class="label">Name:</span><span class="value">${formData.name}</span></p>
-                  <p><span class="label">Email:</span><span class="value"><a href="mailto:${formData.email}">${formData.email}</a></span></p>
-                  <p><span class="label">Phone:</span><span class="value">${formData.phone || 'Not provided'}</span></p>
-                </div>
-                
-                <h3>Trip Preferences</h3>
-                <div class="section">
-                  <p><span class="label">Destinations:</span><span class="value">${formData.destinations}</span></p>
-                  <p><span class="label">Duration:</span><span class="value">${formData.duration}</span></p>
-                  <p><span class="label">Travel Dates:</span><span class="value">${formData.travelDates || 'Flexible'}</span></p>
-                  <p><span class="label">Number of Travelers:</span><span class="value">${formData.travelers}</span></p>
-                  <p><span class="label">Accommodation:</span><span class="value">${formData.accommodation || 'Not specified'}</span></p>
-                </div>
-                
-                ${formData.interests ? `
-                <h3>Interests</h3>
-                <div class="section">
-                  <p>${formData.interests.replace(/\n/g, '<br>')}</p>
-                </div>
-                ` : ''}
-                
-                ${formData.budget ? `
-                <h3>Budget Range</h3>
-                <div class="section">
-                  <p>${formData.budget}</p>
-                </div>
-                ` : ''}
-                
-                ${formData.specialRequests ? `
-                <h3>Special Requests</h3>
-                <div class="section">
-                  <p>${formData.specialRequests.replace(/\n/g, '<br>')}</p>
-                </div>
-                ` : ''}
-              </div>
-            </body>
-          </html>
-        `;
-        break;
-
-      default:
-        return NextResponse.json(
-          { success: false, error: 'Invalid form type' },
-          { status: 400 }
-        );
+    if (formType === 'contact') {
+      subject = `New Contact Form Submission - ${formData.firstName} ${formData.lastName}`;
+      htmlContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: #2B5876; padding: 20px; text-align: center;">
+            <h1 style="color: white; margin: 0;">New Contact Form Submission</h1>
+          </div>
+          <div style="padding: 20px; background: #f9f9f9;">
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Contact Information</h3>
+            <p><strong>First Name:</strong> ${formData.firstName || 'Not provided'}</p>
+            <p><strong>Last Name:</strong> ${formData.lastName || 'Not provided'}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Message</h3>
+            <p>${(formData.message || '').replace(/\n/g, '<br>')}</p>
+          </div>
+          <div style="background: #2B5876; padding: 10px; text-align: center;">
+            <p style="color: white; margin: 0; font-size: 12px;">Sent from uniquegreektours.com contact form</p>
+          </div>
+        </div>
+      `;
+    } else if (formType === 'tour-request') {
+      subject = `New Tour Request - ${formData.tourType || 'Custom Tour'}`;
+      htmlContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: #2B5876; padding: 20px; text-align: center;">
+            <h1 style="color: white; margin: 0;">New Tour Request</h1>
+          </div>
+          <div style="padding: 20px; background: #f9f9f9;">
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Contact Information</h3>
+            <p><strong>First Name:</strong> ${formData.firstName || 'Not provided'}</p>
+            <p><strong>Last Name:</strong> ${formData.lastName || 'Not provided'}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
+            
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Tour Details</h3>
+            <p><strong>Selected Tour:</strong> ${formData.tourType || 'Not selected'}</p>
+            <p><strong>Preferred Date:</strong> ${formData.date || 'Not specified'}</p>
+            <p><strong>Number of People:</strong> ${formData.numberOfPeople || 'Not specified'}</p>
+            <p><strong>Pickup Location:</strong> ${formData.pickupLocation || 'Not specified'}</p>
+            
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Additional Information</h3>
+            <p>${formData.additionalInfo ? formData.additionalInfo.replace(/\n/g, '<br>') : 'None provided'}</p>
+          </div>
+          <div style="background: #2B5876; padding: 10px; text-align: center;">
+            <p style="color: white; margin: 0; font-size: 12px;">Sent from uniquegreektours.com tour request form</p>
+          </div>
+        </div>
+      `;
+    } else if (formType === 'plan-trip') {
+      subject = `New Trip Planning Request - ${formData.firstName} ${formData.lastName}`;
+      htmlContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: #2B5876; padding: 20px; text-align: center;">
+            <h1 style="color: white; margin: 0;">New Trip Planning Request</h1>
+          </div>
+          <div style="padding: 20px; background: #f9f9f9;">
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Contact Information</h3>
+            <p><strong>First Name:</strong> ${formData.firstName || 'Not provided'}</p>
+            <p><strong>Last Name:</strong> ${formData.lastName || 'Not provided'}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
+            
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Trip Details</h3>
+            <p><strong>Travel Dates:</strong> ${formData.travelDates || 'Not specified'}</p>
+            <p><strong>Number of Travelers:</strong> ${formData.travelers || 'Not specified'}</p>
+            <p><strong>Destinations:</strong> ${formData.destinations ? formData.destinations.join(', ') : 'Not specified'}</p>
+            <p><strong>Interests:</strong> ${formData.interests ? formData.interests.join(', ') : 'Not specified'}</p>
+            
+            <h3 style="color: #2B5876; border-bottom: 2px solid #d4a373; padding-bottom: 8px;">Special Requests</h3>
+            <p>${formData.specialRequests ? formData.specialRequests.replace(/\n/g, '<br>') : 'None provided'}</p>
+          </div>
+          <div style="background: #2B5876; padding: 10px; text-align: center;">
+            <p style="color: white; margin: 0; font-size: 12px;">Sent from uniquegreektours.com trip planning form</p>
+          </div>
+        </div>
+      `;
+    } else {
+      return NextResponse.json(
+        { success: false, message: 'Invalid form type' },
+        { status: 400 }
+      );
     }
 
-    // Send email using Resend
-    await resend.emails.send({
-      from: 'Unique Greek Tours <bookings@uniquegreektours.com>',
+    // Send email via Resend
+    // IMPORTANT: Use 'onboarding@resend.dev' as from address if your domain is NOT verified in Resend.
+    // Once you verify uniquegreektours.com in Resend, change this to 'noreply@uniquegreektours.com'
+    const { data, error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || 'Unique Greek Tours <onboarding@resend.dev>',
       to: ['info@uniquegreektours.com'],
-      replyTo: formData.email,
+      replyTo: formData.email || undefined,
       subject: subject,
       html: htmlContent,
     });
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Email sent successfully'
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json(
+        { success: false, message: `Email service error: ${error.message}` },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'Your request has been sent successfully! We will get back to you within 24 hours.',
     });
 
-  } catch (error: any) {
-    console.error('Error sending email:', error);
+  } catch (error: unknown) {
+    console.error('Send email error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { 
-        success: false, 
-        error: error.message || 'Failed to send email' 
-      },
+      { success: false, message: `Server error: ${errorMessage}` },
       { status: 500 }
     );
   }
